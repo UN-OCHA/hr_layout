@@ -112,12 +112,6 @@ function hr_layout_context_default_contexts() {
           'region' => 'top',
           'weight' => '-6',
         ),
-        'og_menu-og_single_menu_block' => array(
-          'module' => 'og_menu',
-          'delta' => 'og_single_menu_block',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
       ),
     ),
   );
@@ -143,22 +137,28 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'hr_layout-hr_layout_checkin' => array(
-          'module' => 'hr_layout',
-          'delta' => 'hr_layout_checkin',
-          'region' => 'top',
-          'weight' => '2',
-        ),
         'og_extras-node_links' => array(
           'module' => 'og_extras',
           'delta' => 'node_links',
           'region' => 'top',
           'weight' => '0',
         ),
+        'hr_layout-hr_layout_checkin' => array(
+          'module' => 'hr_layout',
+          'delta' => 'hr_layout_checkin',
+          'region' => 'top',
+          'weight' => '2',
+        ),
         'og_menu_single-menu' => array(
           'module' => 'og_menu_single',
           'delta' => 'menu',
           'region' => 'navigation',
+          'weight' => '-10',
+        ),
+        'og_menu-og_single_menu_block' => array(
+          'module' => 'og_menu',
+          'delta' => 'og_single_menu_block',
+          'region' => 'sidebar_first',
           'weight' => '-10',
         ),
       ),
