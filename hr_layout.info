@@ -10,7 +10,6 @@ dependencies[] = hr_core
 dependencies[] = locale
 dependencies[] = menu
 dependencies[] = menu_block
-dependencies[] = og_extras
 dependencies[] = og_menu
 dependencies[] = og_menu_single
 dependencies[] = page_manager

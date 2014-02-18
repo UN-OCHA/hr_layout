@@ -137,9 +137,9 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'og_extras-node_links' => array(
-          'module' => 'og_extras',
-          'delta' => 'node_links',
+        'hr_layout-hr_layout_create_links' => array(
+          'module' => 'hr_layout',
+          'delta' => 'hr_layout_create_links',
           'region' => 'top',
           'weight' => '0',
         ),

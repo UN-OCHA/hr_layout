@@ -39,6 +39,9 @@ function hr_layout_block_info() {
   $blocks['hr_layout_login'] = array(
     'info' => t('HR Login block'),
   );
+  $blocks['hr_layout_create_links'] = array(
+    'info' => t('OG Create links'),
+  );
   return $blocks;
 }
 
@@ -77,6 +80,9 @@ function hr_layout_block_view($delta = '') {
         }
       }
       break;
+    case 'hr_layout_create_links':
+      $block['content'] = hr_layout_create_links();
+      break;
     case 'hr_layout_login':
       $block['content'] = '';
       if (!user_is_logged_in()) {
@@ -87,10 +93,7 @@ function hr_layout_block_view($delta = '') {
   return $block;
 }
 
-/**
- * implements hook_block_view_MODULE_DELTA_alter() 
- */ 
-function hr_layout_block_view_og_extras_node_links_alter(&$data, $block) {
+function hr_layout_create_links() {
   $button = '';
   $group = og_context();
 
@@ -116,6 +119,5 @@ function hr_layout_block_view_og_extras_node_links_alter(&$data, $block) {
     }
   }
 
-  $data['subject'] = '';
-  $data['content'] = $button;
+  return $button;
 }
