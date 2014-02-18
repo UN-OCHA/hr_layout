@@ -50,7 +50,7 @@ function hr_layout_block_view($delta = '') {
   switch ($delta) {
     case 'hr_layout_checkin':
       $block['content'] = '';
-      if (module_exists('og_context')) {
+      if (user_is_logged_in()) {
         $gid = og_context_determine_context('node');
         if (!empty($gid)) {
           $og_group = entity_load('node', array($gid));
@@ -63,7 +63,7 @@ function hr_layout_block_view($delta = '') {
                     '.t('Check-in').' <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li>'.l(t('As In-country/emergency responder'), 'group/node/'.$gid.'/subscribe/field_responder_in').'</li>
+                    <li>'.l(t('As In-country/emergency responder'), 'group/node/'.$gid.'/subscribe/field_responder_in', array('query' => array(OG_AUDIENCE_FIELD => $gid))).'</li>
                     <li>'.l(t('As follower'), 'group/node/'.$gid.'/subscribe/og_user_node').'</li>
                   </ul>
                 </div>';
@@ -95,6 +95,10 @@ function hr_layout_block_view($delta = '') {
 
 function hr_layout_create_links() {
   $button = '';
+  if (!user_is_logged_in()) {
+    return $button;
+  }
+
   $group = og_context();
 
   if (isset($group['group_type']) && isset($group['gid'])) {
@@ -107,17 +111,52 @@ function hr_layout_create_links() {
 
     $content = og_node_create_links($group['group_type'], $group['gid'], OG_AUDIENCE_FIELD, NULL, $types);
     if (!empty($content['og_node_create_links']['#items'])) {
-      $button = '<div class="btn-group">
+      foreach ($content['og_node_create_links']['#items'] as $key => $item) {
+        // Unfortunately we have to parse the link path to determine
+        // which node type this is for
+        $matches = array();
+        if (preg_match("/(?<=(node\/add\/)).*(?=\?)/", $item['data'], $matches)) {
+          if (isset($matches[0])) {
+            // Reformat the node type
+            $type = str_replace('-', '_', $matches[0]);
+            // See if this node type is disabled for this group
+            if (!og_features_component_is_disabled('node', $type)) {
+              if ($type != 'hr_contact' || ($type == 'hr_contact' && og_is_member('node', $group['gid']))) {
+                $button .= '<li>'.$item['data'].'</li>';
+              }
+            }
+          }
+        }
+      }
+      if (!empty($button)) {
+        $button = '<div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           <span class="glyphicon glyphicon-plus"></span>
         </button>
-        <ul class="dropdown-menu" role="menu">';
-      foreach ($content['og_node_create_links']['#items'] as $item) {
-        $button .= '<li>'.$item['data'].'</li>';
+        <ul class="dropdown-menu" role="menu">'.$button.'</ul></div>';
       }
-      $button .= '</ul></div>';
     }
   }
 
   return $button;
+}
+
+/**
+ * Implements hook_entity_insert()
+ */
+function hr_layout_entity_insert($entity, $type) {
+  if ($type == 'node') {
+    if (og_menu_single_is_enabled_group('node', $entity->type)) {
+      // Add a "Latest" menu link
+      $mlid = og_menu_single_get_link_mlid('node', $entity->nid);
+      $menu_link = array(
+        'link_path' => 'node/'.$entity->nid,
+        'link_title' => 'Latest',
+        'menu_name' => OG_MENU_SINGLE_MENU_NAME,
+        'weight' => 0,
+        'plid' => $mlid,
+      );
+      menu_link_save($menu_link);
+    }
+  }
 }
