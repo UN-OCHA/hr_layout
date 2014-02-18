@@ -99,9 +99,19 @@ function hr_layout_create_links() {
     return $button;
   }
 
-  $group = og_context();
+  $gid = og_context_handler_node();
 
-  if (isset($group['group_type']) && isset($group['gid'])) {
+  if (!empty($gid)) {
+    $gid = $gid['node'][0];
+    $bundle_id = 0;
+    $groups = entity_load('node', array($gid));
+    $group = $groups[$gid];
+    if ($group->type == 'hr_bundle') {
+      $bundle_id = $group->nid;
+      $op_gid = _hr_bundles_get_operation($group->nid);
+      $groups = entity_load('node', array($op_gid));
+      $group = $groups[$op_gid];
+    }
     $types = array();
     foreach (node_type_get_types() as $type) {
       if (og_is_group_content_type('node', $type->type)) {
@@ -109,7 +119,11 @@ function hr_layout_create_links() {
       }
     }
 
-    $content = og_node_create_links($group['group_type'], $group['gid'], OG_AUDIENCE_FIELD, NULL, $types);
+    $extra_fields = array();
+    if (!empty($bundle_id)) {
+      $extra_fields = array('field_bundles' => $bundle_id);
+    }
+    $content = og_node_create_links('node', $group->nid, OG_AUDIENCE_FIELD, FALSE, $types, $extra_fields);
     if (!empty($content['og_node_create_links']['#items'])) {
       foreach ($content['og_node_create_links']['#items'] as $key => $item) {
         // Unfortunately we have to parse the link path to determine
@@ -120,8 +134,8 @@ function hr_layout_create_links() {
             // Reformat the node type
             $type = str_replace('-', '_', $matches[0]);
             // See if this node type is disabled for this group
-            if (!og_features_component_is_disabled('node', $type)) {
-              if ($type != 'hr_contact' || ($type == 'hr_contact' && og_is_member('node', $group['gid']))) {
+            if (!og_features_component_is_disabled('node', $type, $group)) {
+              if ($type != 'hr_contact' || ($type == 'hr_contact' && og_is_member('node', $group->nid))) {
                 $button .= '<li>'.$item['data'].'</li>';
               }
             }
