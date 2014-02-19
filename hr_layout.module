@@ -6,32 +6,6 @@
 
 include_once 'hr_layout.features.inc';
 
-/**
- * Return a list of configurations for menu blocks.
- *
- * Modules that want to have menu block configurations exported to code should
- * provide them using this hook.
- *
- * @see menu_tree_build() for a description of the config array.
- */
-function hr_layout_menu_block_blocks() {
-  return array(
-    // The array key is the block id used by menu block.
-    'secondary-nav' => array(
-      // Use the array keys/values described in menu_tree_build().
-      'menu_name'   => 'main-menu',
-      'parent_mlid' => 0,
-      'title_link'  => FALSE,
-      'admin_title' => 'Secondary navigation',
-      'level'       => 2,
-      'follow'      => 0,
-      'depth'       => 1,
-      'expanded'    => FALSE,
-      'sort'        => FALSE,
-    ),
-  );
-}
-
 function hr_layout_block_info() {
   $blocks['hr_layout_checkin'] = array(
     'info' => t('Checkin block'),

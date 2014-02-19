@@ -13,43 +13,6 @@ function hr_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'clusters';
-  $context->description = '';
-  $context->tag = '';
-  $context->conditions = array(
-    'context_og_condition_group_type' => array(
-      'values' => array(
-        '_none_' => '_none_',
-      ),
-      'options' => array(
-        'node_form' => 1,
-      ),
-    ),
-    'path' => array(
-      'values' => array(
-        'clusters' => 'clusters',
-        'clusters/*' => 'clusters/*',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'menu_block-secondary-nav' => array(
-          'module' => 'menu_block',
-          'delta' => 'secondary-nav',
-          'region' => 'navigation',
-          'weight' => '-8',
-        ),
-      ),
-    ),
-  );
-  $context->condition_mode = 1;
-  $export['clusters'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
   $context->name = 'outside_space';
   $context->description = '';
   $context->tag = '';
