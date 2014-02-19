@@ -12,6 +12,7 @@ dependencies[] = menu
 dependencies[] = og_menu
 dependencies[] = og_menu_single
 dependencies[] = page_manager
+dependencies[] = panopoly_wysiwyg
 dependencies[] = special_menu_items
 dependencies[] = strongarm
 features[context][] = outside_space

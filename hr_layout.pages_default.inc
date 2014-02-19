@@ -82,8 +82,10 @@ function hr_layout_default_page_manager_pages() {
 
 The foundations of the current international humanitarian coordination system were set by General Assembly resolution 46/182 in December 1991. Almost 15 years later, in 2005, a major reform of humanitarian coordination, known as the Humanitarian Reform Agenda, introduced a number of new elements to enhance predictability, accountability and partnership. The Cluster Approach was one of these new elements.
 
-Clusters are groups of humanitarian organizations, both UN and non-UN, in each of the main sectors of humanitarian action, e.g. water, health and logistics. They are designated by the Inter-Agency Standing Committee (IASC) and have clear responsibilities for coordination.',
-      'format' => 'plain_text',
+Clusters are groups of humanitarian organizations, both UN and non-UN, in each of the main sectors of humanitarian action, e.g. water, health and logistics. They are designated by the Inter-Agency Standing Committee (IASC) and have clear responsibilities for coordination.
+
+<p class="text-center"><button type="button" class="btn btn-primary"><a href="clusters/space">Read all the information about clusters</a></button></p>',
+      'format' => 'panopoly_html_text',
       'substitute' => TRUE,
     );
     $pane->cache = array();
