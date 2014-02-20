@@ -13,6 +13,43 @@ function hr_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'hr_space_menu';
+  $context->description = '';
+  $context->tag = '';
+  $context->conditions = array(
+    'context' => array(
+      'values' => array(
+        '~hr_contacts_space' => '~hr_contacts_space',
+        '~hr_documents_space' => '~hr_documents_space',
+      ),
+    ),
+    'context_og_condition_group_type' => array(
+      'values' => array(
+        '_any_' => '_any_',
+      ),
+      'options' => array(
+        'node_form' => 0,
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'og_menu-og_single_menu_block' => array(
+          'module' => 'og_menu',
+          'delta' => 'og_single_menu_block',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 1;
+  $export['hr_space_menu'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'outside_space';
   $context->description = '';
   $context->tag = '';
@@ -116,12 +153,6 @@ function hr_layout_context_default_contexts() {
           'module' => 'og_menu_single',
           'delta' => 'menu',
           'region' => 'navigation',
-          'weight' => '-10',
-        ),
-        'og_menu-og_single_menu_block' => array(
-          'module' => 'og_menu',
-          'delta' => 'og_single_menu_block',
-          'region' => 'sidebar_first',
           'weight' => '-10',
         ),
       ),

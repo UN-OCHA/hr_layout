@@ -15,6 +15,7 @@ dependencies[] = page_manager
 dependencies[] = panopoly_wysiwyg
 dependencies[] = special_menu_items
 dependencies[] = strongarm
+features[context][] = hr_space_menu
 features[context][] = outside_space
 features[context][] = sitewide
 features[context][] = within_space
