@@ -84,7 +84,7 @@ The foundations of the current international humanitarian coordination system we
 
 Clusters are groups of humanitarian organizations, both UN and non-UN, in each of the main sectors of humanitarian action, e.g. water, health and logistics. They are designated by the Inter-Agency Standing Committee (IASC) and have clear responsibilities for coordination.
 
-<p class="text-center"><button type="button" class="btn btn-primary"><a href="clusters/space">Read all the information about clusters</a></button></p>',
+<p class="text-center"><a class="btn btn-primary" href="clusters/space">Read all the information about clusters</a></p>',
       'format' => 'panopoly_html_text',
       'substitute' => TRUE,
     );
