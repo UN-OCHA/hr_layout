@@ -43,11 +43,11 @@ function hr_layout_block_view($delta = '') {
                 </div>';
             }
             else {
-              $block['content'] = '<button type="button" class="btn btn-default">'.l(t('Check-in'), 'group/node/'.$gid.'/subscribe/og_user_node').'</button>';
+              $block['content'] = l(t('Check-in'), 'group/node/'.$gid.'/subscribe/og_user_node', array('attributes' => array('class' => array('btn', 'btn-default'))));
             }
           }
           else {
-            $block['content'] = '<button type="button" class="btn btn-default">'.l(t('Check out'), 'group/node/'.$gid.'/unsubscribe').'</button>';
+            $block['content'] = l(t('Check out'), 'group/node/'.$gid.'/unsubscribe', array('attributes' => array('class' => array('btn', 'btn-default'))));
           }
           $uri = entity_uri('node', $og_group);
           $variables['og_group'] = l($og_group->title, $uri['path'], $uri['options']);
@@ -60,7 +60,7 @@ function hr_layout_block_view($delta = '') {
     case 'hr_layout_login':
       $block['content'] = '';
       if (!user_is_logged_in()) {
-        $block['content'] = '<button type="button" class="btn btn-default">'.l(t('Log in'), 'user/login').'</button>';
+        $block['content'] = l(t('Log in'), 'user/login', array('attributes' => array('class' => array('btn', 'btn-default'))));
       }
       break;
   }
