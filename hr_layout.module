@@ -16,6 +16,9 @@ function hr_layout_block_info() {
   $blocks['hr_layout_create_links'] = array(
     'info' => t('OG Create links'),
   );
+  $blocks['hr_layout_space_links'] = array(
+    'info' => t('Space links'),
+  );
   return $blocks;
 }
 
@@ -63,6 +66,23 @@ function hr_layout_block_view($delta = '') {
       $block['content'] = '';
       if (!user_is_logged_in()) {
         $block['content'] = l(t('Log in'), 'user/login', array('attributes' => array('class' => array('btn', 'btn-default'))));
+      }
+      break;
+    case 'hr_layout_space_links':
+      $block['content'] = '';
+      $context = og_context();
+      if (!empty($context) && $context['group_type'] == 'node') {
+        $gid = $context['gid'];
+        $node = node_load($gid);
+        $view = node_view($node);
+        if (isset($view['field_email'])) {
+          $view['field_email']['#label_display'] = 'hidden';
+          $block['content'] .= render($view['field_email']);
+        }
+        if (isset($view['field_social_media'])) {
+          $view['field_social_media']['#label_display'] = 'hidden';
+          $block['content'] .= render($view['field_social_media']);
+        }
       }
       break;
   }

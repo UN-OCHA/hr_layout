@@ -13,6 +13,40 @@ function hr_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'hr_space_links';
+  $context->description = '';
+  $context->tag = '';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'hr_bundle' => 'hr_bundle',
+        'hr_operation' => 'hr_operation',
+        'hr_sector' => 'hr_sector',
+        'hr_space' => 'hr_space',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'hr_layout-hr_layout_space_links' => array(
+          'module' => 'hr_layout',
+          'delta' => 'hr_layout_space_links',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+  $export['hr_space_links'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'hr_space_menu';
   $context->description = '';
   $context->tag = '';
