@@ -30,20 +30,22 @@ function hr_layout_block_view($delta = '') {
           $og_group = entity_load('node', array($gid));
           $og_group = $og_group[$gid];
           if (!og_is_member('node', $gid)) {
-            if ($og_group->type == 'hr_operation') {
-              $block['content'] = '<!-- Single button -->
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    '.t('Check-in').' <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li>'.l(t('As In-country/emergency responder'), 'group/node/'.$gid.'/subscribe/field_responder_in', array('query' => array(OG_AUDIENCE_FIELD => $gid))).'</li>
-                    <li>'.l(t('As support/desk officer'), 'group/node/'.$gid.'/subscribe/og_user_node').'</li>
-                  </ul>
-                </div>';
-            }
-            else {
-              $block['content'] = l(t('Check-in'), 'group/node/'.$gid.'/subscribe/og_user_node', array('attributes' => array('class' => array('btn', 'btn-default'))));
+            if (og_user_access('node', $gid, 'subscribe') || og_user_access('node', $gid, 'subscribe without approval')) {
+              if ($og_group->type == 'hr_operation') {
+                $block['content'] = '<!-- Single button -->
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      '.t('Check-in').' <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li>'.l(t('As In-country/emergency responder'), 'group/node/'.$gid.'/subscribe/field_responder_in', array('query' => array(OG_AUDIENCE_FIELD => $gid))).'</li>
+                      <li>'.l(t('As support/desk officer'), 'group/node/'.$gid.'/subscribe/og_user_node').'</li>
+                    </ul>
+                  </div>';
+              }
+              else {
+                $block['content'] = l(t('Check-in'), 'group/node/'.$gid.'/subscribe/og_user_node', array('attributes' => array('class' => array('btn', 'btn-default'))));
+              }
             }
           }
           else {
