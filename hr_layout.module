@@ -119,7 +119,7 @@ function hr_layout_create_links() {
       if (!empty($button)) {
         $button = '<div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-plus"></span>
+          <i class="fa fa-plus-square"></i>
         </button>
         <ul class="dropdown-menu" role="menu">'.$button.'</ul></div>';
       }
