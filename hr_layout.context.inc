@@ -73,7 +73,7 @@ function hr_layout_context_default_contexts() {
           'module' => 'og_menu',
           'delta' => 'og_single_menu_block',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-5',
         ),
       ),
     ),
