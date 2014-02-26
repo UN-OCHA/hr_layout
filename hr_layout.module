@@ -79,10 +79,17 @@ function hr_layout_block_view($delta = '') {
           $view['field_email']['#label_display'] = 'hidden';
           $block['content'] .= render($view['field_email']);
         }
+        $link_options = array(
+          'html' => TRUE,
+          'attributes' => array('title' => t('RSS Feed')),
+        );
+        $block['content'] .= '<div class="space-social-media">';
+        $block['content'] .= l('<i class="fa fa-rss-square fa-2x"></i>', 'node/'.$gid.'/feed', $link_options);
         if (isset($view['field_social_media'])) {
           $view['field_social_media']['#label_display'] = 'hidden';
           $block['content'] .= render($view['field_social_media']);
         }
+        $block['content'] .= '</div>';
       }
       break;
   }
