@@ -146,6 +146,12 @@ function hr_layout_context_default_contexts() {
           'region' => 'top',
           'weight' => '-6',
         ),
+        'hr_help-hr_help' => array(
+          'module' => 'hr_help',
+          'delta' => 'hr_help',
+          'region' => 'top',
+          'weight' => '-5',
+        ),
       ),
     ),
   );
