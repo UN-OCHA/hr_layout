@@ -32,11 +32,17 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'hr_notifications-hr_follow' => array(
+          'module' => 'hr_notifications',
+          'delta' => 'hr_follow',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
         'hr_layout-hr_layout_space_links' => array(
           'module' => 'hr_layout',
           'delta' => 'hr_layout_space_links',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-7',
         ),
       ),
     ),

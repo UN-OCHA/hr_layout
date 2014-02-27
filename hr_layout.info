@@ -9,6 +9,7 @@ dependencies[] = features
 dependencies[] = hr_bundles
 dependencies[] = hr_core
 dependencies[] = hr_help
+dependencies[] = hr_notifications
 dependencies[] = hr_operations
 dependencies[] = hr_spaces
 dependencies[] = locale
