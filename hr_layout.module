@@ -74,7 +74,8 @@ function hr_layout_block_view($delta = '') {
       if (!empty($context) && $context['group_type'] == 'node') {
         $gid = $context['gid'];
         $node = node_load($gid);
-        $view = node_view($node);
+        node_build_content($node);
+        $view = $node->content;
         if (isset($view['field_email'])) {
           $view['field_email']['#label_display'] = 'hidden';
           $block['content'] .= render($view['field_email']);
