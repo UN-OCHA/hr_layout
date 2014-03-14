@@ -136,12 +136,6 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'locale-language' => array(
-          'module' => 'locale',
-          'delta' => 'language',
-          'region' => 'top',
-          'weight' => '-10',
-        ),
         'hr_layout-hr_layout_login' => array(
           'module' => 'hr_layout',
           'delta' => 'hr_layout_login',
