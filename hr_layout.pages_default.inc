@@ -379,6 +379,182 @@ function hr_layout_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['hr_home'] = $page;
 
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'hr_programme_cycle';
+  $page->task = 'page';
+  $page->admin_title = 'Programme Cycle';
+  $page->admin_description = '';
+  $page->path = 'programme-cycle';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Programme Cycle',
+    'name' => 'main-menu',
+    'weight' => '6',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array();
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_hr_programme_cycle_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'hr_programme_cycle';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Landing page',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'bootstrap_twocol_stacked';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'left' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '6',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+      'right' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '6',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+      'bottom' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '12',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+    ),
+    'left' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'right' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'bottom' => array(
+      'style' => 'bootstrap_region',
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'd4221dbc-34fc-4b55-9af5-da36c1017271';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+    $pane->panel = 'left';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Programme Cycle text',
+      'title' => '',
+      'body' => '<p>The humanitarian programme cycle is a coordinated series of actions undertaken to help prepare for, manage and deliver humanitarian response. It consists of five elements coordinated in a seamless manner, with one step logically building on the previous and leading to the next:</p>
+<ol>
+<li>needs assessment and analysis</li>
+<li>strategic response planning</li>
+<li>resource mobilization</li>
+<li>implementation and monitoring</li>
+<li>operational review and evaluation.</li>
+</ol>
+
+<p>For protracted crises, most of the elements formed part of the consolidated appeal process (CAP) and were included in appeal documents launched before the start of the year.  However, the CAP – both as a process and document – became too ‘heavy’ in an attempt to include all the programme cycle elements. Going forward, each response operation should prepare a - two distinct but connected processes and products on a new and slightly expanded timeframe - instead of of the CAP document.  There will be no need for a separate appeal document or for coordinated project planning.  Mid-year reviews of the CAP will be replaced by more regular, less labor-intensive response monitoring based on an agreed IASC framework.  The focus will shift from preparing appeal documents to ensuring a more strategic response in country.</p>
+
+<p>Based on innovations that have become good practice in the field and  in line with the humanitarian programme cycle concept agreed by IASC Principals as part of the Transformative Agenda, this approach (if executed effectively) will achieve the following results: stronger emphasis on the needs of affected people; improved targeting of the most vulnerable; increased funding for humanitarian priorities; and greater accountability of humanitarian actors and donors for collective results.</p>
+
+<p>Successful implementation of the humanitarian programme cycle is dependent on effective emergency preparedness, effective coordination with national/local authorities and humanitarian actors, and information management. With respect to the last point, it is particularly important that each response operation has a complete and up-to-date \'Who does What Where\' (3W) database (to better identify coverage/gaps and overlap) as well as an assessment registry.</p>
+
+<p>Separate guidance applies to sudden onset emergencies and will be included on the website in due course.</p>
+
+<p>More information will be available in the IASC Reference Module for the Implementation of the Humanitarian Programme Cycle which is being prepared by the IASC Programme Cycle Steering Group and will be finalised by the end of September 2013. Each humanitarian programme cycle element also will have a template and accompanying guidance, which will be included under the specific element webpages of this site.</p>',
+      'format' => 'panopoly_html_text',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2532dff5-41bf-471e-a491-cee72a7612f5';
+    $display->content['new-2532dff5-41bf-471e-a491-cee72a7612f5'] = $pane;
+    $display->panels['left'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+    $pane = new stdClass();
+    $pane->pid = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $pane->panel = 'right';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<img src="/sites/all/themes/humanitarianresponse/assets/images/programme-cycle.png" class="img-responsive" alt="Programme Cycle" />',
+      'format' => 'panopoly_html_text',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $display->content['new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e'] = $pane;
+    $display->panels['right'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $pane = new stdClass();
+    $pane->pid = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
+    $pane->panel = 'right';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'hr_spaces-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'aae1a8c7-93d3-4578-8cc4-52f705db0898';
+    $display->content['new-aae1a8c7-93d3-4578-8cc4-52f705db0898'] = $pane;
+    $display->panels['right'][1] = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['hr_programme_cycle'] = $page;
+
   return $pages;
 
 }
