@@ -255,31 +255,31 @@ function hr_layout_default_page_manager_pages() {
   <div class="col-sm-1"></div>
   <div class="col-sm-2">
     <div class="thumbnail">
-      <a href="operations"><img src="http://placehold.it/150x130" alt="Operations" /></a>
+      <a href="operations"><img src="/sites/all/themes/humanitarianresponse/assets/images/home/operations.png" alt="Operations" /></a>
       <div class="caption">Operations</div>
     </div>
   </div>
   <div class="col-sm-2">
    <div class="thumbnail">
-      <a href="clusters"><img src="http://placehold.it/150x130" alt="Clusters" /></a>
+      <a href="clusters"><img src="/sites/all/themes/humanitarianresponse/assets/images/home/clusters.png" alt="Clusters" /></a>
       <div class="caption">Clusters</div>
     </div>
   </div>
   <div class="col-sm-2">
     <div class="thumbnail">
-      <a href="programme-cycle"><img src="http://placehold.it/150x130" alt="Programme Cycle" /></a>
+      <a href="programme-cycle"><img src="/sites/all/themes/humanitarianresponse/assets/images/home/programmecycle.png" alt="Programme Cycle" /></a>
       <div class="caption">Programme Cycle</div>
     </div>
   </div>
   <div class="col-sm-2">
     <div class="thumbnail">
-      <a href="topics"><img src="http://placehold.it/150x130" alt="Topics" /></a>
+      <a href="topics"><img src="/sites/all/themes/humanitarianresponse/assets/images/home/topics.png" alt="Topics" /></a>
       <div class="caption">Topics</div>
     </div>
   </div>
   <div class="col-sm-2">
     <div class="thumbnail">
-      <a href="applications"><img src="http://placehold.it/150x130" alt="Applications"></a>
+      <a href="applications"><img src="/sites/all/themes/humanitarianresponse/assets/images/home/applications.png" alt="Applications"></a>
       <div class="caption">Applications</div>
     </div>
   </div>
