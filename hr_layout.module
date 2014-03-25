@@ -6,6 +6,15 @@
 
 include_once 'hr_layout.features.inc';
 
+/**
+ * Implements hook_ctools_plugin_directory()
+ */
+function hr_layout_ctools_plugin_directory($module, $plugin) {
+  if ($module == "panels" && in_array($plugin, array('styles'))) {
+    return "plugins/$plugin";
+  }
+}
+
 function hr_layout_block_info() {
   $blocks['hr_layout_checkin'] = array(
     'info' => t('Checkin block'),
