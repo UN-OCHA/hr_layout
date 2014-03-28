@@ -309,13 +309,15 @@ function hr_layout_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<p>HumanitarianResponse.info has been developed by OCHA as the inter-cluster coordination site in support of the endorsed ‘Inter-Agency Standing Committee (IASC) Operational Guidance on Responsibilities Of Cluster/Sector Leads & OCHA In Information Management’ and at the request of the IASC Working Group.</p>
+      'body' => '<p>The HumanitarianResponse.info platform is provided to the humanitairan community as a means to aid in coordination of operational information and related activities. The technical aspects have been developed and continued to be managed by <a href="http://www.unocha.org">OCHA</a> as per their responsibilities outlined in the Inter-Agency Standing Committee’s (IASC) <a href="https://clusters.humanitarianresponse.info/system/files/documents/files/IASC%20Operational%20Guidance%20on%20Responsibilities%20of%20Sector%20Cluster%20Leads%20and%20OCHA%20in%20Information%20Management.pdf">Operational Guidance on Responsibilities Of Cluster/Sector Leads & OCHA In Information Management</a>.</p>
 
-<p>The new version ‘HR2.0’ is complete new design of our exisitng Humanitarianresponse.info platform which comes with newly added features such as Humanitarian ID for emergency check-in, fresh new look with easy to navigate site content and next coming features i.e. global search across all our sites to serve information needs of the audience.</p>
+<p>On 31 March 2014, OCHA released Version 2 (HR2.0) which came with a fresh design enabling easier navigation, a completely new technical infrastructure designed with future functionality in mind and several new features. Over the next three-to-four months, several existing HR.info sites (on the old platform) will be migrated and several new, major features will be added.</p>
 
-<p>In the next coming months, we will be working with OCHA country and regional offices,  Global clusters and other Humanitarian thematic areas (cross cutting issues and Humanitarian Programme Cycle, etc) to integrate all the sites and make sure that we provide the humanitarian community with one-stop solution through one single interface.</p>
+<p>Over the coming months, features such global information management tools (e.g. Assessment Registry), cross emergency search, and humanitarian responder check-in/out will be enabled for use.  Once these features are implemented and the existing emergency operational sites are migrated to the new platform, the development team will begin working on additional functionality including email group integration, SMS notifications, data cleaning tools, improved interactive mapping, ReliefWeb (search) integration and cluster site search integration.</p>
 
-<p>Don\'t know where to start ? Take the <a href="/?tour=introduction">Introduction tour</a> !</p>',
+<p>To keep yourself up-to-date with the very latest HR2.0 developments, <a href="http://eepurl.com/H37j1">subscribe to the update email list</a>.</p>
+
+<p>Don\'t know where to start on this new site ? Take the <a href="/?tour=introduction">Introduction tour</a> !</p>',
       'format' => 'panopoly_html_text',
       'substitute' => TRUE,
     );
