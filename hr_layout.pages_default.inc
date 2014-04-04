@@ -100,7 +100,7 @@ function hr_layout_default_page_manager_pages() {
 
 <p>Clusters are groups of humanitarian organizations, both UN and non-UN, in each of the main sectors of humanitarian action, e.g. water, health and logistics. They are designated by the Inter-Agency Standing Committee (IASC) and have clear responsibilities for coordination.</p>
 
-<p class="text-center"><a class="btn btn-primary" href="https://clusters.humanitarianresponse.info">Read all the information about clusters</a></p>',
+<p class="text-center"><a class="btn btn-primary" href="/clusters/space">Read all the information about clusters</a></p>',
       'format' => 'panopoly_html_text',
       'substitute' => TRUE,
     );
