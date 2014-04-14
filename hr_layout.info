@@ -9,6 +9,7 @@ dependencies[] = hr_operations
 dependencies[] = hr_spaces
 dependencies[] = og_menu_single
 dependencies[] = panopoly_wysiwyg
+dependencies[] = radix_layouts
 dependencies[] = special_menu_items
 features[context][] = hr_space_links
 features[context][] = hr_space_menu

@@ -52,7 +52,7 @@ function hr_layout_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_twocol_stacked';
+  $display->layout = 'radix_phelan';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -86,7 +86,7 @@ function hr_layout_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
-    $pane->panel = 'left';
+    $pane->panel = 'column1';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -114,10 +114,10 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '2532dff5-41bf-471e-a491-cee72a7612f5';
     $display->content['new-2532dff5-41bf-471e-a491-cee72a7612f5'] = $pane;
-    $display->panels['left'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+    $display->panels['column1'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
     $pane = new stdClass();
     $pane->pid = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
-    $pane->panel = 'right';
+    $pane->panel = 'column2';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -139,7 +139,7 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
     $display->content['new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e'] = $pane;
-    $display->panels['right'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $display->panels['column2'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
   $handler->conf['display'] = $display;
@@ -192,7 +192,7 @@ function hr_layout_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_twocol_stacked';
+  $display->layout = 'radix_moscone_flipped';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -241,8 +241,41 @@ function hr_layout_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
+    $pane->panel = 'contentmain';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<p>The HumanitarianResponse.info platform is provided to the humanitairan community as a means to aid in coordination of operational information and related activities. The technical aspects have been developed and continued to be managed by <a href="http://www.unocha.org">OCHA</a> as per their responsibilities outlined in the Inter-Agency Standing Committee’s (IASC) <a href="https://clusters.humanitarianresponse.info/system/files/documents/files/IASC%20Operational%20Guidance%20on%20Responsibilities%20of%20Sector%20Cluster%20Leads%20and%20OCHA%20in%20Information%20Management.pdf">Operational Guidance on Responsibilities Of Cluster/Sector Leads & OCHA In Information Management</a>.</p>
+
+<p>On 31 March 2014, OCHA released Version 2 (HR2.0) which came with a fresh design enabling easier navigation, a completely new technical infrastructure designed with future functionality in mind and several new features. Over the next three-to-four months, several existing HR.info sites (on the old platform) will be migrated and several new, major features will be added.</p>
+
+<p>Over the coming months, features such global information management tools (e.g. Assessment Registry), cross emergency search, and humanitarian responder check-in/out will be enabled for use.  Once these features are implemented and the existing emergency operational sites are migrated to the new platform, the development team will begin working on additional functionality including email group integration, SMS notifications, data cleaning tools, improved interactive mapping, ReliefWeb (search) integration and cluster site search integration.</p>
+
+<p>To keep yourself up-to-date with the very latest HR2.0 developments, <a href="http://eepurl.com/H37j1">subscribe to the update email list</a>.</p>
+
+<p>Don\'t know where to start on this new site ? Take the <a href="/?tour=introduction">Introduction tour</a> !</p>',
+      'format' => 'panopoly_html_text',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
+    $display->content['new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c'] = $pane;
+    $display->panels['contentmain'][0] = 'new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
+    $pane = new stdClass();
     $pane->pid = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
-    $pane->panel = 'bottom';
+    $pane->panel = 'footer';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -298,43 +331,10 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
     $display->content['new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f'] = $pane;
-    $display->panels['bottom'][0] = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
-    $pane = new stdClass();
-    $pane->pid = 'new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
-    $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<p>The HumanitarianResponse.info platform is provided to the humanitairan community as a means to aid in coordination of operational information and related activities. The technical aspects have been developed and continued to be managed by <a href="http://www.unocha.org">OCHA</a> as per their responsibilities outlined in the Inter-Agency Standing Committee’s (IASC) <a href="https://clusters.humanitarianresponse.info/system/files/documents/files/IASC%20Operational%20Guidance%20on%20Responsibilities%20of%20Sector%20Cluster%20Leads%20and%20OCHA%20in%20Information%20Management.pdf">Operational Guidance on Responsibilities Of Cluster/Sector Leads & OCHA In Information Management</a>.</p>
-
-<p>On 31 March 2014, OCHA released Version 2 (HR2.0) which came with a fresh design enabling easier navigation, a completely new technical infrastructure designed with future functionality in mind and several new features. Over the next three-to-four months, several existing HR.info sites (on the old platform) will be migrated and several new, major features will be added.</p>
-
-<p>Over the coming months, features such global information management tools (e.g. Assessment Registry), cross emergency search, and humanitarian responder check-in/out will be enabled for use.  Once these features are implemented and the existing emergency operational sites are migrated to the new platform, the development team will begin working on additional functionality including email group integration, SMS notifications, data cleaning tools, improved interactive mapping, ReliefWeb (search) integration and cluster site search integration.</p>
-
-<p>To keep yourself up-to-date with the very latest HR2.0 developments, <a href="http://eepurl.com/H37j1">subscribe to the update email list</a>.</p>
-
-<p>Don\'t know where to start on this new site ? Take the <a href="/?tour=introduction">Introduction tour</a> !</p>',
-      'format' => 'panopoly_html_text',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
-    $display->content['new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c'] = $pane;
-    $display->panels['left'][0] = 'new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
+    $display->panels['footer'][0] = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
     $pane = new stdClass();
     $pane->pid = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
-    $pane->panel = 'right';
+    $pane->panel = 'sidebar';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -374,7 +374,7 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
     $display->content['new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2'] = $pane;
-    $display->panels['right'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
+    $display->panels['sidebar'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-c4587b0c-f9a2-4d54-ba97-faaf9e39561c';
   $handler->conf['display'] = $display;
@@ -425,7 +425,7 @@ function hr_layout_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_twocol_stacked';
+  $display->layout = 'radix_phelan';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -467,7 +467,7 @@ function hr_layout_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
-    $pane->panel = 'left';
+    $pane->panel = 'column1';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -489,10 +489,10 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '2532dff5-41bf-471e-a491-cee72a7612f5';
     $display->content['new-2532dff5-41bf-471e-a491-cee72a7612f5'] = $pane;
-    $display->panels['left'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+    $display->panels['column1'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
     $pane = new stdClass();
     $pane->pid = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
-    $pane->panel = 'right';
+    $pane->panel = 'column2';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -514,10 +514,10 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
     $display->content['new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e'] = $pane;
-    $display->panels['right'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $display->panels['column2'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
     $pane = new stdClass();
     $pane->pid = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
-    $pane->panel = 'right';
+    $pane->panel = 'column2';
     $pane->type = 'views_panes';
     $pane->subtype = 'hr_spaces-panel_pane_1';
     $pane->shown = TRUE;
@@ -533,7 +533,7 @@ function hr_layout_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'aae1a8c7-93d3-4578-8cc4-52f705db0898';
     $display->content['new-aae1a8c7-93d3-4578-8cc4-52f705db0898'] = $pane;
-    $display->panels['right'][1] = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
+    $display->panels['column2'][1] = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
   $handler->conf['display'] = $display;
