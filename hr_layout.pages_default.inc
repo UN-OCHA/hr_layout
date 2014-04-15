@@ -54,31 +54,7 @@ function hr_layout_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'radix_phelan';
   $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '6',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'right' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '6',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'bottom' => NULL,
-    ),
-    'left' => array(
-      'style' => 'bootstrap_region',
-    ),
-    'right' => array(
-      'style' => 'bootstrap_region',
-    ),
-  );
+  $display->panel_settings = array();
   $display->cache = array();
   $display->title = '';
   $display->uuid = 'd4221dbc-34fc-4b55-9af5-da36c1017271';
@@ -194,47 +170,7 @@ function hr_layout_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'radix_moscone_flipped';
   $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '12',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'left' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '9',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'right' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '3',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'bottom' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '12',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-    ),
-    'left' => array(
-      'style' => 'bootstrap_region',
-    ),
-    'top' => array(
-      'style' => 'bootstrap_region',
-    ),
-    'right' => array(
-      'style' => 'bootstrap_region',
-    ),
-    'bottom' => array(
-      'style' => 'bootstrap_region',
-    ),
-  );
+  $display->panel_settings = array();
   $display->cache = array();
   $display->title = 'Home';
   $display->uuid = 'b4f0cdd8-1e4b-4d49-b201-90e3bbd936dc';
@@ -427,39 +363,7 @@ function hr_layout_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'radix_phelan';
   $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '6',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'right' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '6',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'bottom' => array(
-        'column_type' => 'col-sm',
-        'column_size' => '12',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-    ),
-    'left' => array(
-      'style' => 'bootstrap_region',
-    ),
-    'right' => array(
-      'style' => 'bootstrap_region',
-    ),
-    'bottom' => array(
-      'style' => 'bootstrap_region',
-    ),
-  );
+  $display->panel_settings = array();
   $display->cache = array();
   $display->title = '';
   $display->uuid = 'd4221dbc-34fc-4b55-9af5-da36c1017271';
