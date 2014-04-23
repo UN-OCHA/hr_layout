@@ -112,10 +112,13 @@ function hr_layout_create_links() {
     return $button;
   }
 
-  $gid = og_context_handler_node();
+  $gid = NULL;
+  $context = og_context();
+  if ($context['gid']) {
+    $gid = $context['gid'];
+  }
 
   if (!empty($gid)) {
-    $gid = reset($gid['node']);
     $bundle_id = 0;
     $groups = entity_load('node', array($gid));
     $group = $groups[$gid];
