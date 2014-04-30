@@ -141,7 +141,7 @@ function hr_layout_views_default_views() {
   $handler = $view->new_display('page', 'Content', 'content');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'og_context';
-  $handler->display->display_options['access']['perm'] = 'update group';
+  $handler->display->display_options['access']['perm'] = 'create hr_page content';
   $handler->display->display_options['access']['group_id_arg'] = '1';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
