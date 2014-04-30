@@ -63,6 +63,7 @@ function hr_layout_context_default_contexts() {
         '~hr_documents_space' => '~hr_documents_space',
         '~hr_news_space' => '~hr_news_space',
         '~hr_events_space' => '~hr_events_space',
+        '~hr_datasets_space' => '~hr_datasets_space',
       ),
     ),
     'context_og_condition_group_type' => array(
