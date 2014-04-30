@@ -64,6 +64,7 @@ function hr_layout_context_default_contexts() {
         '~hr_news_space' => '~hr_news_space',
         '~hr_events_space' => '~hr_events_space',
         '~hr_datasets_space' => '~hr_datasets_space',
+        '~hr_indicators' => '~hr_indicators',
       ),
     ),
     'context_og_condition_group_type' => array(
