@@ -28,6 +28,11 @@ function hr_layout_context_default_contexts() {
         'node_form' => '0',
       ),
     ),
+    'path' => array(
+      'values' => array(
+        '~applications/kiosk' => '~applications/kiosk',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
@@ -47,7 +52,7 @@ function hr_layout_context_default_contexts() {
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
   $export['hr_space_links'] = $context;
 
   $context = new stdClass();
