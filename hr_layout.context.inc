@@ -69,6 +69,7 @@ function hr_layout_context_default_contexts() {
         '~hr_documents_space_table' => '~hr_documents_space_table',
         '~hr_news_space' => '~hr_news_space',
         '~hr_events_space' => '~hr_events_space',
+        '~hr_events_space_list' => '~hr_events_space_list',
         '~hr_datasets_space' => '~hr_datasets_space',
         '~hr_indicators' => '~hr_indicators',
       ),
