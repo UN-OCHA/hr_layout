@@ -156,8 +156,14 @@ function hr_layout_context_default_contexts() {
           'module' => 'system',
           'delta' => 'user-menu',
           'region' => 'top',
-          'weight' => '-6',
+          'weight' => '-7',
         ),
+        'hr_bookmarks-hr_favorite_spaces' => array(
+          'module' => 'hr_bookmarks',
+          'delta' => 'hr_favorite_spaces',
+          'region' => 'top',
+          'weight' => '-6',
+         ),
         'hr_help-hr_help' => array(
           'module' => 'hr_help',
           'delta' => 'hr_help',
