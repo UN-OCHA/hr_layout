@@ -283,18 +283,18 @@ function hr_layout_default_page_manager_pages() {
     <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
   </div>
   <div class="col-sm-6">
-    <strong><a href="https://car.humanitarianresponse.info">Central African Republic</a></strong>
-    <p>NOV / 26 / 2013</p>
+    <strong><a href="https://southsudan.humanitarianresponse.info">South Sudan</a></strong>
+    <p>&nbsp;</p>
   </div>
 </div>
 <br />
 <div class="row">
   <div class="col-sm-6 text-center">
-    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_cyclon.png" alt="Cyclon" />
+    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
   </div>
   <div class="col-sm-6">
-    <strong><a href="https://philippines.humanitarianresponse.info">Philippines</a></strong>
-    <p>NOV / 7 / 2013</p>
+    <strong><a href="https://car.humanitarianresponse.info">Central African Republic</a></strong>
+    <p>NOV / 26 / 2013</p>
   </div>
 </div>',
       'format' => 'panopoly_html_text',

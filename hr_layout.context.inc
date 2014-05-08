@@ -118,6 +118,12 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views--exp-hr_search-page' => array(
+          'module' => 'views',
+          'delta' => '-exp-hr_search-page',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
@@ -163,7 +169,7 @@ function hr_layout_context_default_contexts() {
           'delta' => 'hr_favorite_spaces',
           'region' => 'top',
           'weight' => '-6',
-         ),
+        ),
         'hr_help-hr_help' => array(
           'module' => 'hr_help',
           'delta' => 'hr_help',
