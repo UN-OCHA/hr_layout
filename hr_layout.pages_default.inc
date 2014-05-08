@@ -284,7 +284,7 @@ function hr_layout_default_page_manager_pages() {
   </div>
   <div class="col-sm-6">
     <strong><a href="https://southsudan.humanitarianresponse.info">South Sudan</a></strong>
-    <p>&nbsp;</p>
+    <p>FEB / 11 / 2014</p>
   </div>
 </div>
 <br />
