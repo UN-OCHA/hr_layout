@@ -70,9 +70,11 @@ function hr_layout_context_default_contexts() {
         '~hr_news_space' => '~hr_news_space',
         '~hr_events_space' => '~hr_events_space',
         '~hr_events_space_list' => '~hr_events_space_list',
+        '~hr_data' => '~hr_data',
         '~hr_datasets_space' => '~hr_datasets_space',
         '~hr_datasets_space_table' => '~hr_datasets_space_table',
         '~hr_indicators' => '~hr_indicators',
+        '~hr_search_space' => '~hr_search_space',
       ),
     ),
     'context_og_condition_group_type' => array(
@@ -87,6 +89,12 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views--exp-hr_search-space' => array(
+          'module' => 'views',
+          'delta' => '-exp-hr_search-space',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
         'og_menu-og_single_menu_block' => array(
           'module' => 'og_menu',
           'delta' => 'og_single_menu_block',
