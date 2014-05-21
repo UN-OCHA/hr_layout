@@ -65,6 +65,8 @@ function hr_layout_context_default_contexts() {
     'context' => array(
       'values' => array(
         '~hr_contacts_space' => '~hr_contacts_space',
+        '~hr_contacts_space_list' => '~hr_contacts_space_list',
+        '~hr_contacts_space_map' => '~hr_contacts_space_map',
         '~hr_documents_space' => '~hr_documents_space',
         '~hr_documents_space_table' => '~hr_documents_space_table',
         '~hr_news_space' => '~hr_news_space',
