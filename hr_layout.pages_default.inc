@@ -283,7 +283,7 @@ function hr_layout_default_page_manager_pages() {
     <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
   </div>
   <div class="col-sm-6">
-    <strong><a href="https://southsudan.humanitarianresponse.info">South Sudan</a></strong>
+    <strong><a href="http://southsudan.humanitarianresponse.info">South Sudan</a></strong>
     <p>FEB / 11 / 2014</p>
   </div>
 </div>
