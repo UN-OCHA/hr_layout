@@ -13,6 +13,42 @@ function hr_layout_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'hr_nodes';
+  $context->description = '';
+  $context->tag = '';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'hr_document' => 'hr_document',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views--exp-hr_search-space' => array(
+          'module' => 'views',
+          'delta' => '-exp-hr_search-space',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+    'disable_context' => array(
+      'disabled' => array(
+        'hr_space_menu' => 'hr_space_menu',
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+  $export['hr_nodes'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'hr_space_links';
   $context->description = '';
   $context->tag = '';
