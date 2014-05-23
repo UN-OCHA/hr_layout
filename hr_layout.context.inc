@@ -20,6 +20,8 @@ function hr_layout_context_default_contexts() {
     'node' => array(
       'values' => array(
         'hr_document' => 'hr_document',
+        'hr_news' => 'hr_news',
+        'hr_infographic' => 'hr_infographic',
       ),
       'options' => array(
         'node_form' => '0',
