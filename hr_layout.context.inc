@@ -22,6 +22,10 @@ function hr_layout_context_default_contexts() {
         'hr_document' => 'hr_document',
         'hr_news' => 'hr_news',
         'hr_infographic' => 'hr_infographic',
+        'hr_event' => 'hr_event',
+        'hr_contact' => 'hr_contact',
+        'hr_dataset' => 'hr_dataset',
+        'hr_indicator' => 'hr_indicator',
       ),
       'options' => array(
         'node_form' => '0',
