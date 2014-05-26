@@ -25,6 +25,7 @@ function hr_layout_context_default_contexts() {
         'hr_contact' => 'hr_contact',
         'hr_dataset' => 'hr_dataset',
         'hr_indicator' => 'hr_indicator',
+        'hr_event' => 'hr_event',
       ),
       'options' => array(
         'node_form' => '0',
