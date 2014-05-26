@@ -120,6 +120,8 @@ function hr_layout_context_default_contexts() {
         '~hr_datasets_space_table' => '~hr_datasets_space_table',
         '~hr_indicators' => '~hr_indicators',
         '~hr_search_space' => '~hr_search_space',
+        '~hr_infographics_space' => '~hr_infographics_space',
+        '~hr_infographics_space_table' => '~hr_infographics_space_table',
       ),
     ),
     'context_og_condition_group_type' => array(
