@@ -26,6 +26,7 @@ function hr_layout_context_default_contexts() {
         'hr_dataset' => 'hr_dataset',
         'hr_indicator' => 'hr_indicator',
         'hr_event' => 'hr_event',
+        'hr_assessment' => 'hr_assessment',
       ),
       'options' => array(
         'node_form' => '0',
@@ -122,6 +123,9 @@ function hr_layout_context_default_contexts() {
         '~hr_search_space' => '~hr_search_space',
         '~hr_infographics_space' => '~hr_infographics_space',
         '~hr_infographics_space_table' => '~hr_infographics_space_table',
+        '~hr_assessments_space' => '~hr_assessments_space',
+        '~hr_assessments_space_table' => '~hr_assessments_space_table',
+        '~hr_assessments_space_map' => '~hr_assessments_space_map',
       ),
     ),
     'context_og_condition_group_type' => array(
