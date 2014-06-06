@@ -35,6 +35,10 @@ function hr_layout_context_default_contexts() {
     ),
     'views' => array(
       'values' => array(
+        'hr_events_calendar:day' => 'hr_events_calendar:day',
+        'hr_events_calendar:month' => 'hr_events_calendar:month',
+        'hr_events_calendar:week' => 'hr_events_calendar:week',
+        'hr_events_calendar:year' => 'hr_events_calendar:year',
         'hr_offices:page' => 'hr_offices:page',
       ),
     ),
