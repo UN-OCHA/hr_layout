@@ -190,3 +190,17 @@ function hr_layout_entity_insert($entity, $type) {
     }
   }
 }
+
+/**
+ * Implements hook_menu_alter()
+ * HACK: fixes a bug that makes ajax calls stop working when adding an FTS
+ * Visualization through "Bean Panes" (Panels)
+ */
+function hr_layout_menu_alter(&$items) {
+  $items['system/ajax']['page callback'] = 'hr_layout_ajax_form_callback';
+}
+
+function hr_layout_ajax_form_callback() {
+  module_load_include('inc', 'bean_pane', 'plugins/content_types/bean_pane');
+  return ajax_form_callback();
+}
