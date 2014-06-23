@@ -107,6 +107,7 @@ function hr_layout_block_view($delta = '') {
 }
 
 function hr_layout_create_links() {
+  global $user;
   $button = '';
   if (!user_is_logged_in()) {
     return $button;
@@ -151,7 +152,7 @@ function hr_layout_create_links() {
             $type = str_replace('-', '_', $matches[0]);
             // See if this node type is disabled for this group
             if (!og_features_component_is_disabled('node', $type, $group)) {
-              if ($type != 'hr_contact' || ($type == 'hr_contact' && og_is_member('node', $group->nid))) {
+              if ($type != 'hr_contact' || ($type == 'hr_contact' && (og_is_member('node', $group->nid) || in_array('editor', $user->roles)))) {
                 $button .= '<li>'.$item['data'].'</li>';
               }
             }
