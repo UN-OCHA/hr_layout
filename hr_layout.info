@@ -40,4 +40,3 @@ features[views_view][] = hr_space
 features_exclude[menu_custom][main-menu] = main-menu
 features_exclude[dependencies][views] = views
 features_exclude[dependencies][og_context] = og_context
-; Test
