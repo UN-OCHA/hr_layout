@@ -283,8 +283,8 @@ function hr_layout_default_page_manager_pages() {
     <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
   </div>
   <div class="col-sm-6">
-    <strong><a href="http://southsudan.humanitarianresponse.info">South Sudan</a></strong>
-    <p>FEB / 11 / 2014</p>
+    <strong><a href="https://www.humanitarianresponse.info/operations/iraq">Iraq</a></strong>
+    <p>JUN / 21 / 2014</p>
   </div>
 </div>
 <br />
@@ -293,8 +293,8 @@ function hr_layout_default_page_manager_pages() {
     <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
   </div>
   <div class="col-sm-6">
-    <strong><a href="https://car.humanitarianresponse.info">Central African Republic</a></strong>
-    <p>NOV / 26 / 2013</p>
+    <strong><a href="https://southsudan.humanitarianresponse.info">South Sudan</a></strong>
+    <p>FEB / 11 / 2014</p>
   </div>
 </div>',
       'format' => 'panopoly_html_text',
