@@ -16,7 +16,10 @@ function hr_layout_default_page_manager_pages() {
   $page->admin_title = 'Clusters';
   $page->admin_description = '';
   $page->path = 'clusters';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Clusters',
@@ -130,7 +133,10 @@ function hr_layout_default_page_manager_pages() {
   $page->admin_title = 'Home';
   $page->admin_description = '';
   $page->path = 'home';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Home',
@@ -363,7 +369,13 @@ function hr_layout_default_page_manager_pages() {
   $display = new panels_display();
   $display->layout = 'radix_phelan';
   $display->layout_settings = array();
-  $display->panel_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'column1' => NULL,
+      'column2' => NULL,
+    ),
+  );
   $display->cache = array();
   $display->title = '';
   $display->uuid = 'd4221dbc-34fc-4b55-9af5-da36c1017271';
@@ -395,6 +407,25 @@ function hr_layout_default_page_manager_pages() {
     $display->content['new-2532dff5-41bf-471e-a491-cee72a7612f5'] = $pane;
     $display->panels['column1'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
     $pane = new stdClass();
+    $pane->pid = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
+    $pane->panel = 'column1';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'hr_spaces-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'aae1a8c7-93d3-4578-8cc4-52f705db0898';
+    $display->content['new-aae1a8c7-93d3-4578-8cc4-52f705db0898'] = $pane;
+    $display->panels['column1'][1] = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
+    $pane = new stdClass();
     $pane->pid = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
     $pane->panel = 'column2';
     $pane->type = 'custom';
@@ -419,25 +450,6 @@ function hr_layout_default_page_manager_pages() {
     $pane->uuid = '4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
     $display->content['new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e'] = $pane;
     $display->panels['column2'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
-    $pane = new stdClass();
-    $pane->pid = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
-    $pane->panel = 'column2';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'hr_spaces-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'aae1a8c7-93d3-4578-8cc4-52f705db0898';
-    $display->content['new-aae1a8c7-93d3-4578-8cc4-52f705db0898'] = $pane;
-    $display->panels['column2'][1] = 'new-aae1a8c7-93d3-4578-8cc4-52f705db0898';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
   $handler->conf['display'] = $display;
