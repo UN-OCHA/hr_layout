@@ -11,6 +11,142 @@ function hr_layout_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'hr_coordination';
+  $page->task = 'page';
+  $page->admin_title = 'Coordination';
+  $page->admin_description = '';
+  $page->path = 'coordination';
+  $page->access = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'Coordination',
+    'name' => 'main-menu',
+    'weight' => '3',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array();
+  $page->conf = array();
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_hr_coordination_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'hr_coordination';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Landing page',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'radix_phelan';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'column1' => NULL,
+      'column2' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'd4221dbc-34fc-4b55-9af5-da36c1017271';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+    $pane->panel = 'column1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Coordination text',
+      'title' => '',
+      'body' => '<p>OCHA is responsible for bringing together humanitarian actors to ensure a coherent response to emergencies. The aim is to assist people when they most need relief or protection. A key pillar of the OCHA mandate is to “coordinate effective and principled humanitarian action in partnership with national and international actors”.</p>
+
+<p>Humanitarian coordination seeks to improve the effectiveness of humanitarian response by ensuring greater predictability, accountability and partnership. OCHA is leading the international community\'s efforts to develop a better architecture for the humanitarian system, including strong in-country humanitarian leaders (Humanitarian Coordinators); representative and inclusive Humanitarian Country Teams as well as an effective and well-coordinated framework within which all humanitarian organizations can contribute systematically.</p>',
+      'format' => 'panopoly_html_text',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2532dff5-41bf-471e-a491-cee72a7612f5';
+    $display->content['new-2532dff5-41bf-471e-a491-cee72a7612f5'] = $pane;
+    $display->panels['column1'][0] = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+    $pane = new stdClass();
+    $pane->pid = 'new-029e719e-a02b-4a49-a595-69273bc5306d';
+    $pane->panel = 'column1';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'hr_spaces-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '029e719e-a02b-4a49-a595-69273bc5306d';
+    $display->content['new-029e719e-a02b-4a49-a595-69273bc5306d'] = $pane;
+    $display->panels['column1'][1] = 'new-029e719e-a02b-4a49-a595-69273bc5306d';
+    $pane = new stdClass();
+    $pane->pid = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $pane->panel = 'column2';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<img src="/sites/all/themes/humanitarianresponse/assets/images/coordination.jpg" class="img-responsive" alt="Coordination" />',
+      'format' => 'panopoly_html_text',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'hr_highlighted',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+    $display->content['new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e'] = $pane;
+    $display->panels['column2'][0] = 'new-4f09f2dc-c52b-4a71-abe8-4f3a8037042e';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = 'new-2532dff5-41bf-471e-a491-cee72a7612f5';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['hr_coordination'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'hr_clusters';
   $page->task = 'page';
   $page->admin_title = 'Clusters';
@@ -331,7 +467,10 @@ function hr_layout_default_page_manager_pages() {
   $page->admin_title = 'Programme Cycle';
   $page->admin_description = '';
   $page->path = 'programme-cycle';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Programme Cycle',
