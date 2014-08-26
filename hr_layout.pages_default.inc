@@ -76,9 +76,9 @@ function hr_layout_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Coordination text',
       'title' => '',
-      'body' => '<p>OCHA is responsible for bringing together humanitarian actors to ensure a coherent response to emergencies. The aim is to assist people when they most need relief or protection. A key pillar of the OCHA mandate is to “coordinate effective and principled humanitarian action in partnership with national and international actors”.</p>
+      'body' => '<p>Humanitarian coordination involves bringing together humanitarian actors to ensure a coherent and principled response to emergencies. The aim is to assist people when they most need relief or protection.</p>
 
-<p>Humanitarian coordination seeks to improve the effectiveness of humanitarian response by ensuring greater predictability, accountability and partnership. OCHA is leading the international community\'s efforts to develop a better architecture for the humanitarian system, including strong in-country humanitarian leaders (Humanitarian Coordinators); representative and inclusive Humanitarian Country Teams as well as an effective and well-coordinated framework within which all humanitarian organizations can contribute systematically.</p>',
+<p>Humanitarian coordination seeks to improve the effectiveness of humanitarian response by ensuring greater predictability, accountability and partnership. Coordination involves assessing situations and needs; agreeing common priorities; developing common strategies to address issues such as negotiating access, mobilizing funding and other resources; clarifying consistent public messaging; and monitoring progress.</p>',
       'format' => 'panopoly_html_text',
       'substitute' => TRUE,
     );
