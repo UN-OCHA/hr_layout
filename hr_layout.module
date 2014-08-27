@@ -133,7 +133,7 @@ function hr_layout_block_view($delta = '') {
             ),
           );
           $block['content'] .= '<div class="space-social-media">';
-          $block['content'] .= l(t('Social Media') . '<i class="fa fa-globe"></i>', $view['field_social_media'][LANGUAGE_NONE][0]['value'], $link_social_options);
+          $block['content'] .= l(t('Social Media') . '<i class="fa fa-globe"></i>', $view['field_social_media'][LANGUAGE_NONE][0]['url'], $link_social_options);
           $block['content'] .= '</div>';
         }
 
