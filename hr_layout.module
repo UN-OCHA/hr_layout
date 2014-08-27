@@ -99,7 +99,7 @@ function hr_layout_block_view($delta = '') {
             ),
           );
           $block['content'] .= '<div class="space-email">';
-          $block['content'] .= l(t('Contact') . '<i class="fa fa-at"></i>', 'mailto:'.$view['field_email'][LANGUAGE_NONE][0]['value'], $link_email_options);
+          $block['content'] .= l(t('Contact') . '<i class="fa fa-at"></i>', 'mailto:'.$view['field_email']['#items'][0]['email'], $link_email_options);
           $block['content'] .= '</div>';
         }
 
@@ -118,11 +118,7 @@ function hr_layout_block_view($delta = '') {
         $block['content'] .= l(t('Newsfeed') . '<i class="fa fa-rss-square"></i>', 'node/'.$gid.'/feed', $link_rss_options);
         $block['content'] .= '</div>';
 
-          print_r($view['field_email']['#items']);
-          print_r($view['field_social_media']['#items']);
-
         if (isset($view['field_social_media'])) {
-          //Render Social Media link
           $link_social_options = array(
             'html' => TRUE,
             'absolute' => TRUE,
@@ -134,10 +130,12 @@ function hr_layout_block_view($delta = '') {
               ),
             ),
           );
-          //$block['content'] .= print_r($view['field_social_media']);
-          $block['content'] .= '<div class="space-social-media">';
-          //$block['content'] .= l(t('Social Media') . '<i class="fa fa-globe"></i>', $view['field_social_media'][LANGUAGE_NONE][0]['url'], $link_social_options);
-          $block['content'] .= '</div>';
+          foreach($view['field_social_media']['#items'] as $social_media) {
+            //Render Social Media link
+            $block['content'] .= '<div class="space-social-media">';
+            $block['content'] .= l(t('Social Media') . '<i class="fa fa-globe"></i>', $social_media['url'], $link_social_options);
+            $block['content'] .= '</div>';
+          }
         }
 
       }
