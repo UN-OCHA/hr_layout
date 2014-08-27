@@ -151,7 +151,6 @@ function hr_layout_block_view($delta = '') {
             'html' => TRUE,
             'absolute' => TRUE,
             'attributes' => array(
-              'title' => t('Social Media'),
               'class' => array(
                 'btn',
                 'btn-primary',
@@ -159,9 +158,11 @@ function hr_layout_block_view($delta = '') {
             ),
           );
           foreach($view['field_social_media']['#items'] as $social_media) {
+            $format = hr_layout_social_media_link($social_media['url']);
+            $link_social_options['attributes']['title'] = $format['text'];
             //Render Social Media link
             $block['content'] .= '<div class="space-social-media">';
-            $block['content'] .= l(t('Social Media') . '<i class="fa fa-globe"></i>', $social_media['url'], $link_social_options);
+            $block['content'] .= l(t('Social Media') . '<i class="fa ' . $format['icon'] . '"></i>', $social_media['url'], $link_social_options);
             $block['content'] .= '</div>';
           }
         }
@@ -170,6 +171,33 @@ function hr_layout_block_view($delta = '') {
       break;
   }
   return $block;
+}
+
+
+/**
+ * Return icon name & link title for given URL.
+ */
+function hr_layout_social_media_link($url) {
+  $services = array(
+    'facebook.com' => array('icon' => 'fa-facebook', 'text' => 'Facebook'),
+    'twitter.com' => array('icon' => 'fa-twitter', 'text' => 'Twitter'),
+    'linkedin.com' => array('icon' => 'fa-linkedin', 'text' => 'LinkedIn'),
+    'github.com' => array('icon' => 'fa-github', 'text' => 'Github'),
+    'pinterest.com' => array('icon' => 'fa-pinterest', 'text' => 'Pinterest'),
+    'google.com' => array('icon' => 'fa-google-plus', 'text' => 'Google'),
+  );
+
+  $parsed = parse_url($url);
+  $chunks = explode('.', $parsed['host']);
+  if (count($chunks) == 1)
+    $host = $chunks[0];
+  else
+    $host = $chunks[count($chunks)-2] . '.' . $chunks[count($chunks)-1];
+
+  if (isset($services[$host]))
+    return $services[$host];
+  else
+    return array('icon' => 'fa-globe', 'text' => t('Social Media'));
 }
 
 function hr_layout_create_links() {
