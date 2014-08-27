@@ -99,7 +99,7 @@ function hr_layout_block_view($delta = '') {
             ),
           );
           $block['content'] .= '<div class="space-social-media">';
-          $block['content'] .= l(t('Contact') . '<i class="fa fa-at fa-2x"></i>', 'mailto:'.$view['field_email'][LANGUAGE_NONE]['value'], $link_email_options);
+          $block['content'] .= l(t('Contact') . '<i class="fa fa-at"></i>', 'mailto:'.$view['field_email'][LANGUAGE_NONE][0]['value'], $link_email_options);
           $block['content'] .= '</div>';
         }
 
@@ -115,7 +115,7 @@ function hr_layout_block_view($delta = '') {
           ),
         );
         $block['content'] .= '<div class="space-social-media">';
-        $block['content'] .= l(t('Newsfeed') . '<i class="fa fa-rss-square fa-2x"></i>', 'node/'.$gid.'/feed', $link_rss_options);
+        $block['content'] .= l(t('Newsfeed') . '<i class="fa fa-rss-square"></i>', 'node/'.$gid.'/feed', $link_rss_options);
 
         //Render Social Media
         if (isset($view['field_social_media'])) {
