@@ -116,13 +116,27 @@ function hr_layout_block_view($delta = '') {
         );
         $block['content'] .= '<div class="space-social-media">';
         $block['content'] .= l(t('Newsfeed') . '<i class="fa fa-rss-square"></i>', 'node/'.$gid.'/feed', $link_rss_options);
-
-        //Render Social Media
-        if (isset($view['field_social_media'])) {
-          $view['field_social_media']['#label_display'] = 'hidden';
-          $block['content'] .= render($view['field_social_media']);
-        }
         $block['content'] .= '</div>';
+
+
+        if (isset($view['field_social_media'])) {
+          //Render Social Media link
+          $link_social_options = array(
+            'html' => TRUE,
+            'absolute' => TRUE,
+            'attributes' => array(
+              'title' => t('Social Media'),
+              'class' => array(
+                'btn',
+                'btn-primary',
+              ),
+            ),
+          );
+          $block['content'] .= '<div class="space-social-media">';
+          $block['content'] .= l(t('Social Media') . '<i class="fa fa-globe"></i>', $view['field_social_media'][LANGUAGE_NONE][0]['value'], $link_social_options);
+          $block['content'] .= '</div>';
+        }
+
       }
       break;
   }
