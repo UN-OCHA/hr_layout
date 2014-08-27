@@ -119,10 +119,10 @@ function hr_layout_block_view($delta = '') {
         $block['content'] .= '<h2><span>' . $current_title . '</span> site</h2>';
         $block['content'] .= '<hr/>';
 
-        if($arg(1) != $context['gid']) { // If the current node ID & context ID are different, then we know we are in a cluster page
+        //if($arg(1) != $context['gid']) { // If the current node ID & context ID are different, then we know we are in a cluster page
           $block['content'] .= '<div class="cluster"><div class="image"></div>' . $current_title . ' Cluster</div>';
           $block['content'] .= '<hr/>';
-        }
+        //}
 
         //Render RSS link
         $link_rss_options = array(
