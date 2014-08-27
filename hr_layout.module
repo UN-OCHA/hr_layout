@@ -162,7 +162,7 @@ function hr_layout_block_view($delta = '') {
             $link_social_options['attributes']['title'] = $format['text'];
             //Render Social Media link
             $block['content'] .= '<div class="space-social-media">';
-            $block['content'] .= l(t('Social Media') . '<i class="fa ' . $format['icon'] . '"></i>', $social_media['url'], $link_social_options);
+            $block['content'] .= l($format['text'] . '<i class="fa ' . $format['icon'] . '"></i>', $social_media['url'], $link_social_options);
             $block['content'] .= '</div>';
           }
         }
