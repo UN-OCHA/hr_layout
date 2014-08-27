@@ -108,13 +108,15 @@ function hr_layout_block_view($delta = '') {
     case 'hr_layout_share_links':
       $block['content'] = '';
       $context = og_context();
-    print_r($node);
       if (!empty($context) && $context['group_type'] == 'node') {
         $gid = $context['gid'];
         $node = node_load($gid);
         node_build_content($node);
         $view = $node->content;
 
+
+        $current_title = drupal_get_title();
+        $block['content'] .= '<h2><span>' . $current_title . '</span> site</h2>';
         $block['content'] .= '<hr/>';
 
         //Render RSS link
