@@ -113,23 +113,8 @@ function hr_layout_block_view($delta = '') {
         $node = node_load($gid);
         node_build_content($node);
         $view = $node->content;
-        if (isset($view['field_email'])) {
-          //Render Email link
-          $link_email_options = array(
-            'html' => TRUE,
-            'absolute' => TRUE,
-            'attributes' => array(
-              'title' => t('Contact'),
-              'class' => array(
-                'btn',
-                'btn-primary',
-              ),
-            ),
-          );
-          $block['content'] .= '<div class="space-email">';
-          $block['content'] .= l(t('Contact') . '<i class="fa fa-at"></i>', 'mailto:'.$view['field_email']['#items'][0]['email'], $link_email_options);
-          $block['content'] .= '</div>';
-        }
+
+        $block['content'] .= '<hr/>';
 
         //Render RSS link
         $link_rss_options = array(
@@ -165,6 +150,29 @@ function hr_layout_block_view($delta = '') {
             $block['content'] .= l($format['text'] . '<i class="fa ' . $format['icon'] . '"></i>', $social_media['url'], $link_social_options);
             $block['content'] .= '</div>';
           }
+        }
+
+
+        $block['content'] .= '<hr/>';
+        $block['content'] .= '<div class="manager">' . t('Managed by') . ': <br/><i>Unicef</i></div>';
+
+
+        if (isset($view['field_email'])) {
+          //Render Email link
+          $link_email_options = array(
+            'html' => TRUE,
+            'absolute' => TRUE,
+            'attributes' => array(
+              'title' => t('Contact'),
+              'class' => array(
+                'btn',
+                'btn-primary',
+              ),
+            ),
+          );
+          $block['content'] .= '<div class="space-email">';
+          $block['content'] .= l(t('Contact') . '<i class="fa fa-at"></i>', 'mailto:'.$view['field_email']['#items'][0]['email'], $link_email_options);
+          $block['content'] .= '</div>';
         }
 
       }
