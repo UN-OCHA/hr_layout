@@ -86,15 +86,38 @@ function hr_layout_block_view($delta = '') {
         node_build_content($node);
         $view = $node->content;
         if (isset($view['field_email'])) {
-          $view['field_email']['#label_display'] = 'hidden';
-          $block['content'] .= render($view['field_email']);
+          //Render Email link
+          $link_email_options = array(
+            'html' => TRUE,
+            'absolute' => TRUE,
+            'attributes' => array(
+              'title' => t('Contact'),
+              'class' => array(
+                'btn',
+                'btn-primary',
+              ),
+            ),
+          );
+          $block['content'] .= '<div class="space-social-media">';
+          $block['content'] .= l(t('Contact') . '<i class="fa fa-at fa-2x"></i>', 'mailto:'.$view['field_email'][LANGUAGE_NONE]['value'], $link_email_options);
+          $block['content'] .= '</div>';
         }
-        $link_options = array(
+
+        //Render RSS link
+        $link_rss_options = array(
           'html' => TRUE,
-          'attributes' => array('title' => t('RSS Feed')),
+          'attributes' => array(
+            'title' => t('RSS Feed'),
+            'class' => array(
+              'btn',
+              'btn-primary',
+            ),
+          ),
         );
         $block['content'] .= '<div class="space-social-media">';
-        $block['content'] .= l('<i class="fa fa-rss-square fa-2x"></i>', 'node/'.$gid.'/feed', $link_options);
+        $block['content'] .= l(t('Newsfeed') . '<i class="fa fa-rss-square fa-2x"></i>', 'node/'.$gid.'/feed', $link_rss_options);
+
+        //Render Social Media
         if (isset($view['field_social_media'])) {
           $view['field_social_media']['#label_display'] = 'hidden';
           $block['content'] .= render($view['field_social_media']);
