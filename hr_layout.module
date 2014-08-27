@@ -108,7 +108,7 @@ function hr_layout_block_view($delta = '') {
     case 'hr_layout_share_links':
       $block['content'] = '';
       $context = og_context();
-    print_r($context);
+    print_r($node);
       if (!empty($context) && $context['group_type'] == 'node') {
         $gid = $context['gid'];
         $node = node_load($gid);
