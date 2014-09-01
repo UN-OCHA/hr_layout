@@ -97,7 +97,7 @@ function hr_layout_block_view($delta = '') {
           'attributes' => array('title' => t('RSS Feed')),
         );
         $block['content'] .= '<div class="space-social-media">';
-        $block['content'] .= l('<i class="fa fa-rss-square fa-2x"></i>', 'node/'.$gid.'/feed', $link_options);
+        $block['content'] .= l('<i class="fa fa-rss fa-2x"></i>', 'node/'.$gid.'/feed', $link_options);
         if (isset($view['field_social_media'])) {
           $view['field_social_media']['#label_display'] = 'hidden';
           $block['content'] .= render($view['field_social_media']);
