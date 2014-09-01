@@ -243,7 +243,7 @@ function hr_layout_context_default_contexts() {
           'module' => 'locale',	
           'delta' => 'language',	
           'region' => 'top',
-          'weight' => -4,
+          'weight' => 10,
         ),
       ),
     ),
