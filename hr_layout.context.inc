@@ -93,7 +93,7 @@ function hr_layout_context_default_contexts() {
           'module' => 'hr_layout',
           'delta' => 'hr_layout_share_links',
           'region' => 'sidebar_first',
-          'weight' => '-7',
+          'weight' => '0',
         ),
       ),
     ),
