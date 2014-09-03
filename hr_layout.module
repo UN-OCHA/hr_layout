@@ -172,7 +172,14 @@ function hr_layout_block_view($delta = '') {
 
 
         $block['content'] .= '<hr/>';
-        $block['content'] .= '<div class="manager">' . t('Managed by') . ': <br/><i>Unicef</i></div>';
+
+        if (isset($view['field_organizations'])) {
+          $block['content'] .= '<div class="manager">'.t('Managed by').': <br />';
+          foreach ($view['field_organizations']['#items'] as $org) {
+            $block['content'] .= '<i>'.entity_label('taxonomy_term', $org['entity']).'</i><br />';
+          }
+          $block['content'] .= '</div>';
+        }
 
 
         if (isset($view['field_email'])) {
