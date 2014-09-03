@@ -72,7 +72,6 @@ function hr_layout_context_default_contexts() {
   $context->conditions = array(
     'node' => array(
       'values' => array(
-        'hr_bundle' => 'hr_bundle',
         'hr_operation' => 'hr_operation',
         'hr_sector' => 'hr_sector',
         'hr_space' => 'hr_space',
@@ -90,15 +89,9 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'hr_notifications-hr_follow' => array(
-          'module' => 'hr_notifications',
-          'delta' => 'hr_follow',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'hr_layout-hr_layout_space_links' => array(
+        'hr_layout-hr_layout_share_links' => array(
           'module' => 'hr_layout',
-          'delta' => 'hr_layout_space_links',
+          'delta' => 'hr_layout_share_links',
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),
