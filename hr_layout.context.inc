@@ -28,6 +28,7 @@ function hr_layout_context_default_contexts() {
         'hr_infographic' => 'hr_infographic',
         'hr_news' => 'hr_news',
         'hr_office' => 'hr_office',
+        'hr_disaster' => 'hr_disaster',
       ),
       'options' => array(
         'node_form' => '0',
