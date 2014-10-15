@@ -129,6 +129,10 @@ function hr_layout_context_default_contexts() {
         '~hr_assessments_space' => '~hr_assessments_space',
         '~hr_assessments_space_table' => '~hr_assessments_space_table',
         '~hr_assessments_space_map' => '~hr_assessments_space_map',
+        '~acc_incidents' => '~acc_incidents',
+        '~acc_incidents_graphs' => '~acc_incidents_graphs',
+        '~acc_incidents_map' => '~acc_incidents_map',
+        '~acc_incidents_table' => '~acc_incidents_table',
       ),
     ),
     'context_og_condition_group_type' => array(
