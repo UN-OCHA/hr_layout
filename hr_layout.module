@@ -381,7 +381,7 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
     elseif ($form_id == 'ctools_custom_content_type_edit_form') {
       $form_state['pane']->cache = array(
         'method' => 'simple',
-        'settings' => array('lifetime' => '604800' // 1 week),
+        'settings' => array('lifetime' => '604800'), // 1 week
       );
     }
   }
