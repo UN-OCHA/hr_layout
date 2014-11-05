@@ -352,7 +352,8 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
     'ctools_custom_content_type_edit_form',
     'ctools_node_content_type_edit_form',
     'views_content_views_panes_content_type_edit_form',
-    'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form'
+    'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form',
+    'ctools_bean_pane_content_type_form',
   );
      
   if (in_array($form_id, $panels_add_content_forms)) {
@@ -388,6 +389,12 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
       $form_state['pane']->cache = array(
         'method' => 'simple',
         'settings' => array('lifetime' => '604800', 'granularity' => 'none'), // 1 week
+      );
+    }
+    elseif ($form_id == 'ctools_bean_pane_content_type_form') {
+      $form_state['pane']->cache = array(
+        'method' => 'simple',
+        'settings' => array('lifetime' => '86400', 'granularity' => 'none'), // 1 day
       );
     }
   }
