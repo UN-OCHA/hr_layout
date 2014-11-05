@@ -340,3 +340,21 @@ function hr_layout_ajax_form_callback() {
   module_load_include('inc', 'bean_pane', 'plugins/content_types/bean_pane');
   return ajax_form_callback();
 }
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Change default cache for new Panels panes.
+ */
+function hr_layout_form_alter(&$form, &$form_state, $form_id) {
+  $panels_add_content_forms = array('ctools_block_content_type_edit_form', 'ctools_custom_content_type_edit_form', 'ctools_node_content_type_edit_form');
+     
+  if (in_array($form_id, $panels_add_content_forms)) {
+    // Set default 30 sec cache for all new panes.
+    $form_state['pane']->cache = array(
+      'method' => 'simple',
+      'settings' => array('lifetime' => 30),
+    );
+  }
+}
+
