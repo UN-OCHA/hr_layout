@@ -350,12 +350,16 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
   $panels_add_content_forms = array('ctools_block_content_type_edit_form', 'ctools_custom_content_type_edit_form', 'ctools_node_content_type_edit_form', 'views_content_views_panes_content_type_edit_form');
      
   if (in_array($form_id, $panels_add_content_forms)) {
+    /*if ($form_id == 'views_content_panes_content_type_edit_form') {
+      switch($form_state['pane']->subtype) {
+        case 'hr_documents_panes-list':*/
+        
     debug($form_state['pane']);
     // Set default 30 sec cache for all new panes.
-    $form_state['pane']->cache = array(
+    /*$form_state['pane']->cache = array(
       'method' => 'simple',
       'settings' => array('lifetime' => 30),
-    );
+    );*/
   }
 }
 
