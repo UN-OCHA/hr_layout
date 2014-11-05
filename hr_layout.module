@@ -345,9 +345,15 @@ function hr_layout_ajax_form_callback() {
  * Implements hook_form_alter().
  *
  * Change default cache for new Panels panes.
+ * Sets content cache for views panes and simple cache for custom content and fieldable panels panes
  */
 function hr_layout_form_alter(&$form, &$form_state, $form_id) {
-  $panels_add_content_forms = array('ctools_block_content_type_edit_form', 'ctools_custom_content_type_edit_form', 'ctools_node_content_type_edit_form', 'views_content_views_panes_content_type_edit_form');
+  $panels_add_content_forms = array('ctools_block_content_type_edit_form',
+    'ctools_custom_content_type_edit_form',
+    'ctools_node_content_type_edit_form',
+    'views_content_views_panes_content_type_edit_form',
+    'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form'
+  );
      
   if (in_array($form_id, $panels_add_content_forms)) {
     if ($form_id == 'views_content_panes_content_type_edit_form') {
@@ -378,10 +384,10 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
           break;
       }
     }
-    elseif ($form_id == 'ctools_custom_content_type_edit_form') {
+    elseif ($form_id == 'ctools_custom_content_type_edit_form' || $form_id == 'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form') {
       $form_state['pane']->cache = array(
         'method' => 'simple',
-        'settings' => array('lifetime' => '604800'), // 1 week
+        'settings' => array('lifetime' => '604800', 'granularity' => 'none'), // 1 week
       );
     }
   }
