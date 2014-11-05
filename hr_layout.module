@@ -357,7 +357,7 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
   );
      
   if (in_array($form_id, $panels_add_content_forms)) {
-    if ($form_id == 'views_content_panes_content_type_edit_form') {
+    if ($form_id == 'views_content_views_panes_content_type_edit_form') {
       $cache = array(
         'method' => 'content',
         'settings' => array('lifetime' => 'none'),
