@@ -350,16 +350,40 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
   $panels_add_content_forms = array('ctools_block_content_type_edit_form', 'ctools_custom_content_type_edit_form', 'ctools_node_content_type_edit_form', 'views_content_views_panes_content_type_edit_form');
      
   if (in_array($form_id, $panels_add_content_forms)) {
-    /*if ($form_id == 'views_content_panes_content_type_edit_form') {
+    if ($form_id == 'views_content_panes_content_type_edit_form') {
+      $cache = array(
+        'method' => 'content',
+        'settings' => array('lifetime' => 'none'),
+      );
       switch($form_state['pane']->subtype) {
-        case 'hr_documents_panes-list':*/
-        
-    debug($form_state['pane']);
-    // Set default 30 sec cache for all new panes.
-    /*$form_state['pane']->cache = array(
-      'method' => 'simple',
-      'settings' => array('lifetime' => 30),
-    );*/
+        case 'hr_documents_panes-list':
+          $form_state['pane']->cache = $cache;
+          $form_state['pane']->cache['settings']['content_types'] = array('hr_document' => 'hr_document');
+          break;
+        case 'hr_contacts_panes-list':
+          $form_state['pane']->cache = $cache;
+          $form_state['pane']->cache['settings']['content_types'] = array('hr_contact' => 'hr_contact');
+          break;
+        case 'hr_events_panes-upcoming':
+          $form_state['pane']->cache = $cache;
+          $form_state['pane']->cache['settings']['content_types'] = array('hr_event' => 'hr_event');
+          break;
+        case 'hr_infographics_panes-list':
+          $form_state['pane']->cache = $cache;
+          $form_state['pane']->cache['settings']['content_types'] = array('hr_infographic' => 'hr_infographic');
+          break;
+        case 'hr_news_panes-list':
+          $form_state['pane']->cache = $cache;
+          $form_state['pane']->cache['settings']['content_types'] = array('hr_news' => 'hr_news');
+          break;
+      }
+    }
+    elseif ($form_id == 'ctools_custom_content_type_edit_form') {
+      $form_state['pane']->cache = array(
+        'method' => 'simple',
+        'settings' => array('lifetime' => '604800' // 1 week),
+      );
+    }
   }
 }
 
