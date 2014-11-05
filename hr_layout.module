@@ -347,9 +347,10 @@ function hr_layout_ajax_form_callback() {
  * Change default cache for new Panels panes.
  */
 function hr_layout_form_alter(&$form, &$form_state, $form_id) {
-  $panels_add_content_forms = array('ctools_block_content_type_edit_form', 'ctools_custom_content_type_edit_form', 'ctools_node_content_type_edit_form');
+  $panels_add_content_forms = array('ctools_block_content_type_edit_form', 'ctools_custom_content_type_edit_form', 'ctools_node_content_type_edit_form', 'views_content_views_panes_content_type_edit_form');
      
   if (in_array($form_id, $panels_add_content_forms)) {
+    debug($form_state['pane']);
     // Set default 30 sec cache for all new panes.
     $form_state['pane']->cache = array(
       'method' => 'simple',
