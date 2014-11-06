@@ -72,20 +72,22 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   </div>
   </div>
 
-  <script>
-    $(".hr-layout-operation-standard a").hover(
-    function () {
-      $( this ).addClass("active");
-      var selector = "#" + $( this ).attr("id") + "-thumbnail";
-      $(selector).removeClass("hidden");
-      $(selector).addClass("show");
-    },
-    function() {
-      $( this ).removeClass("active");
-      var selector = "#" + $( this ).attr("id") + "-thumbnail";
-      $(selector).removeClass("show");
-      $(selector).addClass("hidden");
-    });
+  <script type="text/javascript">
+    (function($) {
+      $(".hr-layout-operation-standard a").hover(
+        function () {
+          $( this ).addClass("active");
+          var selector = "#" + $( this ).attr("id") + "-thumbnail";
+          $(selector).removeClass("hidden");
+          $(selector).addClass("show");
+        },
+        function() {
+          $( this ).removeClass("active");
+          var selector = "#" + $( this ).attr("id") + "-thumbnail";
+          $(selector).removeClass("show");
+          $(selector).addClass("hidden");
+        });
+    })(jQuery);
   </script>';
   
   return $block;
