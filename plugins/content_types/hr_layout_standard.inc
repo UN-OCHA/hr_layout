@@ -82,10 +82,10 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
           $(selector).addClass("show");
         },
         function() {
-          $( this ).removeClass("active");
+          /*$( this ).removeClass("active");
           var selector = "#" + $( this ).attr("id") + "-thumbnail";
           $(selector).removeClass("show");
-          $(selector).addClass("hidden");
+          $(selector).addClass("hidden");*/
         });
     })(jQuery);
   </script>';
