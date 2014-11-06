@@ -29,7 +29,8 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $block->title = '';
   $block->content = '';
 
-  $block->content = '<ul class="nav nav-tabs" role="tablist">
+  $block->content = '<div class="clearfix">
+  <ul class="nav nav-tabs" role="tablist">
     <li class="active"><a href="#hpc" role="tab" data-toggle="tab">Humanitarian Programme Cycle</a></li>
     <li><a href="#ocha" role="tab" data-toggle="tab">OCHA Products</a></li>
   </ul>
@@ -68,6 +69,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
         </div>
       </div>
     </div>
+  </div>
   </div>';
   
   return $block;
