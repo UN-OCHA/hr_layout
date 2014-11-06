@@ -74,7 +74,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   <script type="text/javascript">
     (function($) {
-      $(".hr-layout-operation-standard a").hover(
+      $(".hr-layout-operation-standard .tab-content a").hover(
         function () {
           $(".hr-layout-operation-standard a").removeClass("active");
           $(".hr-layout-operation-standard .hr-thumbnail").removeClass("show");
