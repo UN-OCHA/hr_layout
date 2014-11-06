@@ -29,7 +29,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $block->title = '';
   $block->content = '';
 
-  $block->content = '<div class="clearfix">
+  $block->content = '<div class="clearfix hr-layout-operation-standard">
   <ul class="nav nav-tabs" role="tablist">
     <li class="active"><a href="#hpc" role="tab" data-toggle="tab">Humanitarian Programme Cycle</a></li>
     <li><a href="#ocha" role="tab" data-toggle="tab">OCHA Products</a></li>
@@ -70,7 +70,23 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       </div>
     </div>
   </div>
-  </div>';
+  </div>
+
+  <script>
+    $(".hr-layout-operation-standard a").hover(
+    function () {
+      $( this ).addClass("active");
+      var selector = "#" + $( this ).attr("id") + "-thumbnail";
+      $(selector).removeClass("hidden");
+      $(selector).addClass("show");
+    },
+    function() {
+      $( this ).removeClass("active");
+      var selector = "#" + $( this ).attr("id") + "-thumbnail";
+      $(selector).removeClass("show");
+      $(selector).addClass("hidden");
+    });
+  </script>';
   
   return $block;
 }
