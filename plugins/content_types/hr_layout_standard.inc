@@ -8,6 +8,7 @@ $plugin = array(
   'edit form' => 'hr_layout_standard_edit_form',
   'render callback' => 'hr_layout_standard_render',
   'defaults' => array(
+    'gid' => '',
     'hno' => '',
     'srp' => '',
     'monr' => '',
@@ -83,7 +84,7 @@ function hr_layout_standard_edit_form_submit($form, &$form_state) {
 function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL) {
   $block = new stdClass();
 
-  $gid = $conf['gid'];
+  $gid = $conf['gid']['entity_id'];
   /*$hno = _hr_layout_get_list_item($gid, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
   $srp = _hr_layout_get_list_item($gid, 'Strategic Response Plan', 'hr_document', 'srp');
   $monr = _hr_layout_get_list_item($gid, 'Periodic Monitoring Report', 'hr_document', 'monr');
