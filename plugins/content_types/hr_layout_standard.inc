@@ -110,7 +110,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   }
 
   $hpc = array();
-  if (!empty($conf['hno']) {
+  if (!empty($conf['hno'])) {
     $node = node_load($conf['hno']['entity_id']);
     $hpc['hno'] = _hr_layout_get_list_item($node, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
   }
