@@ -27,6 +27,9 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   $gid = arg(1);
   $humanitarian_bulletin = _hr_layout_get_list_item($gid, 'Humanitarian Bulletin', 'hr_document', 'humbul');
+  $sitrep = _hr_layout_get_list_item($gid, 'Situation Report', 'hr_document', 'sitrep', 'show');
+  $snapshot = _hr_layout_get_list_item($gid, 'Humanitarian Snapshot', 'hr_infographic', 'humsnap');
+  $dashboard = _hr_layout_get_list_item($gid, 'Humanitarian Dashboard', 'hr_infographic', 'humdash');
  
   // initial content is blank
   $block->title = '';
@@ -58,17 +61,17 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     </div>
     <div class="tab-pane" id="ocha">
       <div class="col-xs-4">
-        <div id="sitrep-thumbnail" class="hr-thumbnail show"><a href="http://www.humanitarianresponse.info/operations/central-african-republic/document/car-situation-report-no-40-23-october-2014"><img class="img-responsive" src="http://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/pdfpreview/61cf826ef6cd0363f3172680f713e62c.jpg" alt="HNO thumbnail" /></a></div>
+        '.$sitrep['image'].'
         '.$humanitarian_bulletin['image'].'
-        <div id="humsnap-thumbnail" class="hr-thumbnail hidden"><a href="http://www.humanitarianresponse.info/operations/kenya/infographic/kenya-inter-communal-conflict-district-january-june-2014-ocha-8-july"><img class="img-responsive" src="http://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/pdfpreview/0cb6a56f7243a16be661441855e64003.jpg" alt="Monitoring Report thumbnail" /></a></div>
-        <div id="humdash-thumbnail" class="hr-thumbnail hidden"><a href="http://www.humanitarianresponse.info/operations/kenya/infographic/kenya-humanitarian-dashboard-november-2012"><img class="img-responsive" src="http://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/pdfpreview/539ec0c9e0af2e79b1ad7638e5ebcfe0.jpg" alt="Humanitarian Dashboard thumbnail" /></a></div>
+        '.$snapshot['image'].'
+        '.$dashboard['image'].'
       </div>
       <div class="col-xs-8 hr-layout-operation-standard-links">
         <div class="list-group">
-          <a class="list-group-item" id="sitrep">Latest Situation Report</a>
+          '.$sitrep['link'].'
           '.$humanitarian_bulletin['link'].'
-          <a class="list-group-item" id="humsnap">Latest Humanitarian Snapshot</a>
-          <a class="list-group-item" id="humdash">Latest Humanitarian Dashboard</a>
+          '.$snapshot['link'].'
+          '.$dashboard['link'].'
         </div>
       </div>
     </div>
@@ -136,7 +139,7 @@ function _hr_layout_get_pdfpreview($node) {
 /**
  * Creates the full list-item by calling the helper functions
  */
-function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
+function _hr_layout_get_list_item($gid, $term, $type, $prefix, $initial_state = 'hidden') {
   $out = array();
   $node = _hr_layout_get_latest($gid, $term, $type);
   if ($node) {
@@ -144,7 +147,7 @@ function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
     if ($file) {
       $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
       $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
-      $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail hidden">'.$img_link.'</div>';
+      $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.'</div>';
       $date_string = '';
       if (!empty($node->field_publication_date)) {
         $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
