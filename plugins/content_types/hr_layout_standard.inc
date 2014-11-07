@@ -147,8 +147,7 @@ function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
       $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail hidden">'.$img_link.'</div>';
       $date_string = '';
       if (!empty($node->field_publication_date)) {
-        $date = new DateTime($node->field_publication_date[LANGUAGE_NONE][0]['value'], new DateTimeZone($node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']));
-        debug($date);
+        $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
         $date_string = ' - '.date_format_date($date, 'hr_2');
       }
       $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string.'</a>';
