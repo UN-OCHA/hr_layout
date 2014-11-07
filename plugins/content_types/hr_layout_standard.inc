@@ -27,7 +27,8 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   $gid = arg(1);
   $humanitarian_bulletin = _hr_layout_get_latest($gid, 'Humanitarian Bulletin', 'hr_document');
-  _hr_layout_get_pdfpreview($humanitarian_bulletin);
+  $pdfpreview = _hr_layout_get_pdfpreview($humanitarian_bulletin);
+  debug($pdfpreview);
  
   // initial content is blank
   $block->title = '';
@@ -129,5 +130,6 @@ function _hr_layout_get_latest($gid, $term, $type) {
 function _hr_layout_get_pdfpreview($node) {
   $fcid = $node->field_files_collection[LANGUAGE_NONE][0]['value'];
   $entity = entity_load_single('field_collection_item', $fcid);
-  debug($entity);
+  $file = $entity->field_file[LANGUAGE_NONE][0];
+  return _pdfpreview_create_preview($file);
 } 
