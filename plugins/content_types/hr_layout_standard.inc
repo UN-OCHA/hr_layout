@@ -9,6 +9,9 @@ $plugin = array(
   'render callback' => 'hr_layout_standard_render',
   'defaults' => array(
     'hno' => '',
+    'srp' => '',
+    'monr' => '',
+    'opr' => '',
   ),
 );
 
@@ -23,6 +26,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#title' => t('Humanitarian Needs Overview'),
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
+    '#default_value' => $conf['hno'],
   );
 
   $form['srp'] = array(
@@ -30,6 +34,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#title' => t('Strategic Response Plan'),
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
+    '#default_value' => $conf['srp'],
   );
 
   $form['monr'] = array(
@@ -37,6 +42,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#title' => t('Periodic Monitoring Report'),
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
+    '#default_value' => $conf['monr'],
   );
 
   $form['opr'] = array(
@@ -44,6 +50,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#title' => t('Operational Peer Review Summary'),
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
+    '#default_value' => $conf['opr'],
   );
 
   return $form;
