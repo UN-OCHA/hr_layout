@@ -24,6 +24,10 @@ function hr_layout_standard_edit_form($form, &$form_state) {
  */
 function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL) {
   $block = new stdClass();
+
+  $gid = arg(1);
+  $humanitarian_bulletin = _hr_layout_get_latest($gid, 'Humanitarian Bulletin', 'hr_document');
+  debug($humanitarian_bulletin);
  
   // initial content is blank
   $block->title = '';
@@ -89,4 +93,32 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   </script>';
   
   return $block;
+}
+
+/**
+ * Helper function to retrieve latest document/infographic of a specific doc type
+ */
+function _hr_layout_get_latest($gid, $term, $type) {
+  // Get term ID
+  $terms = taxonomy_get_term_by_name($term, $type.'_type');
+  $term = reset($terms);
+  if ($term) {
+    $field_type = 'field_document_type';
+    if ($type == 'hr_infographic') {
+      $field_type = 'field_infographic_type';
+    }
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', $type)
+    ->fieldCondition($field_type, 'target_id', $term->tid, '=')
+    ->fieldCondition(OG_AUDIENCE_FIELD, 'target_id', $gid, '=')
+    ->fieldOrderBy('field_publication_date', 'value', 'DESC')
+    ->range(0, 1);
+
+    $result = $query->execute();
+    if (isset($result['node'])) {
+      $node = reset($result['node']);
+      return $node;
+    }
+  }
 }
