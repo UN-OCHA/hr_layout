@@ -114,6 +114,18 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     $node = node_load($conf['hno']['entity_id']);
     $hpc['hno'] = _hr_layout_get_list_item($node, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
   }
+
+  if (!empty($conf['srp'])) {
+    $node = node_load($conf['srp']['entity_id']);
+    $hpc['srp'] = _hr_layout_get_list_item($node, 'Strategic Response Plan', 'hr_document', 'srp', 'hidden');
+  }
+
+  if (!empty($conf['monr'])) {
+    $node = node_load($conf['monr']['entity_id']);
+    $hpc['monr'] = _hr_layout_get_list_item($node, 'Periodic Monitoring Report', 'hr_document', 'monr', 'hidden');
+  }
+
+
   
   // initial content is blank
   $block->title = '';
@@ -131,14 +143,14 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       <div class="row">
         <div class="col-xs-4">
           '.$hpc['hno']['image'].'
-          <div id="srp-thumbnail" class="hr-thumbnail hidden"><a href="http://www.humanitarianresponse.info/operations/iraq/document/immediate-response-plan-irp-idps-crisis-kr-i-15-sept-15-nov-2014"><img class="img-responsive" src="http://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/pdfpreview/00cbaa7410c0557a567dbce25151bd47.jpg" alt="SRP thumbnail" /></a></div>
-          <div id="monr-thumbnail" class="hr-thumbnail hidden"><a href="http://www.humanitarianresponse.info/operations/philippines/document/typhoon-haiyanyolanda-final-periodic-montoring-report-pmr-22oct2014"><img class="img-responsive" src="http://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/pdfpreview/0d26bfd6850937d430a0f6157e66d88e.jpg" alt="Monitoring Report thumbnail" /></a></div>
+          '.$hpc['srp']['image'].'
+          '.$hpc['monr']['image'].'
         </div>
         <div class="col-xs-8 hr-layout-operation-standard-links">
           <div class="list-group">
             '.$hpc['hno']['link'].'
-            <a class="list-group-item" id="srp">Strategic Response Plan - SEP / 23 / 2014</a>
-            <a class="list-group-item" id="monr">Monitoring Report - OCT / 23 /2014</a>
+            '.$hpc['srp']['link'].'
+            '.$hpc['monr']['link'].'
           </div>
         </div>
       </div>
