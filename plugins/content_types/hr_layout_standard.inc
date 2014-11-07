@@ -7,7 +7,9 @@ $plugin = array(
   'category' => t('Humanitarianresponse'),
   'edit form' => 'hr_layout_standard_edit_form',
   'render callback' => 'hr_layout_standard_render',
-  'defaults' => array(),
+  'defaults' => array(
+    'hno' => '',
+  ),
 );
 
 /**
@@ -15,6 +17,15 @@ $plugin = array(
  */
 function hr_layout_standard_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
+
+  $form['hno'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Humanitarian Needs Overview'),
+    '#maxlength' => 60,
+    '#autocomplete_path' => 'entityreference/autocomplete/single/field_documents/node/hr_document',
+    '#weight' => -1,
+  );
+
   return $form;
 }
 
@@ -26,6 +37,11 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $block = new stdClass();
 
   $gid = arg(1);
+  /*$hno = _hr_layout_get_list_item($gid, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
+  $srp = _hr_layout_get_list_item($gid, 'Strategic Response Plan', 'hr_document', 'srp');
+  $monr = _hr_layout_get_list_item($gid, 'Periodic Monitoring Report', 'hr_document', 'monr');
+  $opr = _hr_layout_get_list_item($gid, 'Operational Peer Review Summary', 'hr_document', 'opr');*/
+  
   $humanitarian_bulletin = _hr_layout_get_list_item($gid, 'Humanitarian Bulletin', 'hr_document', 'humbul');
   $sitrep = _hr_layout_get_list_item($gid, 'Situation Report', 'hr_document', 'sitrep', 'show');
   $snapshot = _hr_layout_get_list_item($gid, 'Humanitarian Snapshot', 'hr_infographic', 'humsnap');
