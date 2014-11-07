@@ -46,9 +46,9 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
         </div>
         <div class="col-xs-8 hr-layout-operation-standard-links">
           <div class="list-group">
-            <a href="#" class="list-group-item" id="hno">Humanitarian Needs Overview - JUL / 07 / 2014</a>
-            <a href="#" class="list-group-item" id="srp">Strategic Response Plan - SEP / 23 / 2014</a>
-            <a href="#" class="list-group-item" id="monr">Monitoring Report - OCT / 23 /2014</a>
+            <a class="list-group-item" id="hno">Humanitarian Needs Overview - JUL / 07 / 2014</a>
+            <a class="list-group-item" id="srp">Strategic Response Plan - SEP / 23 / 2014</a>
+            <a class="list-group-item" id="monr">Monitoring Report - OCT / 23 /2014</a>
           </div>
         </div>
       </div>
