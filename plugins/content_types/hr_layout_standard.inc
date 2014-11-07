@@ -62,10 +62,10 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       </div>
       <div class="col-xs-8 hr-layout-operation-standard-links">
         <div class="list-group">
-          <a href="http://www.humanitarianresponse.info/operations/central-african-republic/document/car-situation-report-no-40-23-october-2014" class="list-group-item" id="sitrep">Latest Situation Report</a>
-          <a href="http://www.humanitarianresponse.info/operations/ethiopia/document/humanitarian-bulletin-20-october-2014" class="list-group-item" id="humbul">Latest Humanitarian Bulletin</a>
-          <a href="http://www.humanitarianresponse.info/operations/kenya/infographic/kenya-inter-communal-conflict-district-january-june-2014-ocha-8-july" class="list-group-item" id="humsnap">Latest Humanitarian Snapshot</a>
-          <a href="http://www.humanitarianresponse.info/operations/kenya/infographic/kenya-humanitarian-dashboard-november-2012" class="list-group-item" id="humdash">Latest Humanitarian Dashboard</a>
+          <a href="#" class="list-group-item" id="sitrep">Latest Situation Report</a>
+          <a href="#" class="list-group-item" id="humbul">Latest Humanitarian Bulletin</a>
+          <a href="#" class="list-group-item" id="humsnap">Latest Humanitarian Snapshot</a>
+          <a href="#" class="list-group-item" id="humdash">Latest Humanitarian Dashboard</a>
         </div>
       </div>
     </div>
