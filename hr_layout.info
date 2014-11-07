@@ -6,6 +6,7 @@ dependencies[] = bean
 dependencies[] = bean_pane
 dependencies[] = context_og
 dependencies[] = ctools
+dependencies[] = entityreference_autocomplete
 dependencies[] = fts_visualization
 dependencies[] = hr_assessments
 dependencies[] = hr_bookmarks

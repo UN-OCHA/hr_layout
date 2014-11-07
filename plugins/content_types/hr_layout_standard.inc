@@ -19,11 +19,10 @@ function hr_layout_standard_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
 
   $form['hno'] = array(
-    '#type' => 'textfield',
+    '#type' => 'entityreference',
     '#title' => t('Humanitarian Needs Overview'),
-    '#maxlength' => 60,
-    '#autocomplete_path' => 'entityreference/autocomplete/single/field_documents/node/hr_document',
-    '#weight' => -1,
+    '#era_entity_type' => 'node',
+    '#era_bundles' => array('hr_document'),
   );
 
   return $form;
