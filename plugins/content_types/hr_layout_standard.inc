@@ -148,7 +148,7 @@ function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
       $date_string = '';
       if (!empty($node->field_publication_date)) {
         $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
-        $date_string = ' - '.date_format_date($date, 'hr_2');
+        $date_string = ' - '.date_format_date($date, 'custom', 'd M Y');
       }
       $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string.'</a>';
       $out = array(
