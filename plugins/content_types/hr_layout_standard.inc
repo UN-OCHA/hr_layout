@@ -25,6 +25,27 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#era_bundles' => array('hr_document'),
   );
 
+  $form['srp'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Strategic Response Plan'),
+    '#era_entity_type' => 'node',
+    '#era_bundles' => array('hr_document'),
+  );
+
+  $form['monr'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Periodic Monitoring Report'),
+    '#era_entity_type' => 'node',
+    '#era_bundles' => array('hr_document'),
+  );
+
+  $form['opr'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Operational Peer Review Summary'),
+    '#era_entity_type' => 'node',
+    '#era_bundles' => array('hr_document'),
+  );
+
   return $form;
 }
 
