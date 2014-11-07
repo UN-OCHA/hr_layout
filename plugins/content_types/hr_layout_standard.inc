@@ -150,7 +150,7 @@ function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
         $date = new DateTime($node->field_publication_date[LANGUAGE_NONE][0]['value'], new DateTimeZone($node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']));
         $date_string = ' - '.date_format_date($date, 'hr_1');
       }
-      $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string'</a>';
+      $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string.'</a>';
       $out = array(
         'image' => $img_link,
         'link' => $link,
