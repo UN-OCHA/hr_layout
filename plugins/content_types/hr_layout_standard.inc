@@ -62,10 +62,10 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       </div>
       <div class="col-xs-8 hr-layout-operation-standard-links">
         <div class="list-group">
-          <a href="#" class="list-group-item" id="sitrep">Latest Situation Report</a>
-          <a href="#" class="list-group-item" id="humbul">Latest Humanitarian Bulletin</a>
-          <a href="#" class="list-group-item" id="humsnap">Latest Humanitarian Snapshot</a>
-          <a href="#" class="list-group-item" id="humdash">Latest Humanitarian Dashboard</a>
+          <a class="list-group-item" id="sitrep">Latest Situation Report</a>
+          <a class="list-group-item" id="humbul">Latest Humanitarian Bulletin</a>
+          <a class="list-group-item" id="humsnap">Latest Humanitarian Snapshot</a>
+          <a class="list-group-item" id="humdash">Latest Humanitarian Dashboard</a>
         </div>
       </div>
     </div>
