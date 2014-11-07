@@ -21,7 +21,7 @@ $plugin = array(
 function hr_layout_standard_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
 
-  /*$form['hno'] = array(
+  $form['hno'] = array(
     '#type' => 'entityreference',
     '#title' => t('Humanitarian Needs Overview'),
     '#era_entity_type' => 'node',
@@ -51,14 +51,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
     '#default_value' => $conf['opr'],
-  );*/
-
-  /*$form['opr'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Test'),
-    '#default_value' => $conf['opr'],
-  );*/
-
+  );
 
   return $form;
 }
