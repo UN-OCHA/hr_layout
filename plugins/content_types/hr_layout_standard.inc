@@ -89,12 +89,26 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $srp = _hr_layout_get_list_item($gid, 'Strategic Response Plan', 'hr_document', 'srp');
   $monr = _hr_layout_get_list_item($gid, 'Periodic Monitoring Report', 'hr_document', 'monr');
   $opr = _hr_layout_get_list_item($gid, 'Operational Peer Review Summary', 'hr_document', 'opr');*/
+
+  $ocha_desc = array(
+    'sitrep' => array('term' => 'Situation Report', 'type' => 'hr_document'),
+    'humbul' => array('term' => 'Humanitarian Bulletin', 'type' => 'hr_document'),
+    'humsnap' => array('term' => 'Humanitarian Snapshot', 'type' => 'hr_infographic'),
+    'humdash' => array('term' => 'Humanitarian Dashboard', 'type' => 'hr_infographic'),
+  );
+
+  $ocha_products = array();
+  $i = 0;
+  foreach ($ocha_desc as $key => $value) {
+    $initial_state = 'hidden';
+    if ($i == 0) {
+      $initial_state = 'show';
+    }
+    $node = _hr_layout_get_latest($gid, $value['term'], $value['type']);
+    $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state);
+    $i++;
+  }
   
-  $humanitarian_bulletin = _hr_layout_get_list_item($gid, 'Humanitarian Bulletin', 'hr_document', 'humbul');
-  $sitrep = _hr_layout_get_list_item($gid, 'Situation Report', 'hr_document', 'sitrep', 'show');
-  $snapshot = _hr_layout_get_list_item($gid, 'Humanitarian Snapshot', 'hr_infographic', 'humsnap');
-  $dashboard = _hr_layout_get_list_item($gid, 'Humanitarian Dashboard', 'hr_infographic', 'humdash');
- 
   // initial content is blank
   $block->title = '';
   $block->content = '';
@@ -125,17 +139,17 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     </div>
     <div class="tab-pane" id="ocha">
       <div class="col-xs-4">
-        '.$sitrep['image'].'
-        '.$humanitarian_bulletin['image'].'
-        '.$snapshot['image'].'
-        '.$dashboard['image'].'
+        '.$ocha_products['sitrep']['image'].'
+        '.$ocha_products['humbul']['image'].'
+        '.$ocha_products['humsnap']['image'].'
+        '.$ocha_products['humdash']['image'].'
       </div>
       <div class="col-xs-8 hr-layout-operation-standard-links">
         <div class="list-group">
-          '.$sitrep['link'].'
-          '.$humanitarian_bulletin['link'].'
-          '.$snapshot['link'].'
-          '.$dashboard['link'].'
+          '.$ocha_products['sitrep']['link'].'
+          '.$ocha_products['humbul']['link'].'
+          '.$ocha_products['humsnap']['link'].'
+          '.$ocha_products['humdash']['link'].'
         </div>
       </div>
     </div>
@@ -203,26 +217,23 @@ function _hr_layout_get_pdfpreview($node) {
 /**
  * Creates the full list-item by calling the helper functions
  */
-function _hr_layout_get_list_item($gid, $term, $type, $prefix, $initial_state = 'hidden') {
+function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state = 'hidden') {
   $out = array();
-  $node = _hr_layout_get_latest($gid, $term, $type);
-  if ($node) {
-    $file = _hr_layout_get_pdfpreview($node);
-    if ($file) {
-      $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
-      $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
-      $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.'</div>';
-      $date_string = '';
-      if (!empty($node->field_publication_date)) {
-        $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
-        $date_string = ' - '.date_format_date($date, 'custom', 'd M Y');
-      }
-      $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string.'</a>';
-      $out = array(
-        'image' => $img_link,
-        'link' => $link,
-      );
+  $file = _hr_layout_get_pdfpreview($node);
+  if ($file) {
+    $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
+    $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
+    $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.'</div>';
+    $date_string = '';
+    if (!empty($node->field_publication_date)) {
+      $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
+      $date_string = ' - '.date_format_date($date, 'custom', 'd M Y');
     }
+    $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string.'</a>';
+    $out = array(
+      'image' => $img_link,
+      'link' => $link,
+    );
   }
   return $out;
 }
