@@ -118,7 +118,7 @@ function _hr_layout_get_latest($gid, $term, $type) {
     $result = $query->execute();
     if (isset($result['node'])) {
       $node = reset($result['node']);
-      return $node;
+      return node_load($node->nid);
     }
   }
 }
