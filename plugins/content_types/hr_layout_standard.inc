@@ -145,8 +145,12 @@ function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
       $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
       $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
       $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail hidden">'.$img_link.'</div>';
-      $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.'</a>';
-      debug($node->field_publication_date);
+      $date_string = '';
+      if (!empty($node->field_publication_date)) {
+        $date = new DateTime($node->field_publication_date[LANGUAGE_NONE][0]['value'], new DateTimeZone($node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']));
+        $date_string = ' - '.date_format_date($date, 'hr_1');
+      }
+      $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string'</a>';
       $out = array(
         'image' => $img_link,
         'link' => $link,
