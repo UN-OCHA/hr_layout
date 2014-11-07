@@ -53,11 +53,11 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#default_value' => $conf['opr'],
   );*/
 
-  $form['opr'] = array(
+  /*$form['opr'] = array(
     '#type' => 'textfield',
     '#title' => t('Test'),
     '#default_value' => $conf['opr'],
-  );
+  );*/
 
 
   return $form;
