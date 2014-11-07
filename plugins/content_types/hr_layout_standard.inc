@@ -131,5 +131,7 @@ function _hr_layout_get_pdfpreview($node) {
   $fcid = $node->field_files_collection[LANGUAGE_NONE][0]['value'];
   $entity = entity_load_single('field_collection_item', $fcid);
   $file = $entity->field_file[LANGUAGE_NONE][0];
-  return _pdfpreview_create_preview($file);
+  $file_uri = _pdfpreview_create_preview($file);
+  $file_uri = file_stream_wrapper_get_instance_by_uri($file_uri);
+  return $file_uri->realpath();
 } 
