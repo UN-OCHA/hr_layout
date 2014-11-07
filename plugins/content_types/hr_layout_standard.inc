@@ -50,6 +50,17 @@ function hr_layout_standard_edit_form($form, &$form_state) {
 }
 
 /**
+ * The submit form stores the data in $conf.
+ */
+function hr_layout_standard_edit_form_submit($form, &$form_state) {
+  foreach (array_keys($form_state['plugin']['defaults']) as $key) {
+    if (isset($form_state['values'][$key])) {
+      $form_state['conf'][$key] = $form_state['values'][$key];
+    }
+  }
+}
+
+/**
  * Run-time rendering of the body of the block (content type)
  * See ctools_plugin_examples for more advanced info
  */
