@@ -21,6 +21,15 @@ $plugin = array(
 function hr_layout_standard_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
 
+  $form['gid'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Operation'),
+    '#era_entity_type' => 'node',
+    '#era_bundles' => array('hr_operation'),
+    '#default_value' => $conf['gid'],
+    '#required' => TRUE,
+  );
+
   $form['hno'] = array(
     '#type' => 'entityreference',
     '#title' => t('Humanitarian Needs Overview'),
@@ -74,7 +83,7 @@ function hr_layout_standard_edit_form_submit($form, &$form_state) {
 function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL) {
   $block = new stdClass();
 
-  $gid = arg(1);
+  $gid = $conf['gid'];
   /*$hno = _hr_layout_get_list_item($gid, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
   $srp = _hr_layout_get_list_item($gid, 'Strategic Response Plan', 'hr_document', 'srp');
   $monr = _hr_layout_get_list_item($gid, 'Periodic Monitoring Report', 'hr_document', 'monr');
