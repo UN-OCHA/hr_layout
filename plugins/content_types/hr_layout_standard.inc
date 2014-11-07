@@ -46,9 +46,9 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
         </div>
         <div class="col-xs-8 hr-layout-operation-standard-links">
           <div class="list-group">
-            <a href="http://www.humanitarianresponse.info/operations/iraq/document/iraq-humanitarian-needs-overview-arabic" class="list-group-item" id="hno">Humanitarian Needs Overview - JUL / 07 / 2014</a>
-            <a href="http://www.humanitarianresponse.info/operations/iraq/document/immediate-response-plan-irp-idps-crisis-kr-i-15-sept-15-nov-2014" class="list-group-item" id="srp">Strategic Response Plan - SEP / 23 / 2014</a>
-            <a href="http://www.humanitarianresponse.info/operations/philippines/document/typhoon-haiyanyolanda-final-periodic-montoring-report-pmr-22oct2014" class="list-group-item" id="monr">Monitoring Report - OCT / 23 /2014</a>
+            <a href="#" class="list-group-item" id="hno">Humanitarian Needs Overview - JUL / 07 / 2014</a>
+            <a href="#" class="list-group-item" id="srp">Strategic Response Plan - SEP / 23 / 2014</a>
+            <a href="#" class="list-group-item" id="monr">Monitoring Report - OCT / 23 /2014</a>
           </div>
         </div>
       </div>
