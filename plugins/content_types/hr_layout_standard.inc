@@ -146,6 +146,7 @@ function _hr_layout_get_list_item($gid, $term, $type, $prefix) {
       $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
       $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail hidden">'.$img_link.'</div>';
       $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.'</a>';
+      debug($node->field_publication_date);
       $out = array(
         'image' => $img_link,
         'link' => $link,
