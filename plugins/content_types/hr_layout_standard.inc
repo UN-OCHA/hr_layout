@@ -240,7 +240,12 @@ function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state =
   $file = _hr_layout_get_pdfpreview($node);
   if ($file) {
     $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
-    $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
+    if ($initial_state == 'show') {
+      $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE, 'attributes' => array('class' => array('active'))));
+    }
+    else {
+      $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
+    }
     $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.'</div>';
     $date_string = '';
     if (!empty($node->field_publication_date)) {
