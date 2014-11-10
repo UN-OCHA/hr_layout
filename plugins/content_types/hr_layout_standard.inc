@@ -249,9 +249,9 @@ function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state =
     }
     $active_link = '';
     if ($initial_state == 'show') {
-      $active_link = 'class="active"';
+      $active_link = 'active';
     }
-    $link = '<a class="list-group-item" id="'.$prefix.'" '.$active_link.'>'.$term.$date_string.'</a>';
+    $link = '<a class="list-group-item '.$active_link.'" id="'.$prefix.'">'.$term.$date_string.'</a>';
     $out = array(
       'image' => $img_link,
       'link' => $link,
