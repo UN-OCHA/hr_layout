@@ -240,19 +240,18 @@ function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state =
   $file = _hr_layout_get_pdfpreview($node);
   if ($file) {
     $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
-    if ($initial_state == 'show') {
-      $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE, 'attributes' => array('class' => array('active'))));
-    }
-    else {
-      $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
-    }
+    $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
     $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.'</div>';
     $date_string = '';
     if (!empty($node->field_publication_date)) {
       $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
       $date_string = ' - '.date_format_date($date, 'custom', 'd M Y');
     }
-    $link = '<a class="list-group-item" id="'.$prefix.'">'.$term.$date_string.'</a>';
+    $active_link = '';
+    if ($initial_state == 'show') {
+      $active_link = 'class="active"';
+    }
+    $link = '<a class="list-group-item" id="'.$prefix.'" '.$active_link.'>'.$term.$date_string.'</a>';
     $out = array(
       'image' => $img_link,
       'link' => $link,
