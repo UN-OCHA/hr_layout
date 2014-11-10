@@ -178,9 +178,9 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     (function($) {
       $(".hr-layout-operation-standard-links a").hover(
         function () {
-          $(".hr-layout-operation-standard-links a").removeClass("active");
-          $(".hr-layout-operation-standard .hr-thumbnail").removeClass("show");
-          $(".hr-layout-operation-standard .hr-thumbnail").addClass("hidden");
+          $(".hr-layout-operation-standard .tab-pane:visible a").removeClass("active");
+          $(".hr-layout-operation-standard .tab-pane:visible .hr-thumbnail").removeClass("show");
+          $(".hr-layout-operation-standard .tab-pane:visible .hr-thumbnail").addClass("hidden");
           $( this ).addClass("active");
           var selector = "#" + $( this ).attr("id") + "-thumbnail";
           $(selector).removeClass("hidden");
