@@ -134,6 +134,11 @@ function hr_layout_context_default_contexts() {
         '~acc_incidents_graphs' => '~acc_incidents_graphs',
         '~acc_incidents_map' => '~acc_incidents_map',
         '~acc_incidents_table' => '~acc_incidents_table',
+        '~acc_applications' => '~acc_applications',
+        '~acc_applications_imp_reports' => '~acc_applications_imp_reports',
+        '~acc_applications_map' => '~acc_applications_map',
+        '~acc_applications_reports' => '~acc_applications_reports',
+        '~acc_applications_table' => '~acc_applications_table',
       ),
     ),
     'context_og_condition_group_type' => array(
