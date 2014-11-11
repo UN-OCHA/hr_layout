@@ -29,7 +29,7 @@ function hr_layout_context_default_contexts() {
         'hr_news' => 'hr_news',
         'hr_office' => 'hr_office',
         'hr_toolbox_item' => 'hr_toolbox_item',
-      ,
+      ),
       'options' => array(
         'node_form' => '0',
       ),
