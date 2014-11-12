@@ -109,25 +109,24 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     $i++;
   }
 
-  $hpc = array();
-  if (!empty($conf['hno'])) {
-    $node = node_load($conf['hno']['entity_id']);
-    $hpc['hno'] = _hr_layout_get_list_item($node, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
-  }
+  $hpc_keys = array(
+    'hno' => 'Humanitarian Needs Overview',
+    'srp' => 'Strategic Response Plan',
+    'monr' => 'Periodic Monitoring Report',
+    'opr' => 'Operational Peer Review Summary',
+  );
 
-  if (!empty($conf['srp'])) {
-    $node = node_load($conf['srp']['entity_id']);
-    $hpc['srp'] = _hr_layout_get_list_item($node, 'Strategic Response Plan', 'hr_document', 'srp', 'hidden');
-  }
-
-  if (!empty($conf['monr'])) {
-    $node = node_load($conf['monr']['entity_id']);
-    $hpc['monr'] = _hr_layout_get_list_item($node, 'Periodic Monitoring Report', 'hr_document', 'monr', 'hidden');
-  }
-
-  if (!empty($conf['opr'])) {
-    $node = node_load($conf['opr']['entity_id']);
-    $hpc['opr'] = _hr_layout_get_list_item($node, 'Operational Peer Review Summary', 'hr_document', 'opr', 'hidden');
+  $i = 0;
+  foreach ($hpc_keys as $hpc_key => $hpc_title) {
+    $initial_state = 'hidden';
+    if (!empty($conf[$hpc_key])) {
+      if ($i == 0) {
+        $initial_state = 'show';
+        $i++;
+      }
+      $node = node_load($conf[$hpc_key]['entity_id']);
+      $hpc[$hpc_key] = _hr_layout_get_list_item($node, $hpc_title, 'hr_document', $hpc_key, $initial_state);
+    }
   }
 
   $hpc_images = '';
