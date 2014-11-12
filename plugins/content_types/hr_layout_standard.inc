@@ -85,10 +85,6 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $block = new stdClass();
 
   $gid = $conf['gid']['entity_id'];
-  /*$hno = _hr_layout_get_list_item($gid, 'Humanitarian Needs Overview', 'hr_document', 'hno', 'show');
-  $srp = _hr_layout_get_list_item($gid, 'Strategic Response Plan', 'hr_document', 'srp');
-  $monr = _hr_layout_get_list_item($gid, 'Periodic Monitoring Report', 'hr_document', 'monr');
-  $opr = _hr_layout_get_list_item($gid, 'Operational Peer Review Summary', 'hr_document', 'opr');*/
 
   $ocha_desc = array(
     'sitrep' => array('term' => 'Situation Report', 'type' => 'hr_document'),
@@ -98,6 +94,8 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   );
 
   $ocha_products = array();
+  $ocha_images = '';
+  $ocha_links = '';
   $i = 0;
   foreach ($ocha_desc as $key => $value) {
     $initial_state = 'hidden';
@@ -106,6 +104,8 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     }
     $node = _hr_layout_get_latest($gid, $value['term'], $value['type']);
     $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state);
+    $ocha_images .= $ocha_products[$key]['image'];
+    $ocha_links .= $ocha_products[$key]['link'];
     $i++;
   }
 
@@ -125,6 +125,17 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     $hpc['monr'] = _hr_layout_get_list_item($node, 'Periodic Monitoring Report', 'hr_document', 'monr', 'hidden');
   }
 
+  if (!empty($conf['opr'])) {
+    $node = node_load($conf['opr']['entity_id']);
+    $hpc['opr'] = _hr_layout_get_list_item($node, 'Operational Peer Review Summary', 'hr_document', 'opr', 'hidden');
+  }
+
+  $hpc_images = '';
+  $hpc_links = '';
+  foreach ($hpc as $hpc_doc) {
+    $hpc_images .= $hpc_doc['image'];
+    $hpc_links .= $hpc_doc['link'];
+  }
 
   
   // initial content is blank
@@ -133,42 +144,24 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   $block->content = '<div class="clearfix hr-layout-operation-standard">
   <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="#hpc" role="tab" data-toggle="tab">Humanitarian Programme Cycle</a></li>
-    <li><a href="#ocha" role="tab" data-toggle="tab">OCHA Products</a></li>
+    <li class="active"><a href="#hpc" role="tab" data-toggle="tab">'.t('Humanitarian Programme Cycle').'</a></li>
+    <li><a href="#ocha" role="tab" data-toggle="tab">'.t('OCHA Products').'</a></li>
   </ul>
   
   <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="hpc">
       <div class="row">
-        <div class="col-xs-4">
-          '.$hpc['hno']['image'].'
-          '.$hpc['srp']['image'].'
-          '.$hpc['monr']['image'].'
-        </div>
+        <div class="col-xs-4">'.$hpc_images.'</div>
         <div class="col-xs-8 hr-layout-operation-standard-links">
-          <div class="list-group">
-            '.$hpc['hno']['link'].'
-            '.$hpc['srp']['link'].'
-            '.$hpc['monr']['link'].'
-          </div>
+          <div class="list-group">'.$hpc_links.'</div>
         </div>
       </div>
     </div>
     <div class="tab-pane" id="ocha">
-      <div class="col-xs-4">
-        '.$ocha_products['sitrep']['image'].'
-        '.$ocha_products['humbul']['image'].'
-        '.$ocha_products['humsnap']['image'].'
-        '.$ocha_products['humdash']['image'].'
-      </div>
+      <div class="col-xs-4">'.$ocha_images.'</div>
       <div class="col-xs-8 hr-layout-operation-standard-links">
-        <div class="list-group">
-          '.$ocha_products['sitrep']['link'].'
-          '.$ocha_products['humbul']['link'].'
-          '.$ocha_products['humsnap']['link'].'
-          '.$ocha_products['humdash']['link'].'
-        </div>
+        <div class="list-group">'.$ocha_links.'</div>
       </div>
     </div>
   </div>
