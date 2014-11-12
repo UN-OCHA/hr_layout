@@ -233,7 +233,8 @@ function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state =
   if ($file) {
     $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
     $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
-    $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.'</div>';
+    $more_link = l('See more', 'node/'.$node->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE][0]['target_id'].'/documents/document-type/situation-report');
+    $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.$more_link.'</div>';
     $date_string = '';
     if (!empty($node->field_publication_date)) {
       $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
