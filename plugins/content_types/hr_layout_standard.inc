@@ -235,7 +235,7 @@ function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state =
     $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
     $more_link = '';
     if (!empty($see_more)) {
-      $more_link = l(t('See more @term', array('@term' => $term)), $see_more, array('attributes' => array('class' => 'hr-layout-see-more')));
+      $more_link = l(t('See more @term', array('@term' => $term.'s')), $see_more, array('attributes' => array('class' => 'hr-layout-see-more')));
     }
     $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.$more_link.'</div>';
     $date_string = '';
