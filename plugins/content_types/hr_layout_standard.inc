@@ -103,17 +103,17 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       $initial_state = 'show';
     }
     $node = _hr_layout_get_latest($gid, $value['term'], $value['type']);
-    $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state, $value['see_more']);
+    $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state, $value['see_more'], t('See more @term', array('@term' => $value['term'].'s')));
     $ocha_images .= $ocha_products[$key]['image'];
     $ocha_links .= $ocha_products[$key]['link'];
     $i++;
   }
 
   $hpc_keys = array(
-    'hno' => array('term' => 'Humanitarian Needs Overview', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-needs-overview'),
-    'srp' => array('term' => 'Strategic Response Plan', 'see_more' => 'node/'.$gid.'/documents/document-type/strategic-response-plan'),
-    'monr' => array('term' => 'Periodic Monitoring Report', 'see_more' => 'node/'.$gid.'/documents/document-type/periodic-monitoring-report'),
-    'opr' => array('term' => 'Operational Peer Review Summary', 'see_more' => 'node/'.$gid.'/documents/document-type/operational-peer-review-summary'),
+    'hno' => array('term' => 'Humanitarian Needs Overview', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
+    'srp' => array('term' => 'Strategic Response Plan', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
+    'monr' => array('term' => 'Periodic Monitoring Report', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
+    'opr' => array('term' => 'Operational Peer Review Summary', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
   );
 
   $i = 0;
@@ -125,7 +125,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
         $i++;
       }
       $node = node_load($conf[$hpc_key]['entity_id']);
-      $hpc[$hpc_key] = _hr_layout_get_list_item($node, $hpc_row['term'], 'hr_document', $hpc_key, $initial_state, $hpc_row['see_more']);
+      $hpc[$hpc_key] = _hr_layout_get_list_item($node, $hpc_row['term'], 'hr_document', $hpc_key, $initial_state, $hpc_row['see_more'], t('See more HPC documents'));
     }
   }
 
@@ -227,15 +227,15 @@ function _hr_layout_get_pdfpreview($node) {
 /**
  * Creates the full list-item by calling the helper functions
  */
-function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state = 'hidden', $see_more = '') {
+function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state = 'hidden', $see_more_link = '', $see_more_title = '') {
   $out = array();
   $file = _hr_layout_get_pdfpreview($node);
   if ($file) {
     $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
     $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
     $more_link = '';
-    if (!empty($see_more)) {
-      $more_link = l(t('See more @term', array('@term' => $term.'s')), $see_more, array('attributes' => array('class' => 'hr-layout-see-more')));
+    if (!empty($see_more_link)) {
+      $more_link = l($see_more_title, $see_more_link, array('attributes' => array('class' => 'hr-layout-see-more')));
     }
     $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.$more_link.'</div>';
     $date_string = '';
