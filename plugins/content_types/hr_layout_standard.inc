@@ -110,14 +110,14 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   }
 
   $hpc_keys = array(
-    'hno' => 'Humanitarian Needs Overview',
-    'srp' => 'Strategic Response Plan',
-    'monr' => 'Periodic Monitoring Report',
-    'opr' => 'Operational Peer Review Summary',
+    'hno' => array('term' => 'Humanitarian Needs Overview', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-needs-overview'),
+    'srp' => array('term' => 'Strategic Response Plan', 'see_more' => 'node/'.$gid.'/documents/document-type/strategic-response-plan'),
+    'monr' => array('term' => 'Periodic Monitoring Report', 'see_more' => 'node/'.$gid.'/documents/document-type/periodic-monitoring-report'),
+    'opr' => array('term' => 'Operational Peer Review Summary', 'see_more' => 'node/'.$gid.'/documents/document-type/operational-peer-review-summary'),
   );
 
   $i = 0;
-  foreach ($hpc_keys as $hpc_key => $hpc_title) {
+  foreach ($hpc_keys as $hpc_key => $hpc_row) {
     $initial_state = 'hidden';
     if (!empty($conf[$hpc_key])) {
       if ($i == 0) {
@@ -125,7 +125,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
         $i++;
       }
       $node = node_load($conf[$hpc_key]['entity_id']);
-      $hpc[$hpc_key] = _hr_layout_get_list_item($node, $hpc_title, 'hr_document', $hpc_key, $initial_state);
+      $hpc[$hpc_key] = _hr_layout_get_list_item($node, $hpc_row['term'], 'hr_document', $hpc_key, $initial_state, $hpc_row['see_more']);
     }
   }
 
