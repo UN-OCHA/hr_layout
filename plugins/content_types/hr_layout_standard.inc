@@ -87,10 +87,10 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $gid = $conf['gid']['entity_id'];
 
   $ocha_desc = array(
-    'sitrep' => array('term' => 'Situation Report', 'type' => 'hr_document'),
-    'humbul' => array('term' => 'Humanitarian Bulletin', 'type' => 'hr_document'),
-    'humsnap' => array('term' => 'Humanitarian Snapshot', 'type' => 'hr_infographic'),
-    'humdash' => array('term' => 'Humanitarian Dashboard', 'type' => 'hr_infographic'),
+    'sitrep' => array('term' => 'Situation Report', 'type' => 'hr_document', 'see_more' => 'node/'.$gid.'/documents/document-type/situation-report'),
+    'humbul' => array('term' => 'Humanitarian Bulletin', 'type' => 'hr_document', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-bulletin'),
+    'humsnap' => array('term' => 'Humanitarian Snapshot', 'type' => 'hr_infographic', 'see_more' => 'node/'.$gid.'/infographics/infographic-type/humanitarian-snapshot'),
+    'humdash' => array('term' => 'Humanitarian Dashboard', 'type' => 'hr_infographic', 'see_more' => 'node/'.$gid.'/infographics/infographic-type/humanitarian-dashboard'),
   );
 
   $ocha_products = array();
@@ -103,7 +103,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       $initial_state = 'show';
     }
     $node = _hr_layout_get_latest($gid, $value['term'], $value['type']);
-    $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state);
+    $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state, $value['see_more']);
     $ocha_images .= $ocha_products[$key]['image'];
     $ocha_links .= $ocha_products[$key]['link'];
     $i++;
@@ -227,13 +227,16 @@ function _hr_layout_get_pdfpreview($node) {
 /**
  * Creates the full list-item by calling the helper functions
  */
-function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state = 'hidden') {
+function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state = 'hidden', $see_more = '') {
   $out = array();
   $file = _hr_layout_get_pdfpreview($node);
   if ($file) {
     $image = theme_image(array('path' => $file, 'alt' => $node->title, 'title' => $node->title, 'attributes' => array('class' => array('img-responsive'))));
     $img_link = l($image, 'node/'.$node->nid, array('html' => TRUE));
-    $more_link = l('See more', 'node/'.$node->{OG_AUDIENCE_FIELD}[LANGUAGE_NONE][0]['target_id'].'/documents/document-type/situation-report');
+    $more_link = '';
+    if (!empty($see_more)) {
+      $more_link = l(t('See more @term', array('@term' => $term)), $see_more, array('attributes' => array('class' => 'hr-layout-see-more')));
+    }
     $img_link = '<div id="'.$prefix.'-thumbnail" class="hr-thumbnail '.$initial_state.'">'.$img_link.$more_link.'</div>';
     $date_string = '';
     if (!empty($node->field_publication_date)) {
