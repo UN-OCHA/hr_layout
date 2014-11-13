@@ -77,7 +77,7 @@ function hr_layout_block_view($delta = '') {
     case 'hr_layout_login':
       $block['content'] = '';
       if (!user_is_logged_in()) {
-        $block['content'] = l(t('Log in'), 'connect/oauthconnector_contactsid_oauth', array('attributes' => array('class' => array('btn', 'btn-default')), 'query' => drupal_get_destination()));
+        $block['content'] = l(t('Log in'), 'connect/oauthconnector_hid_oauth', array('attributes' => array('class' => array('btn', 'btn-default')), 'query' => drupal_get_destination()));
       }
       break;
     case 'hr_layout_space_links':
