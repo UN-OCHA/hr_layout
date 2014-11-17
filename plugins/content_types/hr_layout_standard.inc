@@ -143,7 +143,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   $block->content = '<div class="clearfix hr-layout-operation-standard">
   <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="#hpc" role="tab" data-toggle="tab">'.t('Humanitarian Programme Cycle').'</a></li>
+    <li class="active"><a href="#hpc" role="tab" data-toggle="tab">'.t('Programme Cycle Products').'</a></li>
     <li><a href="#ocha" role="tab" data-toggle="tab">'.t('OCHA Products').'</a></li>
   </ul>
   
