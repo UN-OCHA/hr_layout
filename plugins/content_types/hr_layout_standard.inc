@@ -88,7 +88,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   // Get OCHA tid
   $ocha_org = array_keys(taxonomy_get_term_by_name('United Nations Office for the Coordination of Humanitarian Affairs', 'hr_organization'));
-  $ocha_org_id = reset($ocha_orgs);
+  $ocha_org_id = reset($ocha_org);
 
   $ocha_desc = array(
     'sitrep' => array('term' => 'Situation Report', 'type' => 'hr_document', 'see_more' => 'node/'.$gid.'/documents/document-type/situation-report'),
