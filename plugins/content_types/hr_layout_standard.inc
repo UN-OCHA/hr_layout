@@ -86,6 +86,10 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 
   $gid = $conf['gid']['entity_id'];
 
+  // Get OCHA tid
+  $ocha_org = array_keys(taxonomy_get_term_by_name('United Nations Office for the Coordination of Humanitarian Affairs', 'hr_organization'));
+  $ocha_org_id = reset($ocha_orgs);
+
   $ocha_desc = array(
     'sitrep' => array('term' => 'Situation Report', 'type' => 'hr_document', 'see_more' => 'node/'.$gid.'/documents/document-type/situation-report'),
     'humbul' => array('term' => 'Humanitarian Bulletin', 'type' => 'hr_document', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-bulletin'),
@@ -102,7 +106,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     if ($i == 0) {
       $initial_state = 'show';
     }
-    $node = _hr_layout_get_latest($gid, $value['term'], $value['type']);
+    $node = _hr_layout_get_latest($gid, $value['term'], $value['type'], $ocha_org_id);
     if ($node) {
       $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state, $value['see_more'], t('See more @term', array('@term' => $value['term'].'s')));
       $ocha_images .= $ocha_products[$key]['image'];
@@ -190,7 +194,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 /**
  * Helper function to retrieve latest document/infographic of a specific doc type
  */
-function _hr_layout_get_latest($gid, $term, $type) {
+function _hr_layout_get_latest($gid, $term, $type, $org_id = NULL) {
   // Get term ID
   $terms = taxonomy_get_term_by_name($term, $type.'_type');
   $term = reset($terms);
@@ -201,11 +205,15 @@ function _hr_layout_get_latest($gid, $term, $type) {
     }
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', $type)
-    ->fieldCondition($field_type, 'target_id', $term->tid, '=')
-    ->fieldCondition(OG_AUDIENCE_FIELD, 'target_id', $gid, '=')
-    ->fieldOrderBy('field_publication_date', 'value', 'DESC')
-    ->range(0, 1);
+      ->entityCondition('bundle', $type)
+      ->fieldCondition($field_type, 'target_id', $term->tid, '=')
+      ->fieldCondition(OG_AUDIENCE_FIELD, 'target_id', $gid, '=');
+    if (!empty($org_id)) {
+      $org_ids = array($org_id);
+      $query->fieldCondition('field_organizations', 'target_id', $org_ids, 'IN');
+    }
+    $query->fieldOrderBy('field_publication_date', 'value', 'DESC')
+      ->range(0, 1);
 
     $result = $query->execute();
     if (isset($result['node'])) {
