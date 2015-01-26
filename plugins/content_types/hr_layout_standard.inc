@@ -13,6 +13,7 @@ $plugin = array(
     'srp' => '',
     'monr' => '',
     'opr' => '',
+    'orp' => '',
   ),
 );
 
@@ -61,6 +62,14 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
     '#default_value' => $conf['opr'],
+  );
+
+  $form['orp'] = array(
+    '#type' => 'entityreference',
+    '#title' => t('Other Response plan'),
+    '#era_entity_type' => 'node',
+    '#era_bundles' => array('hr_document'),
+    '#default_value' => $conf['orp'],
   );
 
   return $form;
@@ -120,6 +129,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     'srp' => array('term' => 'Strategic Response Plan', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
     'monr' => array('term' => 'Periodic Monitoring Report', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
     'opr' => array('term' => 'Operational Peer Review Summary', 'see_more' => 'node/'.$gid.'/documents/document-type/humanitarian-programme-cycle'),
+    'orp' => array('term' => 'Other Response Plan', 'see_more' => 'node/'.$gid.'/documents/document-type/other-response-plans'),
   );
 
   $i = 0;
@@ -148,14 +158,21 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $block->content = '';
 
   $block->content = '<div class="clearfix hr-layout-operation-standard">
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="#hpc" role="tab" data-toggle="tab">'.t('Response Planning').'</a></li>
-    <li><a href="#ocha" role="tab" data-toggle="tab">'.t('OCHA Products').'</a></li>
+  <ul class="nav nav-tabs" role="tablist">';
+  if (!empty($hpc)) {
+    $block->content .= '<li class="active"><a href="#hpc" role="tab" data-toggle="tab">'.t('Response Planning').'</a></li>';
+    $block->content .= '<li>';
+  }
+  else {
+    $block->content .= '<li class="active">';
+  }
+  $block->content .= '<a href="#ocha" role="tab" data-toggle="tab">'.t('OCHA Products').'</a></li>
   </ul>
   
   <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane active" id="hpc">
+  <div class="tab-content">';
+  if (!empty($hpc)) {
+    $block->content .= '<div class="tab-pane active" id="hpc">
       <div class="row">
         <div class="col-xs-4">'.$hpc_images.'</div>
         <div class="col-xs-8 hr-layout-operation-standard-links">
@@ -163,8 +180,12 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="ocha">
-      <div class="col-xs-4">'.$ocha_images.'</div>
+    <div class="tab-pane" id="ocha">';
+  }
+  else {
+    $block->content .= '<div class="tab-pane active" id="ocha">';
+  }
+  $block->content .= '<div class="col-xs-4">'.$ocha_images.'</div>
       <div class="col-xs-8 hr-layout-operation-standard-links">
         <div class="list-group">'.$ocha_links.'</div>
       </div>
