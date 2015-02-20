@@ -149,6 +149,11 @@ function hr_layout_context_default_contexts() {
         'node_form' => 0,
       ),
     ),
+    'path' => array(
+      'values' => array(
+        '~j2h/contactos' => '~j2h/contactos',
+      ),
+    ),
   );
   $context->reactions = array(
     'block' => array(
