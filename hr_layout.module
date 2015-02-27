@@ -90,7 +90,7 @@ function hr_layout_block_view($delta = '') {
             $block['content'] = l(t('Check out'), 'hid/checkout/'.$cid, array('attributes' => array('class' => array('btn', 'btn-default')), 'query' => array('destination' => current_path())));
           }
           else {
-            $block['content'] = l(t('Check-in'), variable_get('hid_profiles_app_url', NULL).'/#/checkin', array('attributes' => array('class' => array('btn', 'btn-default'))));
+            $block['content'] = l(t('Check-in'), variable_get('hid_profiles_app_url', NULL).'/#/checkin', array('attributes' => array('class' => array('btn', 'btn-default'), 'target' => '_blank')));
           }
         }
       }
