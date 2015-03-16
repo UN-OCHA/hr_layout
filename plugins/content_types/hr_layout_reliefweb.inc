@@ -28,6 +28,7 @@ function hr_layout_reliefweb_edit_form($form, &$form_state){
   $form['no_of_items'] = array(
     '#type' => 'select',
     '#options' => $options,
+    '#required' => TRUE,
     '#title' => 'Number of items to display',
     '#description' => t('Select the number of items you would like to display'),
 
@@ -58,11 +59,17 @@ function hr_layout_reliefweb_render($subtype, $conf, $panel_args, $context = NUL
   $api_path = $conf['api_path'];
   $no_of_items  = $conf['no_of_items'];
 
-  //$api_data = hr_layout_reliefweb_content($api_path);
-
-  //display a simple hello world!
-  $block->content = 'Hello World!';
-
+  $api_data = hr_layout_reliefweb_content($api_path);
+  $content = '';
+  if (isset($no_of_items)) {
+    $result = array_slice($api_data, 0, $no_of_items + 1, true);
+    $content .= '<ul>';
+    foreach ($result as $key => $value) {
+      $content .= '<li><a href = '.$value.'> '.$key . '</a></li>';
+    }
+    $content .= '</ul>';
+  }
+  $block->content = $content;
   return $block;
 }
 
@@ -94,11 +101,21 @@ function hr_layout_reliefweb_api_path() {
 */
 
 function hr_layout_reliefweb_content($path) {
+  //Get 50 items from the API. An option to choose the number of items to display will also be set.
+  $path .= '?offset=0&limit=50&preset=minimal';
   $request = drupal_http_request($path);
   if (isset($request->data)) {
-    $data = drupal_json_decode($request->data);
-    //print output to see how the array body is ...
-    return print_r($data);
+    $response = drupal_json_decode($request->data);
+    $data = $response['data'];
+    $data_array = array();
+    foreach ($data as $value) {
+      foreach ($value as $subvalue) {
+        $href = $value['href'];
+        $title = $value['fields']['title'];
+        $data_array[$title] = $href;
+      }
+    }
+    return $data_array;
   }
   else{
     drupal_set_message('Could not fetch content for the given API path, please consult your site administrator');
