@@ -8,7 +8,10 @@ $plugin = array(
   'edit form' => 'hr_layout_reliefweb_edit_form',
   'render callback' => 'hr_layout_reliefweb_render',
   'all contexts' => TRUE,
-  'defaults' => array('api_path' => ''),
+  'defaults' => array(
+    'api_path' => '',
+    'no_of_items' => '',
+  ),
 );
 
 /**
@@ -16,7 +19,7 @@ $plugin = array(
  */
 
 function hr_layout_reliefweb_edit_form($form, &$form_state){
-  $options = range(1, 30);
+  $options = range(1, 50);
   $conf = $form_state['conf'];
   $form['api_path'] = array(
     '#type' => 'select',
