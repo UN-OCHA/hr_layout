@@ -63,7 +63,6 @@ function hr_layout_reliefweb_render($subtype, $conf, $panel_args, $context = NUL
   $no_of_items  = $conf['no_of_items'];
 
   $api_data = hr_layout_reliefweb_content($api_path);
-  print_r($api_data);
   $content = '';
   if (isset($no_of_items)) {
     $result = array_slice($api_data, 0, $no_of_items + 1, true);
