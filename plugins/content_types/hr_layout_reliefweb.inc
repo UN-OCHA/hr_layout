@@ -26,6 +26,7 @@ function hr_layout_reliefweb_edit_form($form, &$form_state){
     '#options' => hr_layout_reliefweb_api_path(),
     '#title' => 'Title to ReliefWeb API path',
     '#description' => t('Choose what you want to display, for instance Job to get a listing of jobs from the ReliefWeb API.'),
+    '#default_value' => $conf['api_path'],
 
   );
   $form['no_of_items'] = array(
@@ -34,7 +35,7 @@ function hr_layout_reliefweb_edit_form($form, &$form_state){
     '#required' => TRUE,
     '#title' => 'Number of items to display',
     '#description' => t('Select the number of items you would like to display'),
-
+    '#default_value' => $conf['no_of_items'],
   );
   return $form;
 }
