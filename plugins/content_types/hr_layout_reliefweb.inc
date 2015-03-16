@@ -114,7 +114,7 @@ function hr_layout_reliefweb_content($path) {
     foreach ($data as $value) {
       foreach ($value as $subvalue) {
         $href = $value['href'];
-        $title = $value['fields']['title'];
+        $title = isset($value['fields']['title']) ? $value['fields']['title'] : $value['fields']['name'];
         $data_array[$title] = $href;
       }
     }
