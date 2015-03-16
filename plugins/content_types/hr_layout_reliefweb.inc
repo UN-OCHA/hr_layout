@@ -63,6 +63,7 @@ function hr_layout_reliefweb_render($subtype, $conf, $panel_args, $context = NUL
   $no_of_items  = $conf['no_of_items'];
 
   $api_data = hr_layout_reliefweb_content($api_path);
+  print_r($api_data);
   $content = '';
   if (isset($no_of_items)) {
     $result = array_slice($api_data, 0, $no_of_items + 1, true);
@@ -105,7 +106,7 @@ function hr_layout_reliefweb_api_path() {
 
 function hr_layout_reliefweb_content($path) {
   //Get 50 items from the API. An option to choose the number of items to display will also be set.
-  $path .= '?offset=0&limit=50&preset=minimal';
+  $path .= '?offset=0&limit=50&preset=minimal&fields[include][]=url';
   $request = drupal_http_request($path);
   if (isset($request->data)) {
     $response = drupal_json_decode($request->data);
@@ -113,9 +114,9 @@ function hr_layout_reliefweb_content($path) {
     $data_array = array();
     foreach ($data as $value) {
       foreach ($value as $subvalue) {
-        $href = $value['href'];
+        $url = $value['fields']['url'];
         $title = isset($value['fields']['title']) ? $value['fields']['title'] : $value['fields']['name'];
-        $data_array[$title] = $href;
+        $data_array[$title] = $url;
       }
     }
     return $data_array;
