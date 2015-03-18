@@ -342,11 +342,11 @@ function hr_layout_create_links() {
 function hr_layout_entity_insert($entity, $type) {
   if ($type == 'node') {
     if (og_menu_single_is_enabled_group('node', $entity->type)) {
-      // Add a "Latest" menu link
+      // Add an initial menu link
       $mlid = og_menu_single_get_link_mlid('node', $entity->nid);
       $menu_link = array(
         'link_path' => 'node/'.$entity->nid,
-        'link_title' => 'Latest',
+        'link_title' => entity_label('node', $entity),
         'menu_name' => OG_MENU_SINGLE_MENU_NAME,
         'weight' => 0,
         'plid' => $mlid,
