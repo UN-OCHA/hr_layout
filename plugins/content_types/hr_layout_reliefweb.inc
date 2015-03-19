@@ -9,7 +9,9 @@ $plugin = array(
   'render callback' => 'hr_layout_reliefweb_render',
   'all contexts' => TRUE,
   'defaults' => array(
+    'country' => '',
     'api_path' => '',
+    'api_path_advanced' => '',
     'no_of_items' => '',
   ),
 );
@@ -20,14 +22,31 @@ $plugin = array(
 
 function hr_layout_reliefweb_edit_form($form, &$form_state){
   $options = range(1, 50);
+  $countries_list = country_get_list();
+  $countries = array();
+  foreach ($countries_list as $key => $value) {
+    $countries[$value] = $value;
+  }
   $conf = $form_state['conf'];
+  $form['country'] = array(
+    '#type' => 'select',
+    '#options' => $countries,
+    '#title' => 'Country',
+    '#description' => t('Choose the country you want to get content for.'),
+    '#default_value' => $conf['country'],
+  );
   $form['api_path'] = array(
     '#type' => 'select',
     '#options' => hr_layout_reliefweb_api_path(),
     '#title' => 'Title to ReliefWeb API path',
     '#description' => t('Choose what you want to display, for instance Job to get a listing of jobs from the ReliefWeb API.'),
     '#default_value' => $conf['api_path'],
-
+  );
+  $form['api_path_advanced'] = array(
+    '#type' => 'textfield',
+    '#title' => 'ReliefWeb API path(Advanced Users)',
+    '#description' => t('Enter the full ReliefWeb API path. Please note that this is for advanced users for cases where they might want to explore more options not provided by the settings above. For more advanced usage of the ReliefWeb API, kindly see ' .l('ReliefWeb API', 'http://reliefweb.int/help/api/advanced', array('external' => TRUE))) .'. Kindly also ensure that you DO NOT include the "limit" and "offset" parameters. For more help on this, please contact ' .l('help@humanitarianresponse.info', 'mailto:help@humanitarianresponse.info', array('absolute' => TRUE)) .'.',
+    '#default_value' => $conf['api_path_advanced'],
   );
   $form['no_of_items'] = array(
     '#type' => 'select',
@@ -60,10 +79,28 @@ function hr_layout_reliefweb_edit_form_submit($form, &$form_state) {
 function hr_layout_reliefweb_render($subtype, $conf, $panel_args, $context = NULL){
   $block = new stdClass();
   $block->title = t('ReliefWeb');
+  $country = $conf['country'];
   $api_path = $conf['api_path'];
+  $api_path_advanced = $conf['api_path_advanced'];
   $no_of_items  = $conf['no_of_items'];
 
-  $api_data = hr_layout_reliefweb_content($api_path);
+  $path = '';
+  if(!empty($api_path_advanced)){
+    $string = '?';
+    if(strpos($api_path_advanced, $string) !== false){
+      $api_path_advanced .= '&fields[include][]=url';
+      $path = $api_path_advanced;
+    }
+    else {
+      $api_path_advanced .= '?fields[include][]=url';
+      $path = $api_path_advanced;
+    }
+  }
+  else{
+    $api_path .= '?offset=0&limit=50&preset=minimal&fields[include][]=url&query[value]='.$country.'&query[fields][]=country';
+    $path = $api_path;
+  }
+  $api_data = hr_layout_reliefweb_content($path);
   $content = '';
   if (isset($no_of_items)) {
     $result = array_slice($api_data, 0, $no_of_items + 1, true);
@@ -105,8 +142,6 @@ function hr_layout_reliefweb_api_path() {
 */
 
 function hr_layout_reliefweb_content($path) {
-  //Get 50 items from the API. An option to choose the number of items to display will also be set.
-  $path .= '?offset=0&limit=50&preset=minimal&fields[include][]=url';
   $request = drupal_http_request($path);
   if (isset($request->data)) {
     $response = drupal_json_decode($request->data);
