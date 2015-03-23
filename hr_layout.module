@@ -28,9 +28,6 @@ function hr_layout_block_info() {
   $blocks['hr_layout_create_links'] = array(
     'info' => t('OG Create links'),
   );
-  $blocks['hr_layout_space_links'] = array(
-    'info' => t('Space links'),
-  );
   $blocks['hr_layout_share_links'] = array(
     'info' => t('Share links'),
   );
@@ -107,31 +104,6 @@ function hr_layout_block_view($delta = '') {
         else {
           $block['content'] = l(t('Log in'), 'user/login', array('attributes' => array('class' => array('btn', 'btn-default')), 'query' => drupal_get_destination()));
         }
-      }
-      break;
-    case 'hr_layout_space_links':
-      $block['content'] = '';
-      $context = og_context();
-      if (!empty($context) && $context['group_type'] == 'node') {
-        $gid = $context['gid'];
-        $node = node_load($gid);
-        node_build_content($node);
-        $view = $node->content;
-        if (isset($view['field_email'])) {
-          $view['field_email']['#label_display'] = 'hidden';
-          $block['content'] .= render($view['field_email']);
-        }
-        $link_options = array(
-          'html' => TRUE,
-          'attributes' => array('title' => t('RSS Feed')),
-        );
-        $block['content'] .= '<div class="space-social-media">';
-        $block['content'] .= l('<i class="fa fa-rss-square fa-2x"></i>', 'node/'.$gid.'/feed', $link_options);
-        if (isset($view['field_social_media'])) {
-          $view['field_social_media']['#label_display'] = 'hidden';
-          $block['content'] .= render($view['field_social_media']);
-        }
-        $block['content'] .= '</div>';
       }
       break;
     case 'hr_layout_share_links':
@@ -342,11 +314,11 @@ function hr_layout_create_links() {
 function hr_layout_entity_insert($entity, $type) {
   if ($type == 'node') {
     if (og_menu_single_is_enabled_group('node', $entity->type)) {
-      // Add a "Latest" menu link
+      // Add an initial menu link
       $mlid = og_menu_single_get_link_mlid('node', $entity->nid);
       $menu_link = array(
         'link_path' => 'node/'.$entity->nid,
-        'link_title' => 'Latest',
+        'link_title' => entity_label('node', $entity),
         'menu_name' => OG_MENU_SINGLE_MENU_NAME,
         'weight' => 0,
         'plid' => $mlid,
