@@ -76,6 +76,7 @@ function hr_layout_context_default_contexts() {
         'hr_operation' => 'hr_operation',
         'hr_sector' => 'hr_sector',
         'hr_space' => 'hr_space',
+        'hr_bundle' => 'hr_bundle',
       ),
       'options' => array(
         'node_form' => '0',
