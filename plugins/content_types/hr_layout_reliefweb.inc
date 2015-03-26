@@ -2,7 +2,7 @@
 
 $plugin = array(
   'single' => TRUE,
-  'title' => t('ReliefWeb'),
+  'title' => t('ReliefWeb API'),
   'description' => t('Display content from ReliefWeb APIs.'),
   'category' => t('Humanitarianresponse'),
   'edit form' => 'hr_layout_reliefweb_edit_form',

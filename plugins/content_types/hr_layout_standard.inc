@@ -2,7 +2,7 @@
 
 $plugin = array(
   'single' => TRUE,
-  'title' => t('Humanitarianresponse Operation'),
+  'title' => t('Standard Products'),
   'description' => t('Shows a standard block for your operation home page.'),
   'category' => t('Humanitarianresponse'),
   'edit form' => 'hr_layout_standard_edit_form',
@@ -14,6 +14,10 @@ $plugin = array(
     'monr' => '',
     'opr' => '',
     'orp' => '',
+    'show_sitrep' => TRUE,
+    'show_humbul' => TRUE,
+    'show_humsnap' => TRUE,
+    'show_humdash' => TRUE,
   ),
 );
 
@@ -32,7 +36,12 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#required' => TRUE,
   );
 
-  $form['hno'] = array(
+  $form['response_planning'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Response planning'),
+  );
+
+  $form['response_planning']['hno'] = array(
     '#type' => 'entityreference',
     '#title' => t('Humanitarian Needs Overview'),
     '#era_entity_type' => 'node',
@@ -40,7 +49,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#default_value' => $conf['hno'],
   );
 
-  $form['srp'] = array(
+  $form['response_planning']['srp'] = array(
     '#type' => 'entityreference',
     '#title' => t('Strategic Response Plan'),
     '#era_entity_type' => 'node',
@@ -48,7 +57,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#default_value' => $conf['srp'],
   );
 
-  $form['monr'] = array(
+  $form['response_planning']['monr'] = array(
     '#type' => 'entityreference',
     '#title' => t('Periodic Monitoring Report'),
     '#era_entity_type' => 'node',
@@ -56,7 +65,7 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#default_value' => $conf['monr'],
   );
 
-  $form['opr'] = array(
+  $form['response_planning']['opr'] = array(
     '#type' => 'entityreference',
     '#title' => t('Operational Peer Review Summary'),
     '#era_entity_type' => 'node',
@@ -64,12 +73,41 @@ function hr_layout_standard_edit_form($form, &$form_state) {
     '#default_value' => $conf['opr'],
   );
 
-  $form['orp'] = array(
+  $form['response_planning']['orp'] = array(
     '#type' => 'entityreference',
     '#title' => t('Other Response plan'),
     '#era_entity_type' => 'node',
     '#era_bundles' => array('hr_document'),
     '#default_value' => $conf['orp'],
+  );
+
+  $form['ocha_products'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('OCHA Products'),
+  );
+
+  $form['ocha_products']['show_sitrep'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show the latest sitrep'),
+    '#default_value' => $conf['show_sitrep'],
+  );
+
+  $form['ocha_products']['show_humbul'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show the latest humanitarian bulletin'),
+    '#default_value' => $conf['show_humbul'],
+  );
+
+  $form['ocha_products']['show_humsnap'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show the latest humanitarian snapshot'),
+    '#default_value' => $conf['show_humsnap'],
+  );
+
+  $form['ocha_products']['show_humdash'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show the latest humanitarian dashboard'),
+    '#default_value' => $conf['show_humdash'],
   );
 
   return $form;
@@ -111,16 +149,18 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $ocha_links = '';
   $i = 0;
   foreach ($ocha_desc as $key => $value) {
-    $initial_state = 'hidden';
-    if ($i == 0) {
-      $initial_state = 'show';
-    }
-    $node = _hr_layout_get_latest($gid, $value['term'], $value['type'], $ocha_org_id);
-    if ($node) {
-      $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state, $value['see_more'], t('See more @term', array('@term' => $value['term'].'s')));
-      $ocha_images .= $ocha_products[$key]['image'];
-      $ocha_links .= $ocha_products[$key]['link'];
-      $i++;
+    if ($conf['show_'.$key]) {
+      $initial_state = 'hidden';
+      if ($i == 0) {
+        $initial_state = 'show';
+      }
+      $node = _hr_layout_get_latest($gid, $value['term'], $value['type'], $ocha_org_id);
+      if ($node) {
+        $ocha_products[$key] = _hr_layout_get_list_item($node, $value['term'], $value['type'], $key, $initial_state, $value['see_more'], t('See more @term', array('@term' => $value['term'].'s')));
+        $ocha_images .= $ocha_products[$key]['image'];
+        $ocha_links .= $ocha_products[$key]['link'];
+        $i++;
+      }
     }
   }
 
