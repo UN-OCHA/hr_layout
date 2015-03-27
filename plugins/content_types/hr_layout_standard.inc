@@ -149,7 +149,7 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $ocha_links = '';
   $i = 0;
   foreach ($ocha_desc as $key => $value) {
-    if ($conf['show_'.$key]) {
+    if (isset($conf['show_'.$key]) && $conf['show_'.$key] == TRUE || !isset($conf['show_'.$key])) {
       $initial_state = 'hidden';
       if ($i == 0) {
         $initial_state = 'show';
