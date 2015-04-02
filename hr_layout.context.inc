@@ -22,6 +22,7 @@ function hr_layout_context_default_contexts() {
         'hr_assessment' => 'hr_assessment',
         'hr_contact' => 'hr_contact',
         'hr_dataset' => 'hr_dataset',
+        'hr_discussion' => 'hr_discussion',
         'hr_document' => 'hr_document',
         'hr_event' => 'hr_event',
         'hr_indicator' => 'hr_indicator',
