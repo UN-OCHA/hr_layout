@@ -350,21 +350,21 @@ function hr_layout_default_page_manager_pages() {
       'title' => 'Latest Operations',
       'body' => '<div class="row">
   <div class="col-sm-4">
-    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
+    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_cyclon.png" alt="Cyclon" />
   </div>
   <div class="col-sm-8">
-    <strong><a href="/operations/iraq">Iraq</a></strong>
-    <p>June, 2014</p>
+    <strong><a href="/operations/vanuatu/vanuatu-tropical-cyclone-pam-mar-2015-13-march-2015-update">Vanuatu</a></strong>
+    <p>March, 2015</p>
   </div>
 </div>
 <br />
 <div class="row">
   <div class="col-sm-4">
-    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_epidemic.png" alt="Conflict" />
+    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
   </div>
   <div class="col-sm-8">
-    <strong><a href="/disaster/ep-2014-000041-gin">West Africa: Ebola Outbreak</a></strong>
-    <p>March, 2014</p>
+    <strong><a href="/operations/iraq">Iraq</a></strong>
+    <p>June, 2014</p>
   </div>
 </div>',
       'format' => 'panopoly_html_text',
@@ -400,7 +400,7 @@ function hr_layout_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => 'What is HR.info?',
-      'body' => '<p>The HumanitarianResponse.info platform is provided to the humanitairan community by <a href="http://www.unocha.org">OCHA</a>&nbsp;as a mean to help responders coordinate their work on the ground.&nbsp;&nbsp;</p>
+      'body' => '<p>The HumanitarianResponse.info platform is provided to the humanitarian community by <a href="http://www.unocha.org">OCHA</a>&nbsp;as a mean to help responders coordinate their work on the ground.&nbsp;&nbsp;</p>
 
 <p><span style="line-height: 1.538em;">We are constantly improving the website. If you have feedback, send us an e-mail at info@humanitarianresponse.info. </span></p>
 
