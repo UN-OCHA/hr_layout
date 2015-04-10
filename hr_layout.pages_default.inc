@@ -495,7 +495,7 @@ function hr_layout_default_page_manager_pages() {
 
 	<div class="col-sm-2">
 		<div class="thumbnail">
-			<p style="text-align: center;"><a href="programme-cycle"><img alt="Programme Cycle" src="/sites/all/themes/humanitarianresponse/assets/images/home/programmecycle.png"></a></p>
+			<p style="text-align: center;"><a href="programme-cycle/space"><img alt="Programme Cycle" src="/sites/all/themes/humanitarianresponse/assets/images/home/programmecycle.png"></a></p>
 
 			<div class="caption" style="text-align: center;">Programme Cycle</div>
 		</div>
