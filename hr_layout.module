@@ -353,7 +353,7 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
     'ctools_custom_content_type_edit_form',
     'ctools_node_content_type_edit_form',
     'views_content_views_panes_content_type_edit_form',
-    //'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form',
+    'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form',
     'ctools_bean_pane_content_type_form',
   );
      
@@ -386,7 +386,7 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
           break;
       }
     }
-    elseif ($form_id == 'ctools_custom_content_type_edit_form' || $form_id == 'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form') {
+    elseif ($form_id == 'ctools_custom_content_type_edit_form') {
       $form_state['pane']->cache = array(
         'method' => 'simple',
         'settings' => array('lifetime' => '604800', 'granularity' => 'none'), // 1 week
@@ -396,6 +396,14 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
       $form_state['pane']->cache = array(
         'method' => 'simple',
         'settings' => array('lifetime' => '86400', 'granularity' => 'none'), // 1 day
+      );
+    }
+    elseif ($form_id == 'fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form') {
+      $fpid = str_replace('fpid:', '', $form_state['pane']->subtype);
+      $url = 'admin/structure/fieldable-panels-panes/view/'.$fpid;
+      $form['advanced_settings'] = array(
+        '#markup' => l(t('Advanced settings'), $url),
+        '#weight' => 1,
       );
     }
   }
