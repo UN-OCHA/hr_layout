@@ -185,6 +185,8 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     }
   }
 
+  uasort($hpc, '_hr_layout_sort_hpc');
+
   $hpc_images = '';
   $hpc_links = '';
   foreach ($hpc as $hpc_doc) {
@@ -253,6 +255,20 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
 }
 
 /**
+ * Helper function to sort hpc docs by date
+ * See http://atrium.humanitarianresponse.info/humanitarian_response/node/4541
+ */
+function _hr_layout_sort_hpc($a, $b) {
+  $atime = strtotime($a['date']);
+  $btime = strtotime($b['date']);
+  if ($atime == $btime) {
+    return 0;
+  }
+  return ($atime < $btime) ? 1 : -1;
+}
+
+
+/**
  * Helper function to retrieve latest document/infographic of a specific doc type
  */
 function _hr_layout_get_latest($gid, $term, $type, $org_id = NULL) {
@@ -313,16 +329,15 @@ function _hr_layout_get_list_item($node, $term, $type, $prefix, $initial_state =
     if (!empty($node->field_publication_date)) {
       $date = new DateObject($node->field_publication_date[LANGUAGE_NONE][0]['value'], $node->field_publication_date[LANGUAGE_NONE][0]['timezone_db']);
       $date_string = ' - '.date_format_date($date, 'custom', 'd M Y');
+      $out['date'] = $node->field_publication_date[LANGUAGE_NONE][0]['value'];
     }
     $active_link = '';
     if ($initial_state == 'show') {
       $active_link = 'active';
     }
     $link = '<a class="list-group-item '.$active_link.'" id="'.$prefix.'">'.t($term).$date_string.'</a>';
-    $out = array(
-      'image' => $img_link,
-      'link' => $link,
-    );
+    $out['image'] = $img_link;
+    $out['link'] = $link;
   }
   return $out;
 }
