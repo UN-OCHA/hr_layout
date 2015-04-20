@@ -172,20 +172,24 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
     'orp' => array('term' => 'Other Response Plan', 'see_more' => 'node/'.$gid.'/documents/document-type/other-response-plans'),
   );
 
-  $i = 0;
+  $nodes = array();
   foreach ($hpc_keys as $hpc_key => $hpc_row) {
-    $initial_state = 'hidden';
     if (!empty($conf[$hpc_key])) {
-      if ($i == 0) {
-        $initial_state = 'show';
-        $i++;
-      }
-      $node = node_load($conf[$hpc_key]['entity_id']);
-      $hpc[$hpc_key] = _hr_layout_get_list_item($node, $hpc_row['term'], 'hr_document', $hpc_key, $initial_state, $hpc_row['see_more'], t('See more HPC documents'));
+      $nodes[$hpc_key] = node_load($conf[$hpc_key]['entity_id']);
     }
   }
 
-  uasort($hpc, '_hr_layout_sort_hpc');
+  uasort($nodes, '_hr_layout_sort_hpc');
+
+  $i = 0;
+  foreach ($nodes as $key => $node) {
+    $initial_state = 'hidden';
+    if ($i == 0) {
+      $initial_state = 'show';
+      $i++;
+    }
+    $hpc[$key] = _hr_layout_get_list_item($node, $hpc_keys[$key]['term'], 'hr_document', $key, $initial_state, $hpc_keys[$key]['see_more'], t('See more HPC documents'));
+  }
 
   $hpc_images = '';
   $hpc_links = '';
@@ -259,8 +263,8 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
  * See http://atrium.humanitarianresponse.info/humanitarian_response/node/4541
  */
 function _hr_layout_sort_hpc($a, $b) {
-  $atime = strtotime($a['date']);
-  $btime = strtotime($b['date']);
+  $atime = strtotime($a->field_publication_date[LANGUAGE_NONE][0]['value']);
+  $btime = strtotime($b->field_publication_date[LANGUAGE_NONE][0]['value']);
   if ($atime == $btime) {
     return 0;
   }
