@@ -349,10 +349,10 @@ function hr_layout_default_page_manager_pages() {
       'admin_title' => '',
       'title' => 'Key Documents',
       'body' => '<ul>
-	<li><a href="/documents/document-type/strategic-response-plan">All Strategic Response Plans</a></li>
-	<li><a href="/documents/document-type/humanitarian-needs-overview">All Humanitarian Needs Overview</a></li>
-	<li><a href="/documents/document-type/humanitarian-bulletin">All Humanitarian Bulletins</a></li>
-	<li><a href="/documents/document-type/situation-report">All Situation Reports</a></li>
+    <li><a href="/documents/document-type/humanitarian-bulletin">Humanitarian Bulletins</a></li>
+	<li><a href="/documents/document-type/humanitarian-needs-overview">Humanitarian Needs Overview</a></li>
+	<li><a href="/documents/document-type/situation-report">Situation Reports</a></li>
+	<li><a href="/documents/document-type/strategic-response-plan">Strategic Response Plans</a></li>
 </ul>
 ',
       'format' => 'panopoly_wysiwyg_text',
@@ -375,25 +375,6 @@ function hr_layout_default_page_manager_pages() {
     $pane->uuid = '46af51c9-dba1-4777-926f-574763a33d9d';
     $display->content['new-46af51c9-dba1-4777-926f-574763a33d9d'] = $pane;
     $display->panels['column1'][0] = 'new-46af51c9-dba1-4777-926f-574763a33d9d';
-    $pane = new stdClass();
-    $pane->pid = 'new-9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7';
-    $pane->panel = 'column1';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'hr_spaces-home_pane';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7';
-    $display->content['new-9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7'] = $pane;
-    $display->panels['column1'][1] = 'new-9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7';
     $pane = new stdClass();
     $pane->pid = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
     $pane->panel = 'column2';
@@ -447,13 +428,16 @@ function hr_layout_default_page_manager_pages() {
     $display->content['new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2'] = $pane;
     $display->panels['column2'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
     $pane = new stdClass();
-    $pane->pid = 'new-718cb59c-93ae-419f-9d36-c4fcab7f5a6c';
+    $pane->pid = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
     $pane->panel = 'column2';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'hr_operations-home_pane';
+    $pane->type = 'block';
+    $pane->subtype = 'hr_operations-operations_dropdown';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -462,9 +446,9 @@ function hr_layout_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '718cb59c-93ae-419f-9d36-c4fcab7f5a6c';
-    $display->content['new-718cb59c-93ae-419f-9d36-c4fcab7f5a6c'] = $pane;
-    $display->panels['column2'][1] = 'new-718cb59c-93ae-419f-9d36-c4fcab7f5a6c';
+    $pane->uuid = '1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
+    $display->content['new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f'] = $pane;
+    $display->panels['column2'][1] = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
     $pane = new stdClass();
     $pane->pid = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
     $pane->panel = 'contentmain';
@@ -516,7 +500,7 @@ function hr_layout_default_page_manager_pages() {
       'title' => '',
       'body' => '<div style="text-align: center;">&nbsp;</div>
 
-<div style="text-align: center;"><iframe align="left" frameborder="0" height="230" scrolling="no" src="//www.youtube.com/embed/OAzNjYtabuM" width="370"></iframe></div>
+<div style="text-align: center;"><iframe scrolling="no" src="//www.youtube.com/embed/OAzNjYtabuM" align="left" frameborder="0" width="100%" height="420px"></iframe></div>
 ',
       'format' => 'hr_wysiwyg_trusted',
       'substitute' => TRUE,
