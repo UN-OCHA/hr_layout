@@ -313,7 +313,7 @@ function hr_layout_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'radix_boxton';
+  $display->layout = 'radix_harris';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -339,8 +339,64 @@ function hr_layout_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-46af51c9-dba1-4777-926f-574763a33d9d';
+    $pane->panel = 'column1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Key Documents',
+      'body' => '<ul>
+	<li><a href="/documents/document-type/strategic-response-plan">All Strategic Response Plans</a></li>
+	<li><a href="/documents/document-type/humanitarian-needs-overview">All Humanitarian Needs Overview</a></li>
+	<li><a href="/documents/document-type/humanitarian-bulletin">All Humanitarian Bulletins</a></li>
+	<li><a href="/documents/document-type/situation-report">All Situation Reports</a></li>
+</ul>
+',
+      'format' => 'panopoly_wysiwyg_text',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '46af51c9-dba1-4777-926f-574763a33d9d';
+    $display->content['new-46af51c9-dba1-4777-926f-574763a33d9d'] = $pane;
+    $display->panels['column1'][0] = 'new-46af51c9-dba1-4777-926f-574763a33d9d';
+    $pane = new stdClass();
+    $pane->pid = 'new-9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7';
+    $pane->panel = 'column1';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'hr_spaces-home_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7';
+    $display->content['new-9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7'] = $pane;
+    $display->panels['column1'][1] = 'new-9a8be50d-a8b7-4c0b-84da-eff0e8ea0ed7';
+    $pane = new stdClass();
     $pane->pid = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'column2';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -382,14 +438,33 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'col-md-4 sidebar',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
     $display->content['new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2'] = $pane;
-    $display->panels['contentmain'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
+    $display->panels['column2'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
+    $pane = new stdClass();
+    $pane->pid = 'new-718cb59c-93ae-419f-9d36-c4fcab7f5a6c';
+    $pane->panel = 'column2';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'hr_operations-home_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '718cb59c-93ae-419f-9d36-c4fcab7f5a6c';
+    $display->content['new-718cb59c-93ae-419f-9d36-c4fcab7f5a6c'] = $pane;
+    $display->panels['column2'][1] = 'new-718cb59c-93ae-419f-9d36-c4fcab7f5a6c';
     $pane = new stdClass();
     $pane->pid = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
     $pane->panel = 'contentmain';
@@ -421,14 +496,14 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'col-md-4',
+      'css_class' => '',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '1c59afc9-72d2-461f-b57f-0313f1e85062';
     $display->content['new-1c59afc9-72d2-461f-b57f-0313f1e85062'] = $pane;
-    $display->panels['contentmain'][1] = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
+    $display->panels['contentmain'][0] = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
     $pane = new stdClass();
     $pane->pid = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
     $pane->panel = 'contentmain';
@@ -458,91 +533,14 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'col-md-4',
+      'css_class' => '',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
     $display->content['new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0'] = $pane;
-    $display->panels['contentmain'][2] = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
-    $pane = new stdClass();
-    $pane->pid = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
-    $pane->panel = 'contentmain';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<div class="row">
-	<div class="col-sm-2 col-sm-offset-1">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="operations" style="line-height: 1.538em;"><img alt="Operations" src="/sites/all/themes/humanitarianresponse/assets/images/home/operations.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Operations</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="clusters"><img alt="Clusters" src="/sites/all/themes/humanitarianresponse/assets/images/home/clusters.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Clusters</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="programme-cycle/space"><img alt="Programme Cycle" src="/sites/all/themes/humanitarianresponse/assets/images/home/programmecycle.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Programme Cycle</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="topics"><img alt="Topics" src="/sites/all/themes/humanitarianresponse/assets/images/home/topics.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Topics</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="applications"><img alt="Applications" src="/sites/all/themes/humanitarianresponse/assets/images/home/applications.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Applications</div>
-		</div>
-	</div>
-</div>
-
-<p>&nbsp;</p>
-',
-      'format' => 'hr_wysiwyg_trusted',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'col-md-12',
-    );
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
-    $display->content['new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f'] = $pane;
-    $display->panels['contentmain'][3] = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
+    $display->panels['contentmain'][1] = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
