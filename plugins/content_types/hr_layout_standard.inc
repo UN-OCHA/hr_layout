@@ -188,7 +188,9 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
       $initial_state = 'show';
       $i++;
     }
-    $hpc[$key] = _hr_layout_get_list_item($node, $hpc_keys[$key]['term'], 'hr_document', $key, $initial_state, $hpc_keys[$key]['see_more'], t('See more HPC documents'));
+    $entity = entity_load_single('node', $node->nid);
+    $term = entity_label('node', $entity);
+    $hpc[$key] = _hr_layout_get_list_item($node, $term, 'hr_document', $key, $initial_state, $hpc_keys[$key]['see_more'], t('See more HPC documents'));
   }
 
   $hpc_images = '';
