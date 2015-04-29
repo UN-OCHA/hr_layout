@@ -31,6 +31,9 @@ function hr_layout_block_info() {
   $blocks['hr_layout_share_links'] = array(
     'info' => t('Share links'),
   );
+  $blocks['hr_layout_key_documents'] = array(
+    'info' => t('Key documents'),
+  );
   return $blocks;
 }
 
@@ -210,6 +213,20 @@ function hr_layout_block_view($delta = '') {
         }
 
       }
+      break;
+    case 'hr_layout_key_documents':
+      drupal_add_library('chosen', 'drupal.chosen');
+      $block['subject'] = t('Key Documents');
+      $block['content'] = '<select id="hr-layout-key-documents" data-placeholder="View our key documents" class="hr-goto-dropdown"><option value="_none"></option>';
+      $key_docs = _hr_layout_key_documents();
+      foreach ($key_docs as $group => $items) {
+        $block['content'] .= '<optgroup label="'.t($group).'">';
+        foreach ($items as $label => $path) {
+          $block['content'] .= '<option value="'.$path.'">'.t($label).'</option>';
+        }
+        $block['content'] .= '</optgroup>';
+      }
+      $block['content'] .= '</select>';
       break;
   }
   return $block;
@@ -407,5 +424,29 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
       );
     }
   }
+}
+
+/**
+ * Helper function for key documents block
+ */
+function _hr_layout_key_documents() {
+  return array(
+    'OCHA Core Products' => array(
+      'Humanitarian Bulletin' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-bulletin',
+      'Humanitarian Dashboard' => 'infographics/organizations/united-nations-office-coordination-humanitarian-affairs/infographic-type/humanitarian-dashboard',
+      'Humanitarian Snapshot' => 'infographics/organizations/united-nations-office-coordination-humanitarian-affairs/infographic-type/humanitarian-snapshot',
+      'Situation Report' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/situation-report',
+    ),
+    'HPC Products' => array(
+      'Humanitarian Needs Overview' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-needs-overview',
+      'Strategic Response Planning' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/strategic-response-planning',
+    ),
+    'Field coordination' => array(
+      '3W/4W' => 'infographics/infographic-type/3w',
+      'Reference Maps' => 'infographics/infographic-type/reference-maps',
+      'Thematic Maps' => 'infographics/infographic-type/thematic',
+      'Meeting Minutes' => 'documents/document-type/meeting-minutes',
+    ),
+  );
 }
 
