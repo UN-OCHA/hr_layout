@@ -313,7 +313,14 @@ function _hr_layout_get_pdfpreview($node) {
   $fcid = $node->field_files_collection[LANGUAGE_NONE][0]['value'];
   $entity = entity_load_single('field_collection_item', $fcid);
   $file = $entity->field_file[LANGUAGE_NONE][0];
-  $file_uri = _pdfpreview_create_preview($file);
+  $file_uri = '';
+  if ($file['filemime'] == 'application/pdf') {
+    $file_uri = _pdfpreview_create_preview($file);
+  }
+  else {
+    $icon_dir = variable_get('media_icon_base_directory', 'public://media-icons') . '/' . variable_get('media_icon_set', 'default');
+    $file_uri = file_icon_path($file, $icon_dir);
+  }
   return $file_uri;
 }
 
