@@ -93,6 +93,12 @@ function hr_layout_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'hr_operations-operations_status' => array(
+          'module' => 'hr_operations',
+          'delta' => 'operations_status',
+          'region' => 'sidebar_first',
+          'weight' => '-5',
+        ),
         'hr_layout-hr_layout_share_links' => array(
           'module' => 'hr_layout',
           'delta' => 'hr_layout_share_links',
