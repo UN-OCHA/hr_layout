@@ -217,7 +217,16 @@ function hr_layout_block_view($delta = '') {
     case 'hr_layout_key_documents':
       drupal_add_library('chosen', 'drupal.chosen');
       $block['subject'] = t('Key Documents');
-      $block['content'] = '<select id="hr-layout-key-documents" data-placeholder="View our key documents" class="hr-goto-dropdown"><option value="_none"></option>';
+      $block['content'] = '<ul>';
+      $block['content'] .= '<li>'.l(t('HRP/SRP'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/strategic-response-planning').'</li>';
+      $block['content'] .= '<li>'.l(t('SitRep'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/situation-report').'</li>';
+      $block['content'] .= '<li>'.l(t('Humanitarian Bulletin'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-bulletin').'</li>';
+      $block['content'] .= '<li>'.l(t('Maps'), 'infographics').'</li>';
+      $block['content'] .= '<li><a href="">Datasets</a></li>';
+      $block['content'] .= '<li>'.l(t('Assessments'), 'assessments').'</li>';
+      $block['content'] .= '<li>'.l(t('3W / 4W'), 'infographics/infographic-type/3w').'</li>';
+      $block['content'] .= '</ul>';
+      $block['content'] .= '<select id="hr-layout-key-documents" data-placeholder="View our key documents" class="hr-goto-dropdown"><option value="_none"></option>';
       $key_docs = _hr_layout_key_documents();
       foreach ($key_docs as $group => $items) {
         $block['content'] .= '<optgroup label="'.t($group).'">';
