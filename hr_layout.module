@@ -219,7 +219,7 @@ function hr_layout_block_view($delta = '') {
       break;
     case 'hr_layout_key_documents':
       drupal_add_library('chosen', 'drupal.chosen');
-      $block['subject'] = t('Key Documents');
+      $block['subject'] = t('Latest Documents');
       $block['content'] = '<ul>';
       $block['content'] .= '<li>'.l(t('3W / 4W'), 'infographics/infographic-type/3w').'</li>';
       $block['content'] .= '<li>'.l(t('Appeals'), 'documents/document-type/appeal').'</li>';
@@ -245,13 +245,13 @@ function hr_layout_block_view($delta = '') {
     case 'hr_layout_hum_system':
       $block['subject'] = t('Humanitarian System');
       $block['content'] = '<ul>';
+      $block['content'] .= '<li>'.l(t('Cluster Approach'), 'coordination/clusters').'</li>';
       $block['content'] .= '<li>'.l(t('Humanitarian Programme Cycle'), 'programme-cycle/space').'</li>';
       $block['content'] .= '<li>'.l(t('Humanitarian Leadership'), 'coordination/humanitarian-leadership').'</li>';
-      $block['content'] .= '<li>'.l(t('Transformative Agenda'), 'topics/transformative-agenda').'</li>';
-      $block['content'] .= '<li>'.l(t('Cluster Approach'), 'coordination/clusters').'</li>';
       $block['content'] .= '<li>'.l(t('NGOs'), 'coordination/ngos').'</li>';
       $block['content'] .= '<li>'.l(t('Policy and Guidance'), 'documents/document-type/policy-and-guidance').'</li>';
       $block['content'] .= '<li>'.l(t('Training and resource materials'), 'documents/document-type/training-and-resource-materials').'</li>';
+      $block['content'] .= '<li>'.l(t('Transformative Agenda'), 'topics/transformative-agenda').'</li>';
       $block['content'] .= '</ul>';
       break;
   }
