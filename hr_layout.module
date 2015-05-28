@@ -230,7 +230,7 @@ function hr_layout_block_view($delta = '') {
       $block['content'] .= '<li>'.l(t('Humanitarian Response Plan - HRP'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/strategic-response-planning').'</li>';
       $block['content'] .= '<li>'.l(t('Maps'), 'infographics').'</li>';
       $block['content'] .= '</ul>';
-      $block['content'] .= l(t('View All Documents'), 'documents');
+      $block['content'] .= '<p class="text-center">'.l(t('View All Documents'), 'documents').'</p>';
       /*$block['content'] .= '<select id="hr-layout-key-documents" data-placeholder="View our key documents" class="hr-goto-dropdown"><option value="_none"></option>';
       $key_docs = _hr_layout_key_documents();
       foreach ($key_docs as $group => $items) {
