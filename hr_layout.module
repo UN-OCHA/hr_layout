@@ -254,14 +254,16 @@ function hr_layout_block_view($delta = '') {
       $block['content'] .= '<li>'.l(t('Transformative Agenda'), 'topics/transformative-agenda').'</li>';
       $block['content'] .= '</ul>';
       //Add select option for global clusters available here http://www.humanitarianresponse.info/en/coordination/clusters/global
-      $clusters_select = '<select class=form-control onchange="window.location.href=this.value">
+      $block['content'] .= '<p class="text-center"><select id="clusters-dropdown" data-placeholder="Global Clusters" class="hr-goto-dropdown"><option value="_none"></option>';
+      $options = '
         <option value = "http://www.globalcccmcluster.org/">Camp Coordination / Management</option>
         <option value = "http://www.earlyrecovery.info/">Early Recovery</option>
         <option value = "http://educationcluster.net/">Education</option>
         <option value = "https://www.sheltercluster.org/">Emergency Shelter and NFI</option>
         <option value = "http://ictemergency.wfp.org/">Emergency Telecommunications</option>
-      </select>';
-      $block['content'] .= $clusters_select;
+      ';
+      $block['content'] .= $options;
+      $block['content'] .= '</select></p>';
       break;
   }
   return $block;
