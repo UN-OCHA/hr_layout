@@ -175,7 +175,10 @@ function hr_layout_standard_render($subtype, $conf, $panel_args, $context = NULL
   $nodes = array();
   foreach ($hpc_keys as $hpc_key => $hpc_row) {
     if (!empty($conf[$hpc_key])) {
-      $nodes[$hpc_key] = node_load($conf[$hpc_key]['entity_id']);
+      $node_tmp = node_load($conf[$hpc_key]['entity_id']);
+      if ($node_tmp != FALSE) {
+        $nodes[$hpc_key] = $node_tmp;
+      }
     }
   }
 
