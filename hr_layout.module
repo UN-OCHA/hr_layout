@@ -230,7 +230,7 @@ function hr_layout_block_view($delta = '') {
       $block['content'] .= '<li>'.l(t('Humanitarian Response Plan - HRP'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/strategic-response-planning').'</li>';
       $block['content'] .= '<li>'.l(t('Maps'), 'infographics').'</li>';
       $block['content'] .= '</ul>';
-      $block['content'] .= '<p class="text-center">'.l(t('View All Documents'), 'documents').'</p>';
+      $block['content'] .= '<div class=view-all-hr-layout-key-documents><p class="text-center">'.l(t('View All Documents'), 'documents').'</p></div>';
       /*$block['content'] .= '<select id="hr-layout-key-documents" data-placeholder="View our key documents" class="hr-goto-dropdown"><option value="_none"></option>';
       $key_docs = _hr_layout_key_documents();
       foreach ($key_docs as $group => $items) {
@@ -253,6 +253,29 @@ function hr_layout_block_view($delta = '') {
       $block['content'] .= '<li>'.l(t('Training and resource materials'), 'documents/document-type/training-and-resource-materials').'</li>';
       $block['content'] .= '<li>'.l(t('Transformative Agenda'), 'topics/transformative-agenda').'</li>';
       $block['content'] .= '</ul>';
+      //Add select option for global clusters available here http://www.humanitarianresponse.info/en/coordination/clusters/global
+      $block['content'] .= '<div class = global-clusters-select-bottom-justify>';
+      $block['content'] .= '<p class="text-center"><select id="clusters-dropdown" data-placeholder="Global Clusters" class="hr-goto-dropdown" onchange="window.location.href=this.value><option value="_none"></option>';
+      $options = '
+        <option value = "http://www.globalcccmcluster.org/">Camp Coordination / Management</option>
+        <option value = "http://www.earlyrecovery.info/">Early Recovery</option>
+        <option value = "http://educationcluster.net/">Education</option>
+        <option value = "https://www.sheltercluster.org/">Emergency Shelter and NFI</option>
+        <option value = "http://ictemergency.wfp.org/">Emergency Telecommunications</option>
+        <option value = "http://www.foodsecuritycluster.net/">Food Security</option>
+        <option value = "http://www.who.int/hac/global_health_cluster/en/">Health</option>
+        <option value = "http://www.logcluster.org/">Logistics</option>
+        <option value = "http://nutritioncluster.net/">Nutrition</option>
+        <option value = "http://www.globalprotectioncluster.org/">Protection</option>
+        <option value = "http://washcluster.net/">Water Sanitation Hygiene</option>
+        <option value = "http://www.cpwg.net/">Child Protection</option>
+        <option value = "http://www.gbvaor.net/">Gender Based Violence</option>
+        <option value = "http://www.globalprotectioncluster.org/en/areas-of-responsibility/housing-land-and-property.html">Housing, Land and Property</option>
+        <option value = "http://www.globalprotectioncluster.org/en/areas-of-responsibility/mine-action.html">Mine Action</option>
+      ';
+      $block['content'] .= $options;
+      $block['content'] .= '</select></p>';
+      $block['content'] .= '</div>';
       break;
   }
   return $block;
