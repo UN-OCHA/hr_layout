@@ -255,7 +255,6 @@ function hr_layout_block_view($delta = '') {
       $block['content'] .= '<li>'.l(t('Indicator Registry'), 'applications/ir').'</li>';
       $block['content'] .= '</ul>';
       //Add select option for global clusters available here http://www.humanitarianresponse.info/en/coordination/clusters/global
-      $block['content'] .= '<div class = global-clusters-select-bottom-justify>';
       $block['content'] .= '<p class="text-center"><select id="clusters-dropdown" data-placeholder="Clusters/Themes" class="hr-goto-dropdown"><option value="_none"></option>';
       $options = '
         <option value="http://www.globalcccmcluster.org/">Camp Coordination / Management</option>
@@ -278,7 +277,6 @@ function hr_layout_block_view($delta = '') {
       ';
       $block['content'] .= $options;
       $block['content'] .= '</select></p>';
-      $block['content'] .= '</div>';
       break;
   }
   return $block;
