@@ -252,6 +252,7 @@ function hr_layout_block_view($delta = '') {
       $block['content'] .= '<li>'.l(t('Policy and Guidance'), 'documents/document-type/policy-and-guidance').'</li>';
       $block['content'] .= '<li>'.l(t('Training and resource materials'), 'documents/document-type/training-and-resource-materials').'</li>';
       $block['content'] .= '<li>'.l(t('Transformative Agenda'), 'topics/transformative-agenda').'</li>';
+      $block['content'] .= '<li>'.l(t('Indicator Registry'), 'applications/ir').'</li>';
       $block['content'] .= '</ul>';
       //Add select option for global clusters available here http://www.humanitarianresponse.info/en/coordination/clusters/global
       $block['content'] .= '<div class = global-clusters-select-bottom-justify>';
@@ -262,7 +263,9 @@ function hr_layout_block_view($delta = '') {
         <option value="http://educationcluster.net/">Education</option>
         <option value="https://www.sheltercluster.org/">Emergency Shelter and NFI</option>
         <option value="http://ictemergency.wfp.org/">Emergency Telecommunications</option>
+        <option value="/topics/environment">Environment</option>
         <option value="http://www.foodsecuritycluster.net/">Food Security</option>
+        <option value="/topics/gender">Gender</option>
         <option value="http://www.who.int/hac/global_health_cluster/en/">Health</option>
         <option value="http://www.logcluster.org/">Logistics</option>
         <option value="http://nutritioncluster.net/">Nutrition</option>
