@@ -313,7 +313,7 @@ function hr_layout_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'radix_harris';
+  $display->layout = 'radix_mccoppin';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -339,58 +339,6 @@ function hr_layout_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
-    $pane->panel = 'column1';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Latest Operations',
-      'body' => '<div class="row">
-  <div class="col-sm-4">
-    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_cyclon.png" alt="Cyclon" />
-  </div>
-  <div class="col-sm-8">
-    <strong><a href="/operations/vanuatu/vanuatu-tropical-cyclone-pam-mar-2015-13-march-2015-update">Vanuatu</a></strong>
-    <p>March, 2015</p>
-  </div>
-</div>
-<br />
-<div class="row">
-  <div class="col-sm-4">
-    <img src="/sites/all/themes/humanitarianresponse/assets/images/icons/75/Disasters/DIS_conflict.png" alt="Conflict" />
-  </div>
-  <div class="col-sm-8">
-    <strong><a href="/operations/iraq">Iraq</a></strong>
-    <p>June, 2014</p>
-  </div>
-</div>',
-      'format' => 'panopoly_html_text',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
-    $display->content['new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2'] = $pane;
-    $display->panels['column1'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
-    $pane = new stdClass();
     $pane->pid = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
     $pane->panel = 'column1';
     $pane->type = 'block';
@@ -407,11 +355,11 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
     $display->content['new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f'] = $pane;
-    $display->panels['column1'][1] = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
+    $display->panels['column1'][0] = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
     $pane = new stdClass();
     $pane->pid = 'new-1c175875-c02e-4268-8e75-6082e1a438e5';
     $pane->panel = 'column2';
@@ -435,81 +383,29 @@ function hr_layout_default_page_manager_pages() {
     $display->content['new-1c175875-c02e-4268-8e75-6082e1a438e5'] = $pane;
     $display->panels['column2'][0] = 'new-1c175875-c02e-4268-8e75-6082e1a438e5';
     $pane = new stdClass();
-    $pane->pid = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
-    $pane->panel = 'contentmain';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->pid = 'new-d57d4ac8-877b-47f7-bd4e-35b749f6b3f6';
+    $pane->panel = 'column3';
+    $pane->type = 'block';
+    $pane->subtype = 'hr_layout-hr_layout_hum_system';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'What is HR.info?',
-      'body' => '<p>The HumanitarianResponse.info platform is provided to the humanitarian community by <a href="http://www.unocha.org">OCHA</a>&nbsp;as a mean to help responders coordinate their work on the ground.&nbsp;&nbsp;</p>
-
-<p><span style="line-height: 1.538em;">We are constantly improving the website. If you have feedback, send us an e-mail at info@humanitarianresponse.info. </span></p>
-
-<p><span style="line-height: 1.538em;">Are you ready for HR.info Version 2.0?</span><a href="http://eepurl.com/H37j1" style="line-height: 1.538em;">&nbsp;Join our mailing list</a><span style="line-height: 1.538em;">&nbsp;or t</span><span style="line-height: 1.538em;">ake the </span><a href="/?tour=introduction" style="line-height: 1.538em;">Introductory tour</a><span style="line-height: 1.538em;"> !</span></p>
-',
-      'format' => 'panopoly_wysiwyg_text',
-      'substitute' => TRUE,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
+    $pane->cache = array();
     $pane->style = array(
+      'style' => 'default',
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '1c59afc9-72d2-461f-b57f-0313f1e85062';
-    $display->content['new-1c59afc9-72d2-461f-b57f-0313f1e85062'] = $pane;
-    $display->panels['contentmain'][0] = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
-    $pane = new stdClass();
-    $pane->pid = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
-    $pane->panel = 'contentmain';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<div style="text-align: center;">&nbsp;</div>
-
-<div style="text-align: center;"><iframe scrolling="no" src="//www.youtube.com/embed/OAzNjYtabuM" align="left" frameborder="0" width="100%" height="420px"></iframe></div>
-',
-      'format' => 'hr_wysiwyg_trusted',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
-    $display->content['new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0'] = $pane;
-    $display->panels['contentmain'][1] = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
+    $pane->uuid = 'd57d4ac8-877b-47f7-bd4e-35b749f6b3f6';
+    $display->content['new-d57d4ac8-877b-47f7-bd4e-35b749f6b3f6'] = $pane;
+    $display->panels['column3'][0] = 'new-d57d4ac8-877b-47f7-bd4e-35b749f6b3f6';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
