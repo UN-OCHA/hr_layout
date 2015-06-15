@@ -31,6 +31,12 @@ function hr_layout_block_info() {
   $blocks['hr_layout_share_links'] = array(
     'info' => t('Share links'),
   );
+  $blocks['hr_layout_key_documents'] = array(
+    'info' => t('Key documents'),
+  );
+  $blocks['hr_layout_hum_system'] = array(
+    'info' => t('Humanitarian System'),
+  );
   return $blocks;
 }
 
@@ -210,6 +216,67 @@ function hr_layout_block_view($delta = '') {
         }
 
       }
+      break;
+    case 'hr_layout_key_documents':
+      drupal_add_library('chosen', 'drupal.chosen');
+      $block['subject'] = t('Documents');
+      $block['content'] = '<ul>';
+      $block['content'] .= '<li>'.l(t('3W / 4W'), 'infographics/infographic-type/3w').'</li>';
+      $block['content'] .= '<li>'.l(t('Appeals'), 'documents/document-type/appeal').'</li>';
+      $block['content'] .= '<li>'.l(t('Assessments'), 'assessments').'</li>';
+      $block['content'] .= '<li>'.l(t('Humanitarian Bulletin'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-bulletin').'</li>';
+      $block['content'] .= '<li>'.l(t('Humanitarian Needs Overview - HNO'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-needs-overview').'</li>';
+      $block['content'] .= '<li>'.l(t('Humanitarian Response Plan - HRP'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/strategic-response-planning').'</li>';
+      $block['content'] .= '<li>'.l(t('Maps'), 'infographics').'</li>';
+      $block['content'] .= '<li>'.l(t('Situation Reports'), 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/situation-report').'</li>';
+      $block['content'] .= '</ul>';
+      $block['content'] .= '<div class=view-all-hr-layout-key-documents><p class="text-center">'.l(t('View All Documents'), 'documents').'</p></div>';
+      /*$block['content'] .= '<select id="hr-layout-key-documents" data-placeholder="View our key documents" class="hr-goto-dropdown"><option value="_none"></option>';
+      $key_docs = _hr_layout_key_documents();
+      foreach ($key_docs as $group => $items) {
+        $block['content'] .= '<optgroup label="'.t($group).'">';
+        foreach ($items as $label => $path) {
+          $block['content'] .= '<option value="'.$path.'">'.t($label).'</option>';
+        }
+        $block['content'] .= '</optgroup>';
+      }
+      $block['content'] .= '</select>';*/
+      break;
+    case 'hr_layout_hum_system':
+      $block['subject'] = t('Humanitarian System');
+      $block['content'] = '<ul>';
+      $block['content'] .= '<li>'.l(t('Cluster Approach'), 'coordination/clusters').'</li>';
+      $block['content'] .= '<li>'.l(t('Humanitarian Programme Cycle'), 'programme-cycle/space').'</li>';
+      $block['content'] .= '<li>'.l(t('Humanitarian Leadership'), 'coordination/humanitarian-leadership').'</li>';
+      $block['content'] .= '<li>'.l(t('Indicator Registry'), 'applications/ir').'</li>';
+      $block['content'] .= '<li>'.l(t('NGOs'), 'coordination/ngos').'</li>';
+      $block['content'] .= '<li>'.l(t('Policy and Guidance'), 'documents/document-type/policy-and-guidance').'</li>';
+      $block['content'] .= '<li>'.l(t('Training and resource materials'), 'documents/document-type/training-and-resource-materials').'</li>';
+      $block['content'] .= '<li>'.l(t('Transformative Agenda'), 'topics/transformative-agenda').'</li>';
+      $block['content'] .= '</ul>';
+      //Add select option for global clusters available here http://www.humanitarianresponse.info/en/coordination/clusters/global
+      $block['content'] .= '<p class="text-center"><select id="clusters-dropdown" data-placeholder="Clusters/Themes" class="hr-goto-dropdown"><option value="_none"></option>';
+      $options = '
+        <option value="coordination/clusters/camp-coordination-management">Camp Coordination / Management</option>
+        <option value="coordination/clusters/child-protection">Child Protection</option>
+        <option value="coordination/clusters/early-recovery">Early Recovery</option>
+        <option value="coordination/clusters/education">Education</option>
+        <option value="coordination/clusters/emergency-shelter-and-nfi">Emergency Shelter and NFI</option>
+        <option value="coordination/clusters/emergency-telecommunications">Emergency Telecommunications</option>
+        <option value="/topics/environment">Environment</option>
+        <option value="coordination/clusters/food-security">Food Security</option>
+        <option value="/topics/gender">Gender</option>
+        <option value="coordination/clusters/gender-based-violence">Gender Based Violence</option>
+        <option value="coordination/clusters/health">Health</option>
+        <option value="coordination/clusters/housing-land-and-property">Housing, Land and Property</option>
+        <option value="coordination/clusters/logistics">Logistics</option>
+        <option value="coordination/clusters/mine-action">Mine Action</option>
+        <option value="coordination/clusters/nutrition">Nutrition</option>
+        <option value="coordination/clusters/protection">Protection</option>
+        <option value="coordination/clusters/water-sanitation-hygiene">Water Sanitation Hygiene</option>
+      ';
+      $block['content'] .= $options;
+      $block['content'] .= '</select></p>';
       break;
   }
   return $block;
@@ -407,5 +474,29 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
       );
     }
   }
+}
+
+/**
+ * Helper function for key documents block
+ */
+function _hr_layout_key_documents() {
+  return array(
+    'OCHA Core Products' => array(
+      'Humanitarian Bulletin' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-bulletin',
+      'Humanitarian Dashboard' => 'infographics/organizations/united-nations-office-coordination-humanitarian-affairs/infographic-type/humanitarian-dashboard',
+      'Humanitarian Snapshot' => 'infographics/organizations/united-nations-office-coordination-humanitarian-affairs/infographic-type/humanitarian-snapshot',
+      'Situation Report' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/situation-report',
+    ),
+    'HPC Products' => array(
+      'Humanitarian Needs Overview' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/humanitarian-needs-overview',
+      'Strategic Response Planning' => 'documents/organizations/united-nations-office-coordination-humanitarian-affairs/document-type/strategic-response-planning',
+    ),
+    'Field coordination' => array(
+      '3W/4W' => 'infographics/infographic-type/3w',
+      'Reference Maps' => 'infographics/infographic-type/reference-maps',
+      'Thematic Maps' => 'infographics/infographic-type/thematic',
+      'Meeting Minutes' => 'documents/document-type/meeting-minutes',
+    ),
+  );
 }
 

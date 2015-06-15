@@ -313,7 +313,7 @@ function hr_layout_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'radix_boxton';
+  $display->layout = 'radix_harris';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -340,7 +340,7 @@ function hr_layout_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'column1';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -382,14 +382,58 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'col-md-4 sidebar',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
     $display->content['new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2'] = $pane;
-    $display->panels['contentmain'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
+    $display->panels['column1'][0] = 'new-93e272b5-ba0f-4fc0-ae81-e764444fb2d2';
+    $pane = new stdClass();
+    $pane->pid = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
+    $pane->panel = 'column1';
+    $pane->type = 'block';
+    $pane->subtype = 'hr_operations-operations_dropdown';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
+    $display->content['new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f'] = $pane;
+    $display->panels['column1'][1] = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
+    $pane = new stdClass();
+    $pane->pid = 'new-1c175875-c02e-4268-8e75-6082e1a438e5';
+    $pane->panel = 'column2';
+    $pane->type = 'block';
+    $pane->subtype = 'hr_layout-hr_layout_key_documents';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '1c175875-c02e-4268-8e75-6082e1a438e5';
+    $display->content['new-1c175875-c02e-4268-8e75-6082e1a438e5'] = $pane;
+    $display->panels['column2'][0] = 'new-1c175875-c02e-4268-8e75-6082e1a438e5';
     $pane = new stdClass();
     $pane->pid = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
     $pane->panel = 'contentmain';
@@ -421,14 +465,14 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'col-md-4',
+      'css_class' => '',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '1c59afc9-72d2-461f-b57f-0313f1e85062';
     $display->content['new-1c59afc9-72d2-461f-b57f-0313f1e85062'] = $pane;
-    $display->panels['contentmain'][1] = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
+    $display->panels['contentmain'][0] = 'new-1c59afc9-72d2-461f-b57f-0313f1e85062';
     $pane = new stdClass();
     $pane->pid = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
     $pane->panel = 'contentmain';
@@ -441,7 +485,7 @@ function hr_layout_default_page_manager_pages() {
       'title' => '',
       'body' => '<div style="text-align: center;">&nbsp;</div>
 
-<div style="text-align: center;"><iframe align="left" frameborder="0" height="230" scrolling="no" src="//www.youtube.com/embed/OAzNjYtabuM" width="370"></iframe></div>
+<div style="text-align: center;"><iframe scrolling="no" src="//www.youtube.com/embed/OAzNjYtabuM" align="left" frameborder="0" width="100%" height="420px"></iframe></div>
 ',
       'format' => 'hr_wysiwyg_trusted',
       'substitute' => TRUE,
@@ -458,91 +502,14 @@ function hr_layout_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'col-md-4',
+      'css_class' => '',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
     $display->content['new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0'] = $pane;
-    $display->panels['contentmain'][2] = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
-    $pane = new stdClass();
-    $pane->pid = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
-    $pane->panel = 'contentmain';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<div class="row">
-	<div class="col-sm-2 col-sm-offset-1">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="operations" style="line-height: 1.538em;"><img alt="Operations" src="/sites/all/themes/humanitarianresponse/assets/images/home/operations.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Operations</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="clusters"><img alt="Clusters" src="/sites/all/themes/humanitarianresponse/assets/images/home/clusters.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Clusters</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="programme-cycle/space"><img alt="Programme Cycle" src="/sites/all/themes/humanitarianresponse/assets/images/home/programmecycle.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Programme Cycle</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="topics"><img alt="Topics" src="/sites/all/themes/humanitarianresponse/assets/images/home/topics.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Topics</div>
-		</div>
-	</div>
-
-	<div class="col-sm-2">
-		<div class="thumbnail">
-			<p style="text-align: center;"><a href="applications"><img alt="Applications" src="/sites/all/themes/humanitarianresponse/assets/images/home/applications.png"></a></p>
-
-			<div class="caption" style="text-align: center;">Applications</div>
-		</div>
-	</div>
-</div>
-
-<p>&nbsp;</p>
-',
-      'format' => 'hr_wysiwyg_trusted',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'col-md-12',
-    );
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
-    $display->content['new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f'] = $pane;
-    $display->panels['contentmain'][3] = 'new-194e17c4-1bd0-4d8e-b92d-e722ea2c4e1f';
+    $display->panels['contentmain'][1] = 'new-e497158a-ed42-473a-8eda-1b2f6b1bc3b0';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
