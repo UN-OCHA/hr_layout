@@ -328,6 +328,9 @@ function hr_layout_default_page_manager_pages() {
       'quarter1' => NULL,
       'quarter2' => NULL,
       'half' => NULL,
+      'secondarycolumn1' => NULL,
+      'secondarycolumn2' => NULL,
+      'secondarycolumn3' => NULL,
     ),
     'contentmain' => array(
       'style' => 'default',
@@ -361,6 +364,37 @@ function hr_layout_default_page_manager_pages() {
     $display->content['new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f'] = $pane;
     $display->panels['column1'][0] = 'new-1b2873ca-a822-4a62-99fb-1fbe5ff6383f';
     $pane = new stdClass();
+    $pane->pid = 'new-10e08847-b4f7-4575-9870-c63cfc926a04';
+    $pane->panel = 'column1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'What is HumanitarianResponse.info?',
+      'body' => '<iframe width="100%" height="200" src="https://www.youtube.com/embed/OAzNjYtabuM?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>',
+      'format' => 'hr_wysiwyg_trusted',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '10e08847-b4f7-4575-9870-c63cfc926a04';
+    $display->content['new-10e08847-b4f7-4575-9870-c63cfc926a04'] = $pane;
+    $display->panels['column1'][1] = 'new-10e08847-b4f7-4575-9870-c63cfc926a04';
+    $pane = new stdClass();
     $pane->pid = 'new-1c175875-c02e-4268-8e75-6082e1a438e5';
     $pane->panel = 'column2';
     $pane->type = 'block';
@@ -383,7 +417,39 @@ function hr_layout_default_page_manager_pages() {
     $display->content['new-1c175875-c02e-4268-8e75-6082e1a438e5'] = $pane;
     $display->panels['column2'][0] = 'new-1c175875-c02e-4268-8e75-6082e1a438e5';
     $pane = new stdClass();
-    $pane->pid = 'new-d57d4ac8-877b-47f7-bd4e-35b749f6b3f6';
+    $pane->pid = 'new-78cb0576-14ee-40ca-886f-91a3ba356067';
+    $pane->panel = 'column2';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'We support:',
+      'body' => '<p><a href="http://openhumanitarianism.info" target="_blank"><img class="img-responsive center-block" src="/sites/all/themes/humanitarianresponse/assets/images/OH-logo_300x186.png"></a></p>
+',
+      'format' => 'hr_wysiwyg_trusted',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '78cb0576-14ee-40ca-886f-91a3ba356067';
+    $display->content['new-78cb0576-14ee-40ca-886f-91a3ba356067'] = $pane;
+    $display->panels['column2'][1] = 'new-78cb0576-14ee-40ca-886f-91a3ba356067';
+    $pane = new stdClass();
+    $pane->pid = 'new-63730577-59cd-461b-812d-2c90c4ecdffe';
     $pane->panel = 'column3';
     $pane->type = 'block';
     $pane->subtype = 'hr_layout-hr_layout_hum_system';
@@ -392,20 +458,50 @@ function hr_layout_default_page_manager_pages() {
     $pane->configuration = array(
       'override_title' => 0,
       'override_title_text' => '',
-      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
-      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'd57d4ac8-877b-47f7-bd4e-35b749f6b3f6';
-    $display->content['new-d57d4ac8-877b-47f7-bd4e-35b749f6b3f6'] = $pane;
-    $display->panels['column3'][0] = 'new-d57d4ac8-877b-47f7-bd4e-35b749f6b3f6';
+    $pane->uuid = '63730577-59cd-461b-812d-2c90c4ecdffe';
+    $display->content['new-63730577-59cd-461b-812d-2c90c4ecdffe'] = $pane;
+    $display->panels['column3'][0] = 'new-63730577-59cd-461b-812d-2c90c4ecdffe';
+    $pane = new stdClass();
+    $pane->pid = 'new-3ab8fd47-ca97-428c-a7e7-17c9e49de2fb';
+    $pane->panel = 'column3';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Partner: Humanitarian ID',
+      'body' => '<p><iframe allowfullscreen="" frameborder="0" height="200" src="https://www.youtube.com/embed/tqBwJld2Sz8?rel=0&amp;controls=0&amp;showinfo=0" width="100%"></iframe></p>
+',
+      'format' => 'hr_wysiwyg_trusted',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '3ab8fd47-ca97-428c-a7e7-17c9e49de2fb';
+    $display->content['new-3ab8fd47-ca97-428c-a7e7-17c9e49de2fb'] = $pane;
+    $display->panels['column3'][1] = 'new-3ab8fd47-ca97-428c-a7e7-17c9e49de2fb';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
