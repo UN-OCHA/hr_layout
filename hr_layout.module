@@ -472,6 +472,11 @@ function hr_layout_form_alter(&$form, &$form_state, $form_id) {
         '#markup' => l(t('Advanced settings'), $url),
         '#weight' => 1,
       );
+
+      $form['uuid'] = array(
+        '#markup' => '<strong>UUID:</strong>'.$form_state['pane']->uuid,
+        '#weight' => 2,
+      );
     }
   }
 }
